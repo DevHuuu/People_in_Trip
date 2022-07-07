@@ -18,9 +18,7 @@
 		<div id="aside_box1">정보<br>입력</div>
 		<div id="aside_box2">가입<br>완료</div>
 	</aside>
-	<div id="main_div1">
-		<h3 id="main_head">가입완료</h3>
-	</div>
+	<h3 id="main_head">가입완료</h3>
 	<div class="signupcomplete_msg">
 		<h2>회원 가입이 완료되었습니다.</h2>
 		<p>여행 속, 사람이 있다! <strong>피플 인 트립</strong>에 가입해주셔서 감사합니다.<br>

@@ -27,6 +27,7 @@ body {
 	background-color: white;
 	height: 425px;
 	border-right: solid 2px lightgray;
+	margin-top: 13px;
 }
 
 #aside_box1 {
@@ -62,12 +63,13 @@ body {
 	padding-top: 5px;
 	font-family: Impact;
 	color: #9966FF;
-	font-size: 25px;
+	font-size: 2em;
 	font-weight: 700;
 	text-align: left;
     width: 55%;
 	margin-left: 300px;
 	position:relative;
+	margin-top: 5px;
 	/* width: 54%;
 	padding-left: 330px;
 	margin-left: 300px; */
