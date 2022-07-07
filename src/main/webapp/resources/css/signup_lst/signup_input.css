@@ -1,0 +1,169 @@
+
+    header {
+        text-align: center;
+        font-size: 2em;
+        color: white;
+        background-color: #9966FF;
+        font-family: Pacifico;
+        margin: -3% 0 auto;
+        width: 100%;
+    }
+    body {
+        max-width: 100%;
+        width: 1200px;
+        margin: 0 auto;
+        transform:scale(1, 0.95)
+    }
+    /*aside 단*/
+    .signup_leftside {
+        float: left;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 1.6em;
+        text-align: center;
+        width: 25%;
+        background-color: white;
+        height: 900px;
+        border-right: solid 2px lightgray;
+        transform: scale(95%);
+    }
+    #aside_box1 {
+        border: solid 3px #9966FF;
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin: 100px 30px;
+        padding: 2.5em 0.8em;
+        transform: scale(90%);
+    }
+    #aside_box2 {
+        border: solid 3px #9966FF;
+        box-sizing: border-box;
+        border-radius: 20px;
+        margin: 100% 30px;
+        background-color: #9966FF;
+        color: white;
+        padding: 2.5em 0.8em;
+        transform: scale(90%);
+    }
+    /*메인단*/
+    .signup_main {
+        margin-left: 28%;
+        margin-right: 5%;
+    }
+    #main_div1 {
+        border-bottom: solid 3px #9966FF;
+        padding-bottom: 0.3em;
+    }
+    #main_table1 {
+        width: 100%;
+    }
+
+    #main_head {
+        padding-top: 5px;
+        font-family: Impact;
+        color: #9966FF;
+        font-size: 2em;
+        font-weight: 700;
+        text-align: left;
+    }
+    #main_head2 {
+        text-align: right;
+        padding-top: 2em;
+        font-family: Arial;
+        font-size: 1.1em;
+    }
+    #main_table2 {
+        margin-top: 2em;
+        border-collapse: collapse;
+        border: 2px solid #9966FF;
+        width: 100%;
+        text-align: center;
+    }
+    #main_table2 tr {
+        border: solid 2px #9966FF;
+    }
+
+    #main_table2 input {
+        width: 240px;
+        margin-left: 20px;
+        background-color: #faf5f5;
+        border: solid 1px lightgray;
+        height: 30px;
+        font-size: 1.2em;
+    }
+
+    .table2_td1 {
+        text-align: center;
+        width: 25%;
+        padding: 2em 0;
+        font-family: 'Raleway', sans-serif;
+        font-size: 1.4em;
+        border-right: solid 2px #9966FF;
+    }
+
+    .table2_td2 {
+        text-align: center;
+        width: 35%;
+        border-right: hidden;
+    }
+    .table2_td3 {
+        width: 10%;
+        border-right: hidden;
+        border-left: hidden;
+        font-size: 13.5px;
+    }
+    .table2_td4 {
+        font-size: 13.5px;
+    }
+
+    .t2_btn {
+        background-color: #9966FF;
+        color: white;
+        border: #9966FF;
+        font-size: 15px;
+        padding: 10px 15px;
+    }
+
+    #submit_btn {
+        margin-right: 30px;
+        margin-top: 30px;
+    }
+
+    #email_tr {
+        text-align: center;
+    }
+
+    #table2_mtd2 {
+        width: 20%;
+        border-right: hidden;
+        padding-right: 30px;
+        padding-top: 20px;
+    }
+    #table2_mtd3 {
+        width: 10%;
+        border-right: hidden;
+        padding-right: 30px;
+        padding-top: 20px;
+    }
+    #table2_mtd4 {
+        width: 20%;
+    }
+    #email_option {
+        width: 140px;
+        height: 2em;
+    }
+    .hiddendiv_email {
+        color: limegreen;
+        padding-top: 5px;
+        padding-left: 20px;
+        text-align: left;
+    }
+
+    #last_tr {
+        text-align: right;
+    }
+    #last_tr td {
+        border-right: hidden;
+        border-left: hidden;
+        border-bottom: hidden;
+    }

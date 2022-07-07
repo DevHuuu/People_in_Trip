@@ -1,0 +1,77 @@
+
+    body {
+        width: 800px;
+        max-width: 80%;
+        height: 800px;
+        margin: 0 auto;
+    }
+
+    #certify_email_whole {
+        margin-top: 50%;
+        border: solid 3px #9966FF;
+        padding: 10px 5%;
+    }
+
+    #certi_email_head {
+        font-family: Impact;
+        color: #9966FF;
+        font-size: 2em;
+        font-weight: 700;
+        text-align: left;
+        border-bottom: solid 3px #9966FF;
+        padding-bottom: 0 px;
+        height: 50px;
+        margin: auto 0;
+    }
+
+    #show_message {
+        background-color: #faf5f5;
+        font-family: Arial;
+        font-size: 1.3em;
+        font-weight: normal;
+        margin: 20px 0;
+        padding-left: 20px;
+        padding-top: 20px;
+
+    }
+    #hidden_message {
+        font-family: Arial;
+        font-size: 1.3em;
+    }
+
+    #show_message_inner {
+        text-align: center;
+        padding-right: 20px;
+    }
+
+    #input_code {
+        margin: 20px 0;
+        width: 80%;
+        height: 50px;
+        font-family: Arial;
+        font-size: 1.6em;
+        padding-left: 20px;
+    }
+    input::placeholder {
+        color: lightgray;
+    }
+
+    #timer {
+        text-align: right;
+        padding-right: 5%;
+    }
+
+    #buttons {
+        text-align: right;
+    }
+
+    .buttons {
+        border: 1px solid #9966FF;
+        background-color: #9966FF;
+        color: white;
+        font-family: 'Raleway', sans-serif;
+        font-weight: 600;
+        font-size: 1.3em;
+        padding: 10px 12px;
+        margin: 0 10px 10px 10px;
+    }
