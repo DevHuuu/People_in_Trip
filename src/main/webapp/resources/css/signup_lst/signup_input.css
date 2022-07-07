@@ -24,14 +24,14 @@
 		text-align: center;
 		width: 25%;
 		background-color: white;
-		height: 550px;
+		height: 510px;
 		border-right: solid 2px lightgray;
     }
     #aside_box1 {
         border: solid 3px #9966FF;
 		box-sizing: border-box;
 		border-radius: 20px;
-		margin: 100px 65px;
+		margin: 70px 65px;
 		padding: 30px;
 		background-color: white;
     }
