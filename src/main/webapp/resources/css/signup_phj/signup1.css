@@ -1,0 +1,118 @@
+/* 회원가입 완료 페이지 css */
+
+header {
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	background-color: #9966FF;
+	font-family: Pacifico;
+	margin: 0 auto;
+	width: 90%;
+	padding-bottom: 0.1px;
+}
+
+body {
+	max-width: 1060px;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.signup_leftside {
+	float: left;
+	font-family: 'Raleway', sans-serif;
+	font-weight: 600;
+	font-size: 20px;
+	text-align: center;
+	width: 25%;
+	background-color: white;
+	height: 425px;
+	border-right: solid 2px lightgray;
+}
+
+#aside_box1 {
+	border: solid 3px #9966FF;
+	box-sizing: border-box;
+	border-radius: 20px;
+	margin: 50px 65px;
+	padding: 30px;
+	background-color: #9966FF;
+	color: white;
+}
+
+#aside_box2 {
+	border: solid 3px #9966FF;
+	box-sizing: border-box;
+	border-radius: 20px;      
+	margin: 80px 65px;
+	padding: 30px;
+}
+
+.signupcomplete_msg {
+	margin-left: 28%;
+	margin-right: 15%;
+	border: 2px solid #9966ff;
+	text-align: center;
+	margin-top: 2%;
+	padding-bottom: 3%;
+}
+
+#main_head {  	
+	border-bottom: solid 3px #9966FF;
+	padding-bottom: 0.3em;
+	padding-top: 5px;
+	font-family: Impact;
+	color: #9966FF;
+	font-size: 25px;
+	font-weight: 700;
+	text-align: left;
+    /* width: 58%;
+	margin-left: 330px; 
+	position:relative; */
+	width: 54%;
+	padding-left: 330px;       
+}
+
+.signupcomplete_information {
+	border: 1px solid #afc4ed;
+	width:80%;
+	background-color: #E6E6E6;
+	margin-left: 8%;
+	margin-top: 5%;
+}
+
+.signupcomplete_information > p {
+	text-align: left;
+	margin-left: 20%;
+}
+
+.main_home > a {
+	color: #94aee0;	
+}
+
+
+.main_home {
+	margin-top: 35px;
+	
+}
+
+.signupcomplete_msg > p > strong {
+	color: #9966ff;
+}
+
+.signupcomplete_msg > p {
+	padding-top: 15px;
+}
+
+.signupcomplete_msg > h2 {
+	color: #9966ff;
+}
+ 
+/* @media (max-width: 45rem) {
+.side_content {
+	 display: none;
+  }
+  
+@media (max-width: 30rem) {
+#main_head {
+	 display: none;
+  } */
