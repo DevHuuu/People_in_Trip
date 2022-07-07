@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <title>Main</title>
+    <style>
+        body {
+            width: 1060px;
+            margin: 0 auto;
+           
+        }
+
+        .space-container {
+            position: relative;
+            height: 400px;
+        }
+        .buttonSpace {
+            position: absolute;
+            overflow-y: hidden;
+            overflow-x: auto;
+            background-color: #1f497d;
+            padding-top: 7px;
+            padding-bottom: 20px;
+            height: 100%;
+            width: 1060px;
+            
+        }
+
+        .buttonSpace .buttonDiv {
+            margin-left: 30px;
+        }
+
+        /* 테스트 이미지 */
+        .buttonSpace .testImage {
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        .titleFont {
+            font-weight: bold;
+            color: #9966FF;
+            padding-left: 20px;
+            
+        }
+
+        .board {
+            float: left;
+            width: 50%;
+            margin-top: 30px;
+        }
+
+        table {
+            border-collapse: collapse;
+            text-align: center;
+        }
+
+        .tableboard {
+            width: 100%;
+            border-top: 2px solid dimgray;
+            border-bottom: 1px solid dimgray;
+            color: black;
+        }
+
+        tr {
+            border-top: 1px solid dimgray;
+        }
+
+        .viewCnt {
+            text-align: center;
+        }
+        th {
+            height: 35px;
+        }
+
+
+        .arrow {
+            background: #9966FF;
+            width: 50px;
+            height: 50px;
+            position: absolute;
+            top: 185px;
+        }
+
+        .arrow.arrow-left {
+            left: -25px;
+        }
+
+        .arrow.arrow-right {
+            right: -25px;
+        }
+        #button1 {
+            background-color: #1f497d;
+            border: solid 1px #bfbfbf;  
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 17px;
+            padding-right: 17px; 
+            color: #bfbfbf;
+            font-weight: bold
+        }
+        #button2 {
+            background-color: #1f497d;
+            border: solid 1px #bfbfbf;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 17px;
+            padding-right: 17px; 
+            color: #bfbfbf;
+            font-weight: bold
+        }
+        #button3 {
+            background-color: #1f497d;
+            border: solid 1px #bfbfbf;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            padding-left: 17px;
+            padding-right: 17px; 
+            color: #bfbfbf;
+            font-weight: bold
+        }
+    </style>
+</head>
+
+<body>
+    <div class="titleFont">
+        <p>이달의 인기 여행지</p>
+    </div>
+    <div>
+        <img src="img1.jpg" style="width:1060px; height:400px"></a>
+    </div>
+    <br>
+    <div>
+        <p class="titleFont">이달의 추천 공연/전시/축제</p>
+    </div>
+
+    <div class="space-container">
+        <div class="buttonSpace">
+            <div class="buttonDiv">
+                <button id="button1">공연</button>
+                <button id="button2">전시</button>
+                <button id="button3">축제</button>
+                <div>
+                    <div style="margin-left: 20px">
+                        <img class="testImage" src="img1.jpg"></a>
+                        <img class="testImage" src="img1.jpg"></a>
+                        <img class="testImage" src="img1.jpg"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="arrow arrow-left"></div>
+        <div class="arrow arrow-right"></div>
+    </div>
+    <br>
+    <br>
+    <div class="boardmain">
+        <div class="titlefont board">
+            <span id="main3" style="padding-left: 20px; font-weight: bold; color: #9966FF;">여행 정보 공유해요~</span>
+            <span id="sub1" style="float:right; margin-right: 5px; font-size: 10pt;">더보기 +</span>
+            <div>
+                <table class="tableboard">
+                    <thead>
+                        <tr>
+                            <th style="width:80%">제목</th>
+                            <th style="width:20%">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                test1
+                            </td>
+                            <td class="viewcnt">
+                                test2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                test1-1
+                            </td>
+                            <td class="viewcnt">
+                                test1-2
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="titlefont board">
+            <span id="main4" style="padding-left: 20px; margin-left: 5px; font-weight: bold; color: #9966FF;">동행구해요!</span>
+            <span id="sub2" style="float:right; font-size: 10pt;">더보기 +</span>
+            <div>
+                <table class="tableboard" style="margin-left: 5px;">
+                    <thead>
+                        <tr>
+                            <th style="width:80%">제목</th>
+                            <th style="width:20%">조회수</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                test1
+                            </td>
+                            <td class="viewcnt">
+                                test2
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                test1-1
+                            </td>
+                            <td class="viewcnt">
+                                test1-2
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
