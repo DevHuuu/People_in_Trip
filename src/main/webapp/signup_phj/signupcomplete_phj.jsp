@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
-<link rel="stylesheet" href="../resources/css/signup/signup1.css" />
+<link rel="stylesheet" href="../resources/css/signup_phj/signup1.css" />
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
 </head>
 <body>	
