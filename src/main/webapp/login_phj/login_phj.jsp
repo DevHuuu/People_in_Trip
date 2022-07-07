@@ -17,8 +17,8 @@
 				<input type="text" placeholder="아이디" id="login_id" name="login_id" onfocus="this.placeholder='';" onblur="this.placeholder='아이디'" /><br>
 				<input type="password" placeholder="비밀번호" id="login_pw" name="login_pw" onfocus="this.placeholder='';" onblur="this.placeholder='비밀번호'" />
 				<ul>
-					<li id="login_menu"><a href="../search_kjh/idSerach.jsp" id="login_menu">아아디 찾기</a></li>
-					<li id="login_menu"><a href="../search_kjh/pwSerach.jsp" id="login_menu">비밀번호 찾기</a></li>
+					<li id="login_menu"><a href="../search_kjh/idSearch.jsp" id="login_menu">아아디 찾기</a></li>
+					<li id="login_menu"><a href="../search_kjh/pwSearch.jsp" id="login_menu">비밀번호 찾기</a></li>
 					<li id="login_menu"><a href="#" id="login_menu">회원가입</a></li>
 				</ul>
 				<button type="submit" id="login_bt" onclick="loginChk();"><strong>로그인</strong></button>
