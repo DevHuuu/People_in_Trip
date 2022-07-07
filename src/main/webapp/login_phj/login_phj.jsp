@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>로그인</title>
-<link rel="stylesheet" href="../resources/css/login/login.css" />
-<script type="text/javascript" src="../resources/js/login/login.js"></script>
+<link rel="stylesheet" href="../resources/css/login_phj/login.css" />
+<script type="text/javascript" src="../resources/js/login_phj/login.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
 </head>
 <body>
