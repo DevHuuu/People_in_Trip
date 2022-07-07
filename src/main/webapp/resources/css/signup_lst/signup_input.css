@@ -1,49 +1,48 @@
 
     header {
         text-align: center;
-        font-size: 2em;
-        color: white;
-        background-color: #9966FF;
-        font-family: Pacifico;
-        margin: -3% 0 auto;
-        width: 100%;
+		font-size: 25px;
+		color: white;
+		background-color: #9966FF;
+		font-family: Pacifico;
+		margin: 0 auto;
+		width: 90%;
+		padding-bottom: 0.1px;
     }
     body {
-        max-width: 100%;
-        width: 1200px;
-        margin: 0 auto;
-        transform:scale(1, 0.95)
+        max-width: 1060px;
+		width: 1060px;
+		margin: 0 auto;
     }
     /*aside 단*/
     .signup_leftside {
         float: left;
-        font-family: 'Raleway', sans-serif;
-        font-weight: 600;
-        font-size: 1.6em;
-        text-align: center;
-        width: 25%;
-        background-color: white;
-        height: 900px;
-        border-right: solid 2px lightgray;
-        transform: scale(95%);
+		font-family: 'Raleway', sans-serif;
+		font-weight: 600;
+		margin-top: 15px;
+		font-size: 20px;
+		text-align: center;
+		width: 25%;
+		background-color: white;
+		height: 550px;
+		border-right: solid 2px lightgray;
     }
     #aside_box1 {
         border: solid 3px #9966FF;
-        box-sizing: border-box;
-        border-radius: 20px;
-        margin: 100px 30px;
-        padding: 2.5em 0.8em;
-        transform: scale(90%);
+		box-sizing: border-box;
+		border-radius: 20px;
+		margin: 100px 65px;
+		padding: 30px;
+		background-color: white;
     }
     #aside_box2 {
         border: solid 3px #9966FF;
-        box-sizing: border-box;
-        border-radius: 20px;
-        margin: 100% 30px;
-        background-color: #9966FF;
-        color: white;
-        padding: 2.5em 0.8em;
-        transform: scale(90%);
+		box-sizing: border-box;
+		border-radius: 20px;      
+		margin: 80px 65px;
+		padding: 30px;
+		background-color: #9966FF;
+		color: white;
     }
     /*메인단*/
     .signup_main {
@@ -70,17 +69,20 @@
         text-align: right;
         padding-top: 2em;
         font-family: Arial;
-        font-size: 1.1em;
+        font-size: 1em;
     }
     #main_table2 {
-        margin-top: 2em;
+        margin-top: 2%;
         border-collapse: collapse;
         border: 2px solid #9966FF;
-        width: 100%;
         text-align: center;
+        
     }
     #main_table2 tr {
         border: solid 2px #9966FF;
+    }
+    #main_table2 td {
+    	padding: 10px 0;
     }
 
     #main_table2 input {
@@ -94,8 +96,7 @@
 
     .table2_td1 {
         text-align: center;
-        width: 25%;
-        padding: 2em 0;
+        width: 20%;
         font-family: 'Raleway', sans-serif;
         font-size: 1.4em;
         border-right: solid 2px #9966FF;
@@ -103,7 +104,7 @@
 
     .table2_td2 {
         text-align: center;
-        width: 35%;
+        width: 3%;
         border-right: hidden;
     }
     .table2_td3 {
@@ -113,15 +114,21 @@
         font-size: 13.5px;
     }
     .table2_td4 {
-        font-size: 13.5px;
+        font-size: 13px;
+    }
+    #table2_tr3_td3 {
+    	border-right: solid 2px #9966FF;
+    	text-align: right;
+    	padding-right: 20px;
     }
 
     .t2_btn {
         background-color: #9966FF;
         color: white;
         border: #9966FF;
-        font-size: 15px;
-        padding: 10px 15px;
+        font-size: 13px;
+        padding: 9px;
+        margin-left: 5%
     }
 
     #submit_btn {
@@ -132,7 +139,11 @@
     #email_tr {
         text-align: center;
     }
-
+	
+	#table2_mtd1 {
+		border-right: hidden;
+	}
+	
     #table2_mtd2 {
         width: 20%;
         border-right: hidden;
@@ -144,9 +155,11 @@
         border-right: hidden;
         padding-right: 30px;
         padding-top: 20px;
+        margin-right: 30px;
     }
     #table2_mtd4 {
         width: 20%;
+        margin-right: 30px;
     }
     #email_option {
         width: 140px;
@@ -156,7 +169,12 @@
         color: limegreen;
         padding-top: 5px;
         padding-left: 20px;
-        text-align: left;
+        text-align: center;
+        font-size: 10px;
+    }
+    .hiddendiv_email_sub {
+    	font-size: 10px;
+    	
     }
 
     #last_tr {

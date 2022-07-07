@@ -18,8 +18,8 @@
     </header>
     <div class="signup_box">
         <aside class="signup_leftside">
-            <div id="aside_box1">정보입력</div>
-            <div id="aside_box2">가입완료</div>
+            <div id="aside_box1">정보<br/>입력</div>
+            <div id="aside_box2">가입<br/>완료</div>
         </aside>
         <section class="signup_main" id="signup_input">
             <div id="main_div1">
@@ -52,7 +52,8 @@
                             <td class="table2_td2">
                                 <input type="text" id="input_pass" name="input_pass"/>
                             </td>
-                            <td class="table2_td3" colspan="2">
+                            <td class="table2_td3"></td>
+                            <td class="table2_td4" id="table2_tr3_td4" colspan="3">
                                 <span>영문, 숫자, 특수문자를 조합하여<br/> 8~20자 이내로 입력하시오.
                                 </span>
                             </td>
@@ -63,7 +64,7 @@
                             <td class="table2_td2">
                                 <input type="text"/>
                             </td>
-                            <td class="table2_td3" colspan="2"><div id="hiddendiv_pass2"></div></td>
+                            <td class="table2_td3" colspan="2"><div id="hiddendiv_pass2">&nbsp;</div></td>
                         </tr>
                         <tr>
                             <td class="table2_td1"><strong>닉네임</strong></td>
@@ -79,11 +80,14 @@
                         </tr>
                         <tr id="email_tr">
                             <td class="table2_td1"><strong>이메일</strong></td>
-                            <td colspan="2" id="table2_mtd2">
-                                <input class="mailinput" id="mailinput1" name="mailinput1" type="text"/> &nbsp;&nbsp; @
+                            <td colspan="1" id="table2_mtd1">
+                            	<div class="hiddendiv_email_sub">&nbsp;</div>
+                                <input class="mailinput" id="mailinput1" name="mailinput1" type="text"/>
                                 <div class="hiddendiv_email">&nbsp;</div>
                             </td>
+                            <td id="table2_mtd2"> @</td>
                             <td id="table2_mtd3">
+                            	<div class="hiddendiv_email_sub">&nbsp;</div>
                                 <select id="email_option" name="email_option">
                                     <option value="gmail">gmail.com</option>
                                     <option value="naver">naver.com</option>
