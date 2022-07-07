@@ -7,13 +7,13 @@ header {
 	background-color: #9966FF;
 	font-family: Pacifico;
 	margin: 0 auto;
-	width: 90%;
+	width: 88%;
 	padding-bottom: 0.1px;
 }
 
 body {
 	max-width: 1060px;
-	width: 1200px;
+	width: 1060px;
 	margin: 0 auto;
 }
 
@@ -25,15 +25,16 @@ body {
 	text-align: center;
 	width: 25%;
 	background-color: white;
-	height: 425px;
+	height: 512px;
 	border-right: solid 2px lightgray;
+	margin-top: 13px;
 }
 
 #aside_box1 {
 	border: solid 3px #9966FF;
 	box-sizing: border-box;
 	border-radius: 20px;
-	margin: 50px 65px;
+	margin: 77px 65px;
 	padding: 30px;
 	background-color: #9966FF;
 	color: white;
@@ -48,11 +49,11 @@ body {
 }
 
 .signupcomplete_msg {
-	margin-left: 28%;
-	margin-right: 15%;
+	margin-left: 28.5%;
+	margin-right: 6%;
 	border: 2px solid #9966ff;
 	text-align: center;
-	margin-top: 2%;
+	margin-top: -1.5%;
 	padding-bottom: 3%;
 }
 
@@ -62,14 +63,16 @@ body {
 	padding-top: 5px;
 	font-family: Impact;
 	color: #9966FF;
-	font-size: 25px;
+	font-size: 2em;
 	font-weight: 700;
 	text-align: left;
-    /* width: 58%;
-	margin-left: 330px; 
-	position:relative; */
-	width: 54%;
-	padding-left: 330px;       
+    width: 65.5%;
+	margin-left: 300px;
+	position:relative;
+	margin-top: 5px;
+	/* width: 54%;
+	padding-left: 330px;
+	margin-left: 300px; */
 }
 
 .signupcomplete_information {
