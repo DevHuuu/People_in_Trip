@@ -1,0 +1,126 @@
+:root {
+    /* Color 변수로 지정 */
+    --white-color:#fff;
+    --black-color:#140a00;
+    --purple-color: #9966ff;
+
+    /* Font Size 변수로 지정 */
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+}
+
+.wrapper {
+    max-width: 100%;
+    width: 1060px;
+    margin: 0 auto;
+    transform: scale(1, 0.95);
+}
+
+header {
+    border-bottom: 1px solid var(--purple-color);
+}
+
+body {
+    font-family: Roboto;
+}
+
+.left-menu {
+    width: 250px;
+    float: left;
+}
+
+.menu {
+    background-color: var(--white-color);
+    border-right: 1px solid var(--black-color);
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+.menu .menu-list a {
+    display: block;
+    font-size: var(--font-large);
+    font-weight: bold;
+    color: var(--black-color);
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.menu li i {
+    font-size: 26px;
+    padding-right: 10px;
+}
+
+.menu li a:hover {
+    background-color: var(--purple-color);
+    color: var(--white-color);
+}
+
+.fa-solid fa-bullhorn {
+    font-size: 50px;
+    color: black;
+}
+
+.main-board {
+    width: 75.5%;
+    margin-left: 250px;
+    min-width: 500px;
+}
+
+.write-detail {
+    font-size: var(--font-small);
+    padding: 10px 0 10px 10px;
+    border-bottom: 2px solid var(--black-color);
+}
+
+.dropdown-top {
+    padding: 0 50px;
+}
+
+.option-box {
+    width: 80px;
+    text-align: center;
+    float: left;
+}
+
+.small-title {
+    float: left;
+    margin: 0 20px;
+}
+
+.text-box {
+    width: 450px;
+    min-width: 450px;
+}
+
+.textarea-box {
+    width: 603px;
+    height: 300px;
+    margin: 20px 0;
+    overflow: auto;
+    resize: none;
+}
+
+.bottom-btn {
+    text-align: right;
+    padding-right: 95px;
+}
+
+.bottom-btn input {
+    background-color: var(--purple-color);
+    color: var(--white-color);
+    border: var(--purple-color);
+    width: 80px;
+    height: 30px;
+    font-size: var(--font-medium);
+}
+
+
+
