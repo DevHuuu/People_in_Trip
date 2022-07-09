@@ -17,7 +17,7 @@
 <body>
 	<div class="login_form">
 		<h1>People in Trip</h1>
-		<form action="${contextPath}/login_phj/login_phj" name="loginFrm" method="post">
+		<form action="${contextPath}/main_jm.html" name="loginFrm" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="login_id" name="login_id" onfocus="this.placeholder='';" onblur="this.placeholder='아이디'" /><br>
 				<input type="password" placeholder="비밀번호" id="login_pw" name="login_pw" onfocus="this.placeholder='';" onblur="this.placeholder='비밀번호'" />
