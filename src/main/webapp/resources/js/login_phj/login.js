@@ -9,5 +9,5 @@ function loginChk() {
         alert("비밀번호를 입력해 주십시오.");
         return;
     }
-    form.submit();   
+    form.submit(); 
 }
