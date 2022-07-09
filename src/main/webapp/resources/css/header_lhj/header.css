@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+body {
+			margin: 0;
+			padding: 0;
+		}
+        header {
+            display: flex;
+            align-items: center;
+            max-width: 1060px;
+            height: 80px;
+            margin: 0px auto;
+            font-size: 20px;
+        }
+
+        .logo, .container1, .container2, .seacrh_container {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            margin-right: 10px;
+        }
+
+        .seacrh_container {
+            width: 300px;
+            height: 40px;
+            margin-left: 10px;
+        }
+
+        .seacrh_container > input {
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            color: #a6a6a6;
+            border: solid 1px #bfbfbf;
+            border-radius: 10px;
+            padding: 0px 24px;
+        }
+
+        .container2 {
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .container1 > div, .container2 > div {
+            display: flex;
+            align-items: center;
+        }
+
+        .place > a, .community > a, .login > a{
+            padding: 8px 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: rgb(102, 109, 117)
+        }
+        
+        .join {
+            margin-left: 12px;
+        }
+
+        .join > a {
+            padding: 8px 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border: solid 1px #9966ff;
+            color: #9966ff;
+        }
+
+        .to_index {
+            font-size: 25px;
+            text-decoration: none;
+            color: #9966ff;
+	        font-family: Pacifico;
+        }
