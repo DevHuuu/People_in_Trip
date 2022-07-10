@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: Runner
-=======
-Built-By: maves
->>>>>>> a46e82cc0431a4699ce0e0816547bfdece90cd4e
 Build-Jdk: 11.0.14.1
 Created-By: Maven Integration for Eclipse
 
