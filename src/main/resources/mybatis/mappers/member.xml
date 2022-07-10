@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="member"> 	
+	<resultMap type="memberDTO" id="memResult">	
+		<result property="id" column="id" />	
+		<result property="pwd" column="pwd" />
+		<result property="nick_nm" column="nick_nm" />
+		<result property="email" column="email" />
+		<result property="join_Date" column="join_Date" />
+		<result property="last_update" column="last_update" />
+		<result property="grade" column="grade" />
+	</resultMap>
+	
+	<select id="login" resultType="memberDTO" parameterType="String" resultMap="memResult">
+		<![CDATA[
+			SELECT * FROM P_MEMBER WHERE ID = #{id, jdbcType=VARCHAR} AND PWD = #{pwd, jdbcType=VARCHAR}
+		]]>	
+	</select>
+</mapper>
