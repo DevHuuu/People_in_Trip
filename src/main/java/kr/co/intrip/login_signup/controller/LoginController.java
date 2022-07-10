@@ -15,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.intrip.login_signup.dto.MemberDTO;
 import kr.co.intrip.login_signup.service.MemberService;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @Controller
 public class LoginController {
 	
@@ -32,19 +34,17 @@ public class LoginController {
 	public String login()  {
 		return "login_phj/login_phj";
 	}
-	@PostMapping("login_phj/login_phj") 
-	public String loginForm(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
-		MemberDTO user = memberService.Login(memberDTO, session);
-		ModelAndView mav = new ModelAndView();
-		if (user !=  null) {
-			System.out.println("성공");
-			session.setAttribute("id", user.getId());
-			session.setAttribute("pwd", user.getPwd());
+	@PostMapping("signup_phj/signupcomplete_phj") 
+	public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
+		MemberDTO user = memberService.Login(memberDTO, session);	
+		if (user != null) {
+			log.info("성공");
+			session.setAttribute("user", user);
 			return "signup_phj/signupcomplete_phj";
 		}
 		else {
-			System.out.println("실패");
-			return "login_phj/login_phj";
+			log.info("실패");
+			return "redirect:/login_phj/login_phj";
 		}
 	}
 	

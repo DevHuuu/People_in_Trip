@@ -2,6 +2,8 @@ package kr.co.intrip.login_signup.dto;
 
 import java.sql.Date;
 
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
 @Data

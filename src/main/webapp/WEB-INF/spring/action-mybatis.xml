@@ -10,17 +10,17 @@
 	<!-- PropertyPlaceholderConfigurer 클래스 이용해 db 설정 관련 정보를 jdbc.properties 파일에서 읽어 들임 -->
 	<bean id="propertyPlaceholderConfigurer" 
 					class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="locations">
+		<!-- <property name="locations">
 			<value>/WEB-INF/config/jdbc/jdbc.properties</value>
-		</property>
+		</property> -->
 	</bean>
 	
 	<!-- PooledDataSource 이용해서 dataSource 빈 생성 -->
 	<bean id="dataSource" class="org.apache.ibatis.datasource.pooled.PooledDataSource">
-		<property name="driver" value="${jdbc.driverClassName}" />
-		<property name="url" value="${jdbc.url}"/>
-		<property name="username" value="${jdbc.username}"/>
-		<property name="password" value="${jdbc.password}"/>
+		<property name="driver" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="jdbc:oracle:thin:@localhost:1521:XE"/>
+		<property name="username" value="ezen"/>
+		<property name="password" value="0824"/>
 	</bean>
 	
 	<!-- SqlSessionFactoryBean 클래스 이용해  dataSource 속성에 dataSource 빈을 설정-->

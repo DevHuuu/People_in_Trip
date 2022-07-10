@@ -7,7 +7,8 @@ import org.springframework.stereotype.Service;
 
 import kr.co.intrip.login_signup.dao.MemberDAO;
 import kr.co.intrip.login_signup.dto.MemberDTO;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Service
 public class MemberServiceImpl implements MemberService {
 
@@ -16,7 +17,8 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberDTO Login(MemberDTO memberDTO, HttpSession session) throws Exception {
-		return memberDAO.Login(memberDTO);
+		
+		return memberDAO.Login(memberDTO, session);
 	}
 
 	
