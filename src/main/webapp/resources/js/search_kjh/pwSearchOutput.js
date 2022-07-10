@@ -12,7 +12,7 @@
 	          return false;
 	      }
 		else{
-			return window.location.href = "https://www.google.com/";
+			return window.location.href = "../login_phj/login_phj.jsp";
 		}
 	}
 
