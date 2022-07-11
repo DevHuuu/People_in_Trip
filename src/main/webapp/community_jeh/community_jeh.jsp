@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,20 +12,18 @@
 </head>
 <body>
     <!-- 헤더 -->
+   	<div id="header-jeh">
+       	<%@ include file="../header_lhj/header.jsp" %>
+    </div>
+    
     <div class="wrapper">
-        <header>
-            <h1>헤더</h1>
-        </header>
-
         <!-- 왼쪽 메뉴바 -->
         <div>
             <div class="left-menu">
-                <nav class="nav1">
-                    <ul class="menu">
-                        <li class="menu-list"><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
-                        <li class="menu-list"><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
-                    </ul>
-                </nav>
+                <ul class="left-menu-ul">
+                    <li class="menu-list"><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
+                    <li class="menu-list"><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
+                </ul>
             </div>
 
             <!-- 정보게시판 본문 -->

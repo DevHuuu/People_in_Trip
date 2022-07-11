@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
-Built-By: 82109
+<<<<<<< HEAD
+Built-By: yoyoy
+Build-Jdk: 11.0.14
+=======
+Built-By: Runner
 Build-Jdk: 11.0.14.1
+>>>>>>> ffc91dd9047bcfd8af263a54248edb05d0993e37
 Created-By: Maven Integration for Eclipse
 
