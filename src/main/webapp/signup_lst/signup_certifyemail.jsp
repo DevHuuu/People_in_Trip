@@ -2,9 +2,10 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../resources/css/signup_lst/signup_certifyemail.css">
-<script type="text/javascript" src="../resources/js/signup_lst/signup_certifyemail.js"></script>
 <head>
+	<link rel="stylesheet" href="../resources/css/signup_lst/signup_certifyemail.css">
+	<script type="text/javascript" src="../resources/js/signup_lst/signup_certifyemail.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
