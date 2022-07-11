@@ -12,7 +12,7 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 	function page() {
-		window.location.href = "https://www.google.com/";
+		window.location.href = "../login_phj/login_phj.jsp";    
 	}
 </script>
 </head>

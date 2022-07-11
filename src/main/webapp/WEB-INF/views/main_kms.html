@@ -5,42 +5,96 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Insert title here</title>
 	<style type="text/css">
-		#title1 {
+		body {
+			width: 1060px;
+			margin: 0px auto;
+		}
+
+		#img1 {
 			position: relative;
-			left: 300px;
+		}
+
+		.circle1 {
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: gray;
+			border: 1px solid white;
+			position: absolute;
+			top: 330px;
+			right: 1000px;
+		}
+		.circle1:active {
+			background-color: #B2CCFF;
+		}
+
+		.circle2  {
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: gray;
+			border: 1px solid white;
+			position: absolute;
+			top: 330px;
+			right: 975px;
+		}
+		.circle2:active {
+			background-color: #B2CCFF;
+		}
+
+		.circle3  {
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: gray;
+			border: 1px solid white;
+			position: absolute;
+			top: 330px;
+			right: 950px;
+		}
+		.circle3:active {
+			background-color: #B2CCFF;
+		}
+
+		.circle4  {
+			border-radius: 50%;
+			width: 10px;
+			height: 10px;
+			background-color: gray;
+			border: 1px solid white;
+			position: absolute;
+			top: 330px;
+			right: 925px;
+		}
+		.circle4:active {
+			background-color: #B2CCFF;
+		}
+
+		#title1 {
 			color: #9966FF;
 		}
 	
 		#title2 {
 			color: #9966FF;
-			position: relative;
-			left: 300px;
 		}
 		
 		#title3 {
-			position: relative;
-			left: 300px;
 			color: #9966FF;
 		}
-		
-		#box1 {
-			bottom: 300px;
-			background-color: #9966FF;
-			left: 420px;
-			color: black;
-			position: absolute;
+
+		.tb1btn {
+			width: 50px;
+			height: 30px;
+			background-color: transparent;
+			border: 1px solid gray;
 		}
-		
-		#box2 {
-			bottom: 270px;
+
+		.tb1btn:hover {
 			background-color: #9966FF;
-			right: 410px;
-			color: black;
-			position: absolute;
 		}
-		
-		#table1 {
-			position: relative;
+
+		.tb1div {
+			background-color: #9966FF;
 		}
 		
 		#body1 {
@@ -52,49 +106,88 @@
 			border-bottom: 1px solid;
 		}
 	</style>
+	<script type="text/javascript">
+		function toggleImg() {
+			document.getElementById("img1").src="../img_kms/mainimg1.jpg";
+		}
+		function toggleImg2() {
+			document.getElementById("img1").src="../img_kms/mainimg2.jpg";
+		}
+		function toggleImg3() {
+			document.getElementById("img1").src="../img_kms/mainimg3.jpg";
+		}
+		function toggleImg4() {
+			document.getElementById("img1").src="../img_kms/mainimg4.jpg";
+		}
+
+		function pfBtn1() {
+			document.getElementById("bestImg1").src="../img_kms/performance1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/performance2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/performance3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/performance4.jpg";
+		}
+		function pfBtn2() {
+			document.getElementById("bestImg1").src="../img_kms/exhibition1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/exhibition2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/exhibition3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/exhibition4.jpg";
+		}
+		function pfBtn3() {
+			document.getElementById("bestImg1").src="../img_kms/festival1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/festival2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/festival3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/festival4.jpg";
+		}
+	</script>
 </head>
-<body class="body1">
+<body>
 	<h3 id="title1">이달의 인기 여행지</h3>
-	<div align="center">
-		<img src="./img_kms/seoul2.jpg" width="1200" height="300" >
+	<div align="center"  >
+		<img  id="img1" src="../img_kms/seoul2.jpg" width="1000" height="300" >
+		<div class="circle1" onclick="toggleImg()"></div>
+		<div class="circle2" onclick="toggleImg2()"></div>
+		<div class="circle3" onclick="toggleImg3()"></div>
+		<div class="circle4" onclick="toggleImg4()"></div>
 	</div>
 	
 	<h3 id="title2">이달의 추천 공연/전시/축제</h3>
-	<table bgcolor="#6799FF" align="center" class="table1">
-		<div id="box1"><img src="./img_kms/left.png" width="50" height="50"> </div>
-		<div id="box2"><img src="./img_kms/right.png" width="50" height="50"> </div>
+	<table bgcolor="#6799FF" align="center" id="table1" border="1px solid black">
 		<tr>
-			<th><input type="button" value="공연"> </th>
-			<th><input type="button" value="전시"> </th>
-			<th><input type="button" value="축제"> </th>
-			<th colspan="3" width="50"></th>
-			<th colspan="3" width="50"></th>
+			<th colspan="5" align="left">
+				<input type="button" value="공연" class="tb1btn" onclick="pfBtn1()">
+				<input type="button" value="전시" class="tb1btn" onclick="pfBtn2()">
+				<input type="button" value="축제" class="tb1btn" onclick="pfBtn3()"> 
+			</th>
 		</tr>
 		<tr>
-			<td colspan="2" width="50" height="80"></td>
-			<td rowspan="3"></td>
-			<td rowspan="3"><img src="./img_kms/seoul3.jpg" width="300" height="300"> </td>
-			<td rowspan="3"><img src="./img_kms/seoul3.jpg" width="300" height="300"> </td>
-			<td rowspan="3"><img src="./img_kms/seoul3.jpg" width="300" height="300"> </td>
-			<td rowspan="3" width="60" height="80"></td>
-			<td rowspan="3" width="60" height="80"></td>
+			<td rowspan="2" width="50" height="80">
+				<div class="tb1div"><img src="../img_kms/left.png" width="50" height="50"></div>
+			</td>
+			<td rowspan="3"><img id="bestImg1" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
+			<td rowspan="3"><img id="bestImg2" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
+			<td rowspan="3"><img id="bestImg3" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
+			<td rowspan="3"><img id="bestImg4" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
+			<td colspan="2" width="50" height="80">
+				<div class="tb1div"><img src="../img_kms/right.png" width="50" height="50"></div>
+			</td>
 		</tr>
-		<tr>
-			<td colspan="2" width="50" height="80"></td>
-		</tr>
-		<tr>
-			<td colspan="2" width="50" height="80"></td>
-		</tr>
+
 	</table>
 
 	<h3 id="title3">게시판</h3>
 	<div align="center">	
 		<table id="table2">
 			<tr>
-				<th colspan="3" align="center" width="400" class="tb2th">여행 정보 공유해요~</th>
+				<th colspan="3" align="center" width="400" class="tb2th" >
+					<img src="../img_kms/Loudspeaker.png" width="30" height="30" align="left" />
+					<p align="left">여행 정보 공유해요~</p>
+				</th>
 				<th colspan="2" align="center" width="85" class="tb2th">더보기 +</th>
 				<th rowspan="5" width="200" ></th>
-				<th colspan="3" align="center" width="400" class="tb2th">동행 구해요~</th>
+				<th colspan="3" align="center" width="400" class="tb2th">
+					<img src="../img_kms/people.png" width="30" height="30" align="left" />
+					<p align="left">동행 구해요~</p>
+				</th>
 				<th colspan="2" align="center" width="85" class="tb2th">더보기 +</th>
 			</tr>
 			<tr>

@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+* {
+			margin: 0;
+			padding: 0;
+		}
+        header {
+            display: flex;
+            align-items: center;
+            max-width: 1060px;
+            height: 80px;
+            margin: 0px auto;
+            font-size: 15px;
+        }
+
+        .logo, .container1, .container2, .seacrh_container {
+            display: flex;
+            height: 100%;
+        }
+
+        .logo {
+            align-items: center;
+        }
+
+
+        .seacrh_container {
+            align-items: center;
+            width: 300px;
+            height: 40px;
+            margin-left: 10px;
+        }
+
+        .seacrh_container > input {
+            width: 100%;
+            height: 100%;
+            font-size: 15px;
+            color: #a6a6a6;
+            border: solid 1px #bfbfbf;
+            border-radius: 10px;
+            padding: 0px 24px;
+        }
+
+        .container2 {
+            align-items: center;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .container2 > div {
+            display: flex;
+            align-items: center;
+        }
+
+        .login > a {
+            padding: 8px 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: rgb(102, 109, 117)
+        }
+        
+        .join {
+            margin-left: 12px;
+        }
+
+        .join > a {
+            padding: 8px 12px;
+            font-weight: 600;
+            text-decoration: none;
+            border: solid 1px #9966ff;
+            color: #9966ff;
+        }
+
+        .to_index {
+            font-size: 25px;
+            text-decoration: none;
+            color: #9966ff;
+	        font-family: Pacifico;
+        }
+
+       .menu {
+            text-align: center;
+       }
+
+       .menuitem {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+
+       }
+
+       .menuitem >p {
+        padding: 8px 12px;
+        font-size: 15px;
+        font-weight: 600;
+        border-style: none;
+        color: rgb(102, 109, 117);
+        background-color: #ffffff;
+        cursor: pointer;
+        width: 80px;
+       }
+
+
+       .submenuitem {
+            list-style: none;
+        }
+
+        .submenuitem li{
+            background-color: #9966ff;
+            display: flex;
+        }
+
+        .submenuitem li > a{
+            padding: 8px 12px;
+            font-weight: 600;
+            text-decoration: none;
+            color: white;
+            width: 100%;
+        }
+
+
+        li:hover {
+            background-color: #ba98ff;
+            text-decoration: underline;
+        }
