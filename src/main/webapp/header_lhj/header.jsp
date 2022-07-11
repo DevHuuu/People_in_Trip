@@ -19,7 +19,7 @@
     <header>
         <div class="logo">
             <a class="to_index" href="#">
-                People In Trip
+                People in Trip
             </a>
         </div>
 
