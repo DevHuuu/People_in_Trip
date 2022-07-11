@@ -19,4 +19,13 @@ public class MemberDAO {
 	public MemberDTO Login(MemberDTO memberDTO, HttpSession session) {
 		return sqlSession.selectOne("mapper.member.Login", memberDTO);
 	}
+	
+	// 아이디 찾기
+		public MemberDTO find_id(MemberDTO memberDTO, HttpSession session) throws Exception{
+			return sqlSession.selectOne("mapper.member.find_id", memberDTO);
+		}
+	// 아이디 찾기1
+			public MemberDTO find_id_out(MemberDTO memberDTO, HttpSession session) throws Exception{
+				return sqlSession.selectOne("mapper.member.find_id_out", memberDTO);
+				}
 }
