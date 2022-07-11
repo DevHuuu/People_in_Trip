@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+  
+<configuration>
+	<!-- 마이바티스에서 데이터 전달에 사용될 memberDTO 빈을 설정 -->
+	<typeAliases>
+		<typeAlias type="kr.co.intrip.login_signup.dto.MemberDTO" alias="memberDTO"/>
+	</typeAliases>
+</configuration>  
