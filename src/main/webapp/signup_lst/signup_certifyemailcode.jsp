@@ -23,7 +23,7 @@
             하단의 인증코드를 입력하시면 이메일 인증이 성공적으로 완료됩니다!<br/>
         </div>
         <div id="show_message_inner2">
-            <input id="input_code" type="text" name="input_code" placeholder="686772" />
+            <input id="input_code" type="text" name="input_code" value="686772" />
         </div>
         <div id="notice1">해당 인증 코드를 팝업창에 입력 후 '확인' 버튼을 눌러주세요.</div>
         <div id="hidden_message">
