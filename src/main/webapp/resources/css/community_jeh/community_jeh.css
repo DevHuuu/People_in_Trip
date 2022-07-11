@@ -17,7 +17,7 @@
     transform: scale(1, 0.95);
 }
 
-header {
+#header-jeh {
     border-bottom: 1px solid var(--purple-color);
 }
 
@@ -30,7 +30,7 @@ body {
     float: left;
 }
 
-.menu {
+.left-menu-ul {
     background-color: var(--white-color);
     border-right: 1px solid var(--black-color);
     position: fixed;
@@ -42,7 +42,7 @@ body {
     list-style: none;
 }
 
-.menu .menu-list a {
+.left-menu-ul .menu-list a {
     display: block;
     font-size: var(--font-large);
     font-weight: bold;
@@ -52,12 +52,12 @@ body {
     text-align: center;
 }
 
-.menu li i {
+.left-menu-ul li i {
     font-size: 26px;
     padding-right: 10px;
 }
 
-.menu li a:hover {
+.left-menu-ul li a:hover {
     background-color: var(--purple-color);
     color: var(--white-color);
 }
@@ -80,7 +80,7 @@ body {
 }
 
 .dropdown-top {
-    padding: 0 50px;
+    padding: 20px 50px;
 }
 
 .option-box {
@@ -101,7 +101,7 @@ body {
     display: inline-flex;
     position: absolute;
     left: 452px;
-    top: 115.5px;
+    top: 59.5px;
 }
 
 .textarea-box {
