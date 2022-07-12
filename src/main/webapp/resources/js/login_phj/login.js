@@ -1,9 +1,8 @@
 function loginChk() {
     var form = document.loginFrm;
     if (!form.login_id.value) {
-        alert("아이디를 입력해 주십시오.");
-        form.login_id.focus();
-        return false;
+        alert("아이디를 입력해 주십시오.");       
+        return form.login_id.focus();
     }
  
     if (!form.login_pw.value) {
