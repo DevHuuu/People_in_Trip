@@ -32,21 +32,21 @@ public class LoginController {
 	private MemberService memberService;
 	
 	// 로그인 페이지
-	@GetMapping("login_phj/login_phj")
+	@GetMapping("login_signup/login")
 	public String login()  {
-		return "login_phj/login_phj";
+		return "login_signup/login";
 	}
-	@PostMapping("signup_phj/signupcomplete_phj") 
+	@PostMapping("login_signup/signupcomplete") 
 	public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
 		MemberDTO user = memberService.Login(memberDTO, session);	
 		if (user != null) {
 			log.info("성공");
 			session.setAttribute("user", user);
-			return "signup_phj/signupcomplete_phj";
+			return "login_signup/signupcomplete";
 		}
 		else {
 			log.info("실패");
-			return "redirect:/login_phj/login_phj";
+			return "redirect:/login_signup/login";
 		}
 	}
 	

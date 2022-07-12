@@ -17,12 +17,12 @@
 <body>
 	<div class="login_form">
 		<h1>People in Trip</h1>
-		<form action="${contextPath}/signup_phj/signupcomplete_phj" name="loginFrm" method="post">
+		<form action="${contextPath}/login_signup/signupcomplete" name="loginFrm" method="post">
 			<div>
 				<input type="text" placeholder="아이디" id="login_id" name="id" onfocus="this.placeholder='';" onblur="this.placeholder='아이디'" /><br>
 				<input type="password" placeholder="비밀번호" id="login_pw" name="pwd" onfocus="this.placeholder='';" onblur="this.placeholder='비밀번호'" />
 				<ul>
-					<li id="login_menu"><a href="../search_kjh/idSearch.jsp" id="login_menu">아아디 찾기</a></li>
+					<li id="login_menu"><a href="${contextPath}/login_signup/idSearch" id="login_menu">아아디 찾기</a></li>
 					<li id="login_menu"><a href="../search_kjh/pwSearch.jsp" id="login_menu">비밀번호 찾기</a></li>
 					<li id="login_menu"><a href="../signup_lst/signup_input.jsp" id="login_menu">회원가입</a></li>
 				</ul>
