@@ -1,0 +1,112 @@
+@charset "UTF-8";
+
+h1 {
+	color: #9966ff;
+	font-family: Pacifico;
+	font-size: 45px;
+	margin-top: 10px;
+}
+
+.SBTN {
+	background-color: #9966ff;
+	width: 320px;
+	height: 50px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	color: white;
+	border: 2px solid #9966ff;
+	outline: none;
+	padding-left: 15px;
+	cursor: pointer;
+	font-size: 16px;
+	margin-top: 10px;
+}
+
+#SNAME {
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;
+}
+
+#SEMAIL {
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;
+}
+#SPWD {
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;
+}
+#SPWD1 {
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;
+}	
+
+
+#SINNUM {
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;
+	
+}
+
+.SEARCH_FORM {
+	text-align: center;
+	margin-top: 7%;
+}
+
+#SID{
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	text-align: center;
+	margin-top: 10px;
+}
+#SID_IN{
+	width: 300px;
+	height: 40px;
+	border-radius: 25px;
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0
+		rgba(0, 0, 0, 0.19);
+	border: 2px solid #d0cece;
+	outline: none;
+	padding-left: 15px;
+	margin-top: 10px;	
+}

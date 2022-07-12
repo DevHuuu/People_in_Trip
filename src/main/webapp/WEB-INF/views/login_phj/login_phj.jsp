@@ -27,9 +27,6 @@
 					<li id="login_menu"><a href="../signup_lst/signup_input.jsp" id="login_menu">회원가입</a></li>
 				</ul>
 				<button type="submit" id="login_bt" onclick="loginChk();"><strong>로그인</strong></button>
-				<c:if test="${message == 'error' }">
-					<div style="color:red;">아이디 또는 비밀번호가 일치하지 않습니다.</div>
-				</c:if>
 			</div>
 		</form>
 		<div>

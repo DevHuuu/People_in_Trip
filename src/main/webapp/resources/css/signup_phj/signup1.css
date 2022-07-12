@@ -1,16 +1,5 @@
 /* 회원가입 완료 페이지 css */
 
-header {
-	text-align: center;
-	font-size: 25px;
-	color: white;
-	background-color: #9966FF;
-	font-family: Pacifico;
-	margin: 0 auto;
-	width: 88%;
-	padding-bottom: 0.1px;
-}
-
 body {
 	max-width: 1060px;
 	width: 1060px;
@@ -27,14 +16,14 @@ body {
 	background-color: white;
 	height: 512px;
 	border-right: solid 2px lightgray;
-	margin-top: 13px;
+	margin-top: 100px;
 }
 
 #aside_box1 {
 	border: solid 3px #9966FF;
 	box-sizing: border-box;
 	border-radius: 20px;
-	margin: 77px 65px;
+	margin: 70px 65px;
 	padding: 30px;
 	background-color: #9966FF;
 	color: white;
@@ -53,14 +42,15 @@ body {
 	margin-right: 6%;
 	border: 2px solid #9966ff;
 	text-align: center;
-	margin-top: -1.5%;
-	padding-bottom: 3%;
+	margin-top: 2%;
+	padding-bottom: 5%;
+	padding-top: 3%;
 }
 
 #main_head {  	
 	border-bottom: solid 3px #9966FF;
 	padding-bottom: 0.3em;
-	padding-top: 5px;
+	padding-top: 25px;
 	font-family: Impact;
 	color: #9966FF;
 	font-size: 2em;
@@ -69,7 +59,7 @@ body {
     width: 65.5%;
 	margin-left: 300px;
 	position:relative;
-	margin-top: 5px;
+	margin-top: 68px;
 	/* width: 54%;
 	padding-left: 330px;
 	margin-left: 300px; */
