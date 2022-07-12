@@ -51,9 +51,9 @@ public class LoginController {
 	}
 	
 	// 회원가입 완료 페이지
-	@GetMapping("signup_phj/signupcomplete_phj")
+	@GetMapping("login_signup/signupcomplete")
 	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
-		return "signup_phj/signupcomplete_phj";
+		return "login_signup/signupcomplete";
 	}
 	
 	//아이디찾기 페이지
