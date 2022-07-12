@@ -14,8 +14,9 @@
     <title>회원가입_정보 입력</title>
 </head>
 <body>
-    <header>
-    <div><h1>People in trip</h1></div>
+	<header>
+		<%-- <jsp:include page="/header_lhj/header.jsp" flush="false" /> --%>
+	    <div><h1>People in trip</h1></div>
 	</header>
 	<div class="signup_box">
 	    <aside class="signup_leftside">
@@ -100,7 +101,7 @@
 	                             <div class="hiddendiv_email">&nbsp;</div>
 	                        </td>
 	                        <td id="table2_mtd4">
-	                            <button class="t2_btn" type="button">이메일<br/>인증</button>
+	                            <button class="t2_btn" type="button" onclick="email_popup()">이메일<br/>인증</button>
 	                        </td>
 	                    </tr>
 	                    <tr id="last_tr">
