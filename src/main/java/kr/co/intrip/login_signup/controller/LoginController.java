@@ -3,10 +3,6 @@ package kr.co.intrip.login_signup.controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import org.apache.jasper.tagplugins.jstl.core.Out;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,8 +12,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import kr.co.intrip.login_signup.dto.MemberDTO;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -25,11 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @Controller
 public class LoginController {
-
-	/*
-	 * private static final Logger logger =
-	 * LoggerFactory.getLogger("LoginController.class");
-	 */
 
 	@Autowired
 	private MemberService memberService;
@@ -39,22 +28,14 @@ public class LoginController {
 	public String login() {
 		return "login_signup/login";
 	}
-<<<<<<< HEAD
 	
 	@PostMapping("login_signup/login") 
 	public ModelAndView login(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
 		MemberDTO user = memberService.Login(memberDTO, session);	
 		ModelAndView mav = new ModelAndView();
-=======
-
-	@PostMapping("login_signup/signupcomplete")
-	public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) throws Exception {
-		MemberDTO user = memberService.Login(memberDTO, session);
->>>>>>> b69397f7ea0cd457511c8baf53759d370d7a0287
 		if (user != null) {
 			log.info("로그인 성공");
 			session.setAttribute("user", user);
-<<<<<<< HEAD
 			session.setAttribute("isLogIn", true);
 			log.info("user : " + user);
 			mav.setViewName("redirect:/login_signup/signupcomplete");
@@ -63,12 +44,6 @@ public class LoginController {
 			log.info("로그인 실패");
 			mav.addObject("message", "error");
 			mav.setViewName("login_signup/login");
-=======
-			return "login_signup/signupcomplete";
-		} else {
-			log.info("실패");
-			return "redirect:/login_signup/login";
->>>>>>> b69397f7ea0cd457511c8baf53759d370d7a0287
 		}
 		return mav;
 	}
@@ -86,15 +61,10 @@ public class LoginController {
 	}
 
 	// 회원가입 완료 페이지
-<<<<<<< HEAD
+
 	@GetMapping("login_signup/signupcomplete")
 	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
 		return "login_signup/signupcomplete";
-=======
-	@GetMapping("signup_phj/signupcomplete_phj")
-	public String signupcomplete(HttpServletRequest request, HttpServletResponse response) {
-		return "signup_phj/signupcomplete_phj";
->>>>>>> b69397f7ea0cd457511c8baf53759d370d7a0287
 	}
 
 	// 아이디찾기 페이지
