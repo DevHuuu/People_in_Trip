@@ -15,8 +15,8 @@
 </head>
 <body>
 	<header>
-		<%-- <jsp:include page="/header_lhj/header.jsp" flush="false" /> --%>
-	    <div><h1>People in trip</h1></div>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	    <!-- <div><h1>People in trip</h1></div> -->
 	</header>
 	<div class="signup_box">
 	    <aside class="signup_leftside">
