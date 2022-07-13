@@ -5,10 +5,23 @@
 <html>
 <head>
 <meta charset="UTF-8">
-    <title>게시판(글쓰기)</title>
+    <title>정보게시판 > 글쓰기</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     <link rel="stylesheet" href="../resources/css/community_jeh/community_jeh.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+			$('#textarea-box').on('keyup', function() {
+				$('#textarea-cnt').html("(" + $(this).val().length + " / 200)");
+				
+				if($(this).val().length > 200) {
+					$(this).val($(this).val().substring(0, 200));
+					$('#textarea-cnt').html("(200 / 200)");
+				}
+			});
+		});
+    </script>
 </head>
 <body>
     <!-- 헤더 -->
@@ -47,10 +60,11 @@
 
                     <input class="text-box" type="text" placeholder="제목을 입력해 주세요!" required />
 
-                    <textarea class="textarea-box" placeholder="내용을 입력해 주세요!" required></textarea>
-
-                    <div class="bottom-btn">
-                        <input type="button" value="작성취소" />
+                    <textarea id="textarea-box" class="textarea-box" placeholder="내용을 입력해 주세요!" required></textarea>
+	                <div id="textarea-cnt">(0 / 200)</div>
+	
+	                <div class="bottom-btn">
+                        <a href=""><input type="button" value="작성취소" /></a>
                         <input type="submit" value="작성완료" />
                     </div>
                 </div>

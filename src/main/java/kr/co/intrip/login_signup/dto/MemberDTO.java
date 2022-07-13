@@ -5,7 +5,9 @@ import java.sql.Date;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import lombok.Getter;
 
+@Getter
 @Data
 public class MemberDTO {	
 	private String id;
