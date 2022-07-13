@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,17 +24,17 @@
             사용자가 입력한 apple1234@gmail.com 으로 인증 코드를 발송했습니다. <br/>
             제한 시간 내 인증 코드 6자리를 입력해주세요.<br/>
             <div id="show_message_inner">
-                <input id="input_code" type="text" name="input_code" placeholder="ex) 686772" />
+                <input id="input_code" type="text" name="input_code" placeholder="ex) 686772" onfocus="this.placeholder=''" />
             </div>
-            <div id="timer">제한 시간 03:00</div>
+            <div id="timer">&nbsp;</div>
             <div id="hidden_message">
-                &nbsp;
+                &nbsp;&nbsp;
             </div>
         </div>
         <div id="buttons">
-            <button class="buttons">확인</button>
-            <button class="buttons">취소</button>
+            <button class="buttons" onclick="checking_email()">확인</button>
+            <button class="buttons" onclick="window.close()">취소</button>
         </div>
     </div>
-</body>
+    </body>
 </html>

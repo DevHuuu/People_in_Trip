@@ -11,4 +11,13 @@
 			WHERE ID = #{id} AND PWD = #{pwd}
 		]]>	
 	</select>
+	
+	<!-- 아이디 찾기 -->
+	<select id="find_id" parameterType="String" resultType="memberDTO">
+		<![CDATA[
+			SELECT * 
+			FROM P_MEMBER 
+			WHERE NICK_NM = #{nick_nm} AND PWD = #{pwd}
+		]]>	
+	</select>
 </mapper>

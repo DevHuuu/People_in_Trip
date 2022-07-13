@@ -24,7 +24,7 @@
         </div>
 
         <div class="container1">
-            <div class="menu">
+            <div class="menu" style="z-index: 1">
                 <div class="menuitem">
                     <p>관광지</p>
                 </div>
@@ -33,7 +33,7 @@
                     <li><a href="#">제주도</a></li>
                 </ul>
             </div> 
-            <div class="menu">
+            <div class="menu" style="z-index: 1">
                 <div class="menuitem">
                     <p>커뮤니티</p>
                 </div>

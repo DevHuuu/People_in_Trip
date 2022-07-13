@@ -14,7 +14,7 @@
 .wrapper {
     max-width: 1060px;
     margin: 0 auto;
-    transform: scale(1, 0.95);
+    transform: scale(1, 1);
 }
 
 #header-jeh {
@@ -130,6 +130,7 @@ body {
     height: 30px;
     font-size: var(--font-medium);
     margin: 5px;
+    cursor: pointer;
 }
 
 

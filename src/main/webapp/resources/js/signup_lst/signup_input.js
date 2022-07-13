@@ -47,10 +47,12 @@
                 document.getElementById('input_not1').style.backgroundColor = '#c0ace8';
                 document.getElementById('input_not1').style.fontWeight = 'bolder';
                 document.getElementById('input_not1').style.color = 'white';
+                document.getElementById('input_not1').style.boxShadow = '5px 5px 3px purple';
                 inputId.addEventListener("blur", function () {
                     document.getElementById('input_not1').style.backgroundColor = 'white';
                     document.getElementById('input_not1').style.fontWeight = 'normal';
                     document.getElementById('input_not1').style.color = 'black';
+                    document.getElementById('input_not1').style.boxShadow = '0px 0px 0px purple';
                 })
             }, false);
             var inputPw = document.getElementById('input_pass');
@@ -58,10 +60,14 @@
                 document.getElementById('table2_tr2_td4').style.backgroundColor = '#c0ace8';
                 document.getElementById('table2_tr2_td4').style.fontWeight = 'bolder';
                 document.getElementById('table2_tr2_td4').style.color = 'white';
+                document.getElementById('table2_tr2_td4').style.boxShadow = '5px 5px 3px purple';
+                // document.querySelector('.table2_td4').style.boxShadow = '3px 3px 3px purple';
                 inputPw.addEventListener("blur", function () {
                     document.getElementById('table2_tr2_td4').style.backgroundColor = 'white';
                     document.getElementById('table2_tr2_td4').style.fontWeight = 'normal';
                     document.getElementById('table2_tr2_td4').style.color = 'black';
+                    document.getElementById('table2_tr2_td4').style.boxShadow = '0px 0px 0px purple';
+                    // document.querySelector('.table2_td4').style.boxShadow = '';
                 })
             }, false);
             var inputNick = document.getElementById('input_nick');
@@ -69,10 +75,12 @@
                 document.getElementById('input_not3').style.backgroundColor = '#c0ace8';
                 document.getElementById('input_not3').style.fontWeight = 'bolder';
                 document.getElementById('input_not3').style.color = 'white';
+                document.getElementById('input_not3').style.boxShadow = '5px 5px 3px purple';
                 inputNick.addEventListener("blur", function () {
                     document.getElementById('input_not3').style.backgroundColor = 'white';
                     document.getElementById('input_not3').style.fontWeight = 'normal';
                     document.getElementById('input_not3').style.color = 'black';
+                    document.getElementById('input_not3').style.boxShadow = '0px 0px 0px white';
                 })
             }, false);
 
@@ -133,7 +141,7 @@
         if(checkcode == 1) {
             /*다 되면 폼 액션 보낼 곳 (jsp에서는 jsp로 변경) 배열 쓰는 이유?*/
             document.getElementsByName("submit_btn")[0].setAttribute("type", "submit");
-            document.form_input.action = "https://github.com/";
+            document.form_input.action = "signup_certifyemail.html";
         }
         else
             return false;
@@ -308,6 +316,14 @@
             }*/
                 //닉네임 체크 [E]
             }
+        }
+
+        //이메일 버튼을 누르면 이메일 팝업을 띄우는 것으로
+        function email_popup() {
+            let url = "signup_certifyemail.jsp";
+            let name = "이메일 인증코드 입력"
+            let option = "width = 850, height = 500, top = 100 left = 300"
+            window.open(url, name, option);
         }
 
 

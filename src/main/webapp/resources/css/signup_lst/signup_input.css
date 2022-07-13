@@ -1,215 +1,218 @@
-	
-	    header {
-	        text-align: center;
-	        font-size: 25px;
-	        color: white;
-	        background-color: #9966FF;
-	        font-family: Pacifico;
-	        margin: 0 auto;
-	        width: 90%;
-	        padding-bottom: 0.1px;
-	    }
-	    body {
-	        max-width: 1060px;
-	        width: 1060px;
-	        margin: 0 auto;
-	    }
-	    /*aside 단*/
-	    .signup_leftside {
-	        float: left;
-	        font-family: 'Raleway', sans-serif;
-	        font-weight: 600;
-	        margin-top: 15px;
-	        font-size: 20px;
-	        text-align: center;
-	        width: 25%;
-	        background-color: white;
-	        height: 640px;
-	        border-right: solid 2px lightgray;
-	    }
-	    #aside_box1 {
-	        border: solid 3px #9966FF;
-	        box-sizing: border-box;
-	        border-radius: 20px;
-	        margin: 70px 65px;
-	        padding: 30px;
-	        background-color: white;
-	    }
-	    #aside_box2 {
-	        border: solid 3px #9966FF;
-	        box-sizing: border-box;
-	        border-radius: 20px;
-	        margin: 80px 65px;
-	        padding: 30px;
-	        background-color: #9966FF;
-	        color: white;
-	    }
-	    /*메인단*/
-	    .signup_main {
-	        margin-left: 28%;
-	        margin-right: 5%;
-	    }
-	    #main_div1 {
-	        border-bottom: solid 3px #9966FF;
-	        padding-bottom: 0.3em;
-	    }
-	    #main_table1 {
-	        width: 100%;
-	    }
-	
-	    #main_head {
-	        padding-top: 5px;
-	        font-family: Impact;
-	        color: #9966FF;
-	        font-size: 2em;
-	        font-weight: 700;
-	        text-align: left;
-	    }
-	    #main_head2 {
-	        text-align: right;
-	        padding-top: 2em;
-	        font-family: Arial;
-	        font-size: 1em;
-	    }
-	    #main_table2 {
-	        margin-top: 2%;
-	        border-collapse: collapse;
-	        border: 2px solid #9966FF;
-	        text-align: center;
-	
-	    }
-	    #main_table2 tr {
-	        border: solid #9966FF;
-	        height: 100px;
-	    }
-	    #main_table2 td {
-	        padding: 10px 0;
-	    }
-	
-	
-	
-	    #main_table2 input {
-	        width: 240px;
-	        margin-left: 20px;
-	        background-color: #faf5f5;
-	        border: solid 1px lightgray;
-	        height: 30px;
-	        font-size: 1.2em;
-	    }
-	
-	    #mailinput2 {
-	        text-align: center;
-	        margin: 10px 20px;
-	    }
-	    #mailinput2::placeholder {
-	        color: lightgray;
-	        font-size:13.5px;
-	    }
-	
-	    .table2_td1 {
-	        text-align: center;
-	        width: 28%;
-	        font-family: 'Raleway', sans-serif;
-	        font-size: 1.2em;
-	        border-right: solid 2px #9966FF;
-	        background-color: #c0ace8;
-	        color:white;
-	    }
-	
-	    .table2_td2 {
-	        text-align: center;
-	        width: 3%;
-	        border-right: hidden;
-	    }
-	    .table2_td3 {
-	        width: 10%;
-	        border-right: hidden;
-	        border-left: hidden;
-	        font-size: 13.5px;
-	    }
-	    .table2_td4 {
-	        font-size: 12.8px;
-	        font-style: italic;
-	    }
-	    #table2_tr3_td3 {
-	        border-right: solid 2px #9966FF;
-	        text-align: right;
-	        padding-right: 20px;
-	    }
-	
-	    .t2_btn {
-	        background-color: #9966FF;
-	        color: white;
-	        border: #9966FF;
-	        font-size: 13px;
-	        padding: 9px;
-	        margin-left: 5%
-	    }
-	
-	    #submit_btn {
-	        margin-right: 30px;
-	        padding: 10px;
-	    }
-	
-	    #email_tr {
-	        text-align: center;
-	    }
-	
-	    #table2_mtd1 {
-	        border-right: hidden;
-	    }
-	
-	    #table2_mtd2 {
-	        width: 20%;
-	        border-right: hidden;
-	        padding-right: 30px;
-	        padding-top: 20px;
-	    }
-	    #table2_mtd3 {
-	        width: 10%;
-	        border-right: hidden;
-	        padding-right: 30px;
-	        padding-top: 20px;
-	        margin-right: 30px;
-	    }
-	    #table2_mtd4 {
-	        width: 20%;
-	        margin-right: 30px;
-	    }
-	    #email_option {
-	        width: 140px;
-	        height: 2em;
-	    }
-	
-	    .hiddendiv_email {
-	        color: limegreen;
-	        padding-top: 5px;
-	        padding-left: 20px;
-	        text-align: center;
-	        font-size: 10px;
-	    }
-	    .hiddendiv_email_sub {
-	        font-size: 10px;
-	
-	    }
-	    #hiddenspan_pass2 {
-	        text-align: center;
-	    }
-	    /*#hiddendiv_pass2_cor {
-	        text-align: center;
-	        color: limegreen;
-	
-	    }
-	    #hiddendiv_pass2_incor {
-	        text-align: center;
-	        color: red;
-	    }*/
-	
-	    #last_tr {
-	        text-align: right;
-	    }
-	    #last_tr td {
-	        border-right: hidden;
-	        border-left: hidden;
-	        border-bottom: hidden;
-	    }
+
+/* header {
+    text-align: center;
+    font-size: 25px;
+    color: white;
+    background-color: #9966FF;
+    font-family: Pacifico;
+    margin: 0 auto;
+    width: 90%;
+    padding-bottom: 0.1px;
+} */
+body {
+    max-width: 1060px;
+    width: 1060px;
+    margin: 0 auto;
+}
+
+/*aside 단*/
+.signup_leftside {
+    float: left;
+    font-family: 'Raleway', sans-serif;
+    font-weight: 600;
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    width: 25%;
+    background-color: white;
+    height: 640px;
+    border-right: solid 2px lightgray;
+}
+#aside_box1 {
+    border: solid 3px #9966FF;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 100px 65px;
+    padding: 30px;
+    background-color: white;
+}
+#aside_box2 {
+    border: solid 3px #9966FF;
+    box-sizing: border-box;
+    border-radius: 20px;
+    margin: 80px 65px;
+    padding: 30px;
+    background-color: #9966FF;
+    color: white;
+}
+/*메인단*/
+.signup_main {
+    margin-top: 40px;
+    margin-left: 28%;
+    margin-right: 5%;
+}
+#main_div1 {
+    border-bottom: solid 3px #9966FF;
+    padding-bottom: 0.3em;
+}
+#main_table1 {
+    width: 100%;
+}
+
+#main_head {
+    padding-top: 5px;
+    font-family: Impact;
+    color: #9966FF;
+    font-size: 2em;
+    font-weight: 700;
+    text-align: left;
+}
+#main_head2 {
+    text-align: right;
+    padding-top: 2em;
+    font-family: Arial;
+    font-size: 1em;
+}
+#main_table2 {
+    margin-top: 2%;
+    border-collapse: collapse;
+    border: 2px solid #9966FF;
+    text-align: center;
+
+}
+#main_table2 tr {
+    border: solid #9966FF;
+    height: 100px;
+}
+#main_table2 td {
+    padding: 10px 0;
+}
+
+
+
+#main_table2 input {
+    width: 240px;
+    margin-left: 20px;
+    background-color: #faf5f5;
+    border: solid 1px lightgray;
+    height: 30px;
+    font-size: 1.2em;
+}
+
+#mailinput2 {
+    text-align: center;
+    margin: 10px 20px;
+}
+#mailinput2::placeholder {
+    color: lightgray;
+    font-size:13.5px;
+}
+
+.table2_td1 {
+    text-align: center;
+    width: 28%;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2em;
+    border-right: solid 2px #9966FF;
+    background-color: #c0ace8;
+    color:white;
+}
+
+.table2_td2 {
+    text-align: center;
+    width: 3%;
+    border-right: hidden;
+}
+.table2_td3 {
+    width: 10%;
+    border-right: hidden;
+    border-left: hidden;
+    font-size: 13.5px;
+}
+.table2_td4 {
+    border-radius: 5px;
+    font-size: 12.8px;
+    font-style: italic;
+}
+#table2_tr3_td3 {
+    border-right: solid 2px #9966FF;
+    text-align: right;
+    padding-right: 20px;
+}
+
+.t2_btn {
+    background-color: #9966FF;
+    color: white;
+    border: #9966FF;
+    font-size: 13px;
+    padding: 9px;
+    margin-left: 5%
+}
+
+#submit_btn {
+    margin-right: 30px;
+    padding: 10px;
+}
+
+#email_tr {
+    text-align: center;
+}
+
+#table2_mtd1 {
+    border-right: hidden;
+}
+
+#table2_mtd2 {
+    width: 20%;
+    border-right: hidden;
+    padding-right: 30px;
+    padding-top: 20px;
+}
+#table2_mtd3 {
+    width: 10%;
+    border-right: hidden;
+    padding-right: 30px;
+    padding-top: 20px;
+    margin-right: 30px;
+}
+#table2_mtd4 {
+    width: 20%;
+    margin-right: 30px;
+}
+#email_option {
+    width: 140px;
+    height: 2em;
+}
+
+.hiddendiv_email {
+    color: limegreen;
+    padding-top: 5px;
+    padding-left: 20px;
+    text-align: center;
+    font-size: 10px;
+}
+.hiddendiv_email_sub {
+    font-size: 10px;
+
+}
+#hiddenspan_pass2 {
+    text-align: center;
+}
+/*#hiddendiv_pass2_cor {
+    text-align: center;
+    color: limegreen;
+
+}
+#hiddendiv_pass2_incor {
+    text-align: center;
+    color: red;
+}*/
+
+#last_tr {
+    text-align: right;
+}
+#last_tr td {
+    border-right: hidden;
+    border-left: hidden;
+    border-bottom: hidden;
+}

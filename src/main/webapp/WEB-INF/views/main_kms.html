@@ -10,65 +10,54 @@
 			margin: 0px auto;
 		}
 
-		#img1 {
-			position: relative;
-		}
+        .slideshow-container {
+            max-width: 1000px;
+            max-height: 300px;
+            position: relative;
+            margin: auto;
+        }
 
-		.circle1 {
-			border-radius: 50%;
-			width: 10px;
-			height: 10px;
-			background-color: gray;
-			border: 1px solid white;
-			position: absolute;
-			top: 330px;
-			right: 1000px;
-		}
-		.circle1:active {
-			background-color: #B2CCFF;
-		}
+        .slideshow-container .mySlides img {
+            width: 1000px;
+            height: 300px;
+        }
 
-		.circle2  {
-			border-radius: 50%;
-			width: 10px;
-			height: 10px;
-			background-color: gray;
-			border: 1px solid white;
-			position: absolute;
-			top: 330px;
-			right: 975px;
-		}
-		.circle2:active {
-			background-color: #B2CCFF;
-		}
+        .mySlides {
+            display: none;
+        }
 
-		.circle3  {
-			border-radius: 50%;
-			width: 10px;
-			height: 10px;
-			background-color: gray;
-			border: 1px solid white;
-			position: absolute;
-			top: 330px;
-			right: 950px;
-		}
-		.circle3:active {
-			background-color: #B2CCFF;
-		}
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6 ease;
+        }
 
-		.circle4  {
-			border-radius: 50%;
-			width: 10px;
-			height: 10px;
-			background-color: gray;
-			border: 1px solid white;
-			position: absolute;
-			top: 330px;
-			right: 925px;
-		}
-		.circle4:active {
-			background-color: #B2CCFF;
-		}
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+
+        /* Fading animation */
+        .fade {
+            -webkit-animation-name: fade;
+            -webkit-animation-duration: 1.5s;
+            animation-name: fade;
+            animation-duration: 1.5s;
+        }
+
+        @-webkit-keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
+
+        @keyframes fade {
+            from {opacity: .4}
+            to {opacity: 1}
+        }
 
 		#title1 {
 			color: #9966FF;
@@ -107,19 +96,49 @@
 		}
 	</style>
 	<script type="text/javascript">
-		function toggleImg() {
-			document.getElementById("img1").src="../img_kms/mainimg1.jpg";
-		}
-		function toggleImg2() {
-			document.getElementById("img1").src="../img_kms/mainimg2.jpg";
-		}
-		function toggleImg3() {
-			document.getElementById("img1").src="../img_kms/mainimg3.jpg";
-		}
-		function toggleImg4() {
-			document.getElementById("img1").src="../img_kms/mainimg4.jpg";
+	    var slideIndex = 0; //slide index
+	
+	// HTML 로드가 끝난 후 동작
+	window.onload=function() {
+		showSlides(slideIndex);
+
+		// Auto Move Slide
+		var sec = 3000;
+		setInterval(function() {
+			slideIndex++;
+			showSlides(slideIndex);
+		}, sec);
+	}
+
+	// Thumbnail image controls
+	function currentSlide(n) {
+		slideIndex = n;
+		showSlides(slideIndex);
+	}
+
+	function showSlides(n) {
+		var slides = document.getElementsByClassName("mySlides");
+		var dots = document.getElementsByClassName("dot");
+		var size = slides.length;
+
+		if((n+1) > size) {
+			slideIndex = 0; n = 0;
+		} else if(n < 0) {
+			slideIndex = (size-1);
+			n = (size-1);
 		}
 
+		for(i = 0; i< slides.length; i++) {
+			slides[i].style.display = "none";
+		}
+
+		for(i = 0; i< dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+		}
+
+		slides[n].style.display = "block";
+		dots[n].className += " active";
+	}
 		function pfBtn1() {
 			document.getElementById("bestImg1").src="../img_kms/performance1.jpg";
 			document.getElementById("bestImg2").src="../img_kms/performance2.jpg";
@@ -142,14 +161,31 @@
 </head>
 <body>
 	<h3 id="title1">이달의 인기 여행지</h3>
-	<div align="center"  >
-		<img  id="img1" src="../img_kms/seoul2.jpg" width="1000" height="300" >
-		<div class="circle1" onclick="toggleImg()"></div>
-		<div class="circle2" onclick="toggleImg2()"></div>
-		<div class="circle3" onclick="toggleImg3()"></div>
-		<div class="circle4" onclick="toggleImg4()"></div>
+	<div class="slideshow-container" >
+        <div class="mySlides fade">
+            <img src="../img_kms/mainimg1.jpg" style="width: 100%;">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="../img_kms/mainimg2.jpg" style="width: 100%;">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="../img_kms/mainimg3.jpg" style="width: 100%;">
+        </div>
+
+        <div class="mySlides fade">
+            <img src="../img_kms/mainimg4.jpg"style="width: 100%;">
+        </div>
+
+        <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
 	</div>
-	
+
 	<h3 id="title2">이달의 추천 공연/전시/축제</h3>
 	<table bgcolor="#6799FF" align="center" id="table1" border="1px solid black">
 		<tr>
