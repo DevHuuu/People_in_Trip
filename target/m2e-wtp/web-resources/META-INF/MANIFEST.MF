@@ -1,14 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: yoyoy
 Build-Jdk: 11.0.14
-=======
-<<<<<<< HEAD
-Built-By: Runner
-=======
-Built-By: LST
->>>>>>> 4acd9a80d765a7efce4ac4e25bd970e85bcf5ddc
-Build-Jdk: 11.0.14.1
->>>>>>> 9babe393de472911b5df11599f9dcc79debecfe5
 Created-By: Maven Integration for Eclipse
 
