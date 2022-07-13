@@ -14,10 +14,10 @@
     <title>회원가입_정보 입력</title>
 </head>
 <body>
-	<header>
-		<jsp:include page="/header_lhj/header.jsp" flush="false" />
-	    <!-- <div><h1>People in trip</h1></div> -->
-	</header>
+	<!-- <header>
+	    <div><h1>People in trip</h1></div>
+	</header> -->
+	<jsp:include page="/header_lhj/header.jsp" flush="false" />
 	<div class="signup_box">
 	    <aside class="signup_leftside">
 	        <div id="aside_box1">정보<br/>입력</div>
@@ -44,7 +44,7 @@
 	                        </td>
 	                        <td colspan="2" class="table2_td4" id="input_not1">
 	                                <span>영문, 숫자를 조합하여 <br/> 6~20자 이내로 입력하세요.<br/>
-	                                    (대소문자 구별X. 한글, 특수문자, <br/>띄어쓰기 사용 불가)
+	                                    <!-- (대소문자 구별X. 한글, 특수문자, <br/>띄어쓰기 사용 불가) -->
 	                                </span>
 	                        </td>
 	
@@ -76,7 +76,7 @@
 	                        <td class="table2_td3"><button class="t2_btn" type="button">중복<br/>확인</button></td>
 	                        <td colspan="2" class="table2_td4" id = "input_not3" >
 	                                <span >한글, 영문, 숫자 사용이 가능합니다. <br/> 6~20자 이내로 입력하세요. <br/> 한글은 최대 10자까지 입력 가능합니다.<br/>
-	                                    (대소문자 구별X. 특수문자, <br/> 띄어쓰기 사용 불가)
+	                                    <!-- (대소문자 구별X. 특수문자, <br/> 띄어쓰기 사용 불가) -->
 	                                </span>
 	                        </td>
 	                    </tr>
