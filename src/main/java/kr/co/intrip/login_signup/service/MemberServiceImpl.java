@@ -30,9 +30,19 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.find_id(memberDTO, session);
 	}	
 	
-	// 아이디 찾기
+	// 아이디 찾기1
 	@Override
 	public MemberDTO find_id_out(MemberDTO memberDTO, HttpSession session) throws Exception {
 		return memberDAO.find_id_out(memberDTO, session);
-		}	
+	}	
+	//비밀번호 찾기
+	@Override
+	public MemberDTO find_pw(MemberDTO memberDTO) {
+		return memberDAO.find_pw(memberDTO);
+	}
+	//비밀번호 변경
+	@Override
+	public void update_pw(MemberDTO memberDTO) {
+		memberDAO.update_pw(memberDTO);
+	}
 }

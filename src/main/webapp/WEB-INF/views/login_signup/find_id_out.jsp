@@ -17,7 +17,7 @@ request.setCharacterEncoding("UTF-8");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 	function page() {
-		window.location.href = "../login_phj/login_phj";
+		window.location.href = "login";
 	}
 </script>
 </head>

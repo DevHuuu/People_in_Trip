@@ -15,8 +15,24 @@ request.setCharacterEncoding("UTF-8");
 <link rel="stylesheet" href="../resources/css/search_kjh/idSearch.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script type="text/javascript"
-	src="../resources/js/search_kjh/pwSearchOutput.js"></script>
+<script type="text/javascript">
+	function cheak1() {
+		if ($("#SPWD").val() == "") {
+			alert("비밀번호를 입력해주세요");
+			$("#SPWD").focus();
+			return false;
+		}
+		if ($("#SPWD").val() != $("#SPWD1").val()) {
+			alert("비밀번호를 다시 확인해주세요");
+			$("#SPWD").val("");
+			$("#SPWD1").val("");
+			$("#SPWD").focus();
+			return false;
+		} else {
+			return window.location.href = "login";
+		}
+	}
+</script>
 </head>
 <body>
 	<form action="${contextPath}/search_kjh/pwSearchOutPut"
