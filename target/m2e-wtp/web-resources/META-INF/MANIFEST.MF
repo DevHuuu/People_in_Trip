@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
+Built-By: Runner
+=======
 Built-By: LST
+>>>>>>> 4acd9a80d765a7efce4ac4e25bd970e85bcf5ddc
 Build-Jdk: 11.0.14.1
 Created-By: Maven Integration for Eclipse
 

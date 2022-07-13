@@ -11,6 +11,7 @@ import lombok.Getter;
 @Data
 public class MemberDTO {	
 	private String id;
+	private String name;
 	private String pwd;
 	private String nick_nm;
 	private String email;

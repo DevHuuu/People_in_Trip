@@ -10,4 +10,6 @@ public interface MemberService {
 
 	public MemberDTO find_id(MemberDTO memberDTO, HttpSession session) throws Exception;
 	public MemberDTO find_id_out(MemberDTO memberDTO, HttpSession session) throws Exception;
+	MemberDTO find_pw(MemberDTO memberDTO);
+	void update_pw(MemberDTO memberDTO);
 }
