@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPage</title>
+    <style>
+        * {
+            padding:0;
+            margin:0;
+        }
+
+        body {
+            width: 1200px;
+            display: flex;
+            max-width: 1060px;
+            height: 600px;
+            margin: 0px auto;
+        }
+        nav {
+            width: 20%;
+            border-right: 1px solid black;
+        }
+        .mypage1 {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 600;
+            padding: 8px 12px;
+        }
+        .lists {
+            margin-top: 20px;
+            list-style: none;
+        }
+        .lists > li {
+            font-size: 15px;
+            padding: 5px 45px;
+            text-align: left;
+        }
+        
+        .lists > li >a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        main {
+            width: 80%;
+        }
+       
+        .mypage2 {
+            font-size: 25px;
+            font-weight: 600;
+            padding: 5px 20px;
+        }
+        .imgBox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btnBox {
+            display: flex;
+        }
+        .btnBox > div {
+            width: 100%;
+        }
+        .upload_div {
+            display: flex;
+            justify-content: center;
+        }
+        .save_div {
+            display: flex;
+            justify-content: flex-end;
+        }
+        .btn{
+            background-color: #9966ff;
+            color: white;
+            border: none;
+        }
+
+        #uploadimg {
+            padding: 0px 12px;
+        }
+
+        #saveimg {
+            padding: 8px 12px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="mypage1">
+            <p>마이페이지</p>
+        </div>
+        <hr/>
+            <ul class="lists">
+                <li><a href="#">- 내 정보 수정</a></li>
+                <li><a href="#">- 비밀번호 변경</a></li>
+                <li><a href="#">- 내가 쓴 글</a></li>
+                <li><a href="#">- 찜한 목록</a></li>
+                <li><a href="#">- 회원탈퇴</a></li>
+            </ul>
+    </nav>
+    <main>
+        <div class="mypage2"><p>내 정보 수정 - 이미지 변경</p></div>
+        <hr/>
+        <div class="imgBox">
+            <img alt="프로필 이미지" src="다운로드.jfif" width="400px" hwight="400px"/>
+        </div>
+        <br/><br/>
+        <p>정지이미지의 경우: 5MB 이하의 JPEG(권장), GIF, PNG 형식 이미지를 업로드 할 수 있습니다.</p>
+        <br/><br/>
+        <div class="btnBox">
+            <div class="select_div">
+                <input type="file" value="파일 선택" name="upload_profileimg" id="selectimg"/>
+            </div>
+            <div class="upload_div">
+                <input type="button" value="이미지 업로드하기" id="uploadimg" class="btn"/>
+            </div>
+            <div class="save_div">
+                <input type="submit" value="저장" id="saveimg" class="btn"/>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
