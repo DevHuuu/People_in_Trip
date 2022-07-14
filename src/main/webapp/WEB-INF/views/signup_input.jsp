@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +35,7 @@
 	            </table>
 	        </div>
 	        <div id="main_div2">
-	            <form name="form_input" >
+	        	<form action="#" name="form_input" method="post"  >
 	                <table id="main_table2" border="1">
 	                    <tr>
 	                        <td class="table2_td1"><strong>아이디</strong></td>

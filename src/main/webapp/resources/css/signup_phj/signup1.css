@@ -14,9 +14,9 @@ body {
 	text-align: center;
 	width: 25%;
 	background-color: white;
-	height: 512px;
+	height: 550px;
 	border-right: solid 2px lightgray;
-	margin-top: 100px;
+	margin-top: 15px;
 }
 
 #aside_box1 {
@@ -59,7 +59,7 @@ body {
     width: 65.5%;
 	margin-left: 300px;
 	position:relative;
-	margin-top: 68px;
+	margin-top: -6px;
 	/* width: 54%;
 	padding-left: 330px;
 	margin-left: 300px; */
