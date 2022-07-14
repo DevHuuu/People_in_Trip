@@ -28,13 +28,13 @@
 				</ul>
 				<button type="submit" id="login_bt" onclick="loginChk();"><strong>로그인</strong></button>
 				 <c:if test="${message == 'error'}">
-				 <div style="color:red;"> 아이디 또는 비밀번호가 일치하지 않습니다.</div>
+				 <div style="color:red;">아이디 또는 비밀번호를 확인해주세요!</div>
 				</c:if>
 			</div>
 		</form>
 		<div>
 			<p id="login_ez">간편하게 로그인 하기</p><br>
-			<a href="#"><img src="../resources/images/login_phj/google.png" /></a> 
+			<a href="#" ><img src="../resources/images/login_phj/google.png" /></a> 
 			<a href="#"><img src="../resources/images/login_phj/kakao.png" /></a>
 			<a href="#"><img src="../resources/images/login_phj/naver.png" /></a> 
 		</div>
