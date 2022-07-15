@@ -6,23 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마이페이지</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            width: 1200px;
+            max-width: 1060px;
+            margin: 0px auto;            
+        }
         .cls1 {
-            border: solid 1px red;
+            font-size: 25px;
+            font-weight: 500;
+            padding: 15px;
+            border-bottom: solid 2px black;
+            /* border: solid 1px red; */
         }
         .cls2 {
-            border: solid 1px black;
+            display: flex;
         }
         .cls3 {
-            border: solid 1px purple;
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+            padding: 20px 0;
+            border-bottom: solid 1px #bfbfbf;
+            /* border: solid 1px purple; */
+        }
+        .wait {
+            border: solid 1px red;
+        }
+        .img_box {
+            display: flex;
+            justify-content: flex-end;
+            flex-grow: 1;
+        }
+
+        .cls3 a {
+            padding: 3px 12px;
+            text-decoration: none;
+            background-color: #9966ff;
+            color: white;
+            border-radius: 5px;
+            
         }
 
     </style>
 </head>
 <body>
     <p class="cls1">마이페이지</p>
-    <hr/>
+    <hr/><br/><br/>
     <div class="cls2">
-        <br/><br/>
         <table>
             <tr>
                 <td>닉네임: </td>
@@ -37,7 +71,7 @@
                 <td>apple@gmail.com</td>
             </tr>
         </table>
-        <div>
+        <div class="img_box">
             <img alt="프로필 이미지" src="apple.jfif"/>
         </div>
     </div>
@@ -48,6 +82,61 @@
         </div>
     </div>
     <br/><br/>
-    <hr/>
+    <p class="cls1">내가 쓴 글</p>
+    <hr/><br/><br/>
+    <div class="wait">
+        <table align="center">
+            <tr align="center">
+                <td width="5%">번호</td>
+                <td width="45%">제목</td>
+                <td width="10%">작성자</td>
+                <td width="10%">작성일</td>
+                <td width="5%">추천</td>
+                <td width="5%">조회수</td>
+        </table>
+        <div>페이징</div>
+        <div>
+            <select>
+                <option>제목</option>
+                <option>내용</option>
+                <option>제목+내용</option>
+            </select>
+            <input type="text" />
+            <input type="submit" value="검색" />
+        </div>
+    </div>
+    <br/><br/>
+    <p class="cls1">찜한 내역</p>
+    <hr/><br/><br/>
+    <div class="wait">
+        <select>
+            <option>전체</option>
+            <option>관광지</option>
+            <option>축제</option>
+            <option>공연</option>
+            <option>전시</option>
+        </select>
+        <table>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+        </table>
+        <div>페이징</div>
+    </div>
 </body>
 </html>
