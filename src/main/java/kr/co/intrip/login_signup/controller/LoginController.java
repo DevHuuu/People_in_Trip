@@ -68,7 +68,13 @@ public class LoginController {
 	// 회원가입 완료 페이지
 
 	@GetMapping("login_signup/signupcomplete")
+<<<<<<< HEAD
+
+	public String signupcomplete(HttpServletRequest request, HttpServletResponse response) {
+
+=======
 	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
+>>>>>>> e785e68007601c60c79cec046ea8342d92dcc763
 		return "login_signup/signupcomplete";
 	}
 
