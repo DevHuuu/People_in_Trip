@@ -12,7 +12,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import kr.co.intrip.login_signup.dto.MemberDTO;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -57,12 +60,10 @@ public class LoginController {
 		session.invalidate();
 		log.info("로그아웃 성공");
 		mav.setViewName("redirect:/login_signup/login");
-		
 		return mav;
 	}
-
+	
 	// 회원가입 완료 페이지
-
 	@GetMapping("login_signup/signupcomplete")
 	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
 		return "login_signup/signupcomplete";
@@ -143,5 +144,32 @@ public class LoginController {
 		mav.setViewName("signup_certifyemailcode");
 		
 		return mav;
+	}
+	
+	/* 구글아이디로 로그인 */	
+	@ResponseBody
+    @PostMapping("/loginGoogle")
+	public String loginGooglePOST(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception{
+		MemberDTO returnDTO = memberService.loginMemberByGoogle(memberDTO);
+		String mvo_ajaxid = mmemberDTO.getId(); 
+		log.info("C: 구글아이디 포스트 db에서 가져온 vo "+ memberDTO);
+		log.info("C: 구글아이디 포스트 ajax에서 가져온 id "+ mvo_ajaxid);
+		if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
+			//구글 회원가입
+			memberService.joinMemberByGoogle(memberDTO);				
+			//구글 로그인
+			returnDTO = memberService.loginMemberByGoogle(memberDTO);
+			session.setAttribute("id", returnDTO.getId());			
+			rttr.addFlashAttribute("mmemberDTO", returnDTO);
+			log.info("구글 로그인 성공1");
+		}
+		else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
+			//구글 로그인
+			memberService.loginMemberByGoogle(memberDTO);
+			session.setAttribute("id", returnDTO.getId());			
+			rttr.addFlashAttribute("mmemberDTO", returnDTO);
+			log.info("구글 로그인 성공2");
+		}	
+		return "redirect:/login_signup/signupcomplete";		
 	}
 }

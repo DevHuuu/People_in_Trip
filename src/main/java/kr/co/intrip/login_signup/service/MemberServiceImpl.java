@@ -1,16 +1,14 @@
 package kr.co.intrip.login_signup.service;
 
-import java.io.PrintWriter;
-
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import kr.co.intrip.login_signup.controller.LoginController;
 import kr.co.intrip.login_signup.dao.MemberDAO;
 import kr.co.intrip.login_signup.dto.MemberDTO;
 import lombok.extern.slf4j.Slf4j;
+
 @Slf4j
 @Service
 public class MemberServiceImpl implements MemberService {
@@ -44,5 +42,25 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public void update_pw(MemberDTO memberDTO) {
 		memberDAO.update_pw(memberDTO);
+	}
+	
+	// 구글 로그인
+	@Override
+	public MemberDTO loginMemberByGoogle(MemberDTO memberDTO) {
+		MemberDTO returnVO = null;
+		try {
+			returnVO = memberDAO.readMemberWithIDPW(memberDTO.getId());
+			log.info("S: 로그인 아이디 : "+memberDTO.getId()+" 이름 : "+memberDTO.getName());
+		} catch (Exception e) {
+			e.printStackTrace();
+			returnVO = null; //실행하다 문제가 생겼을때 해당 데이터를 보내지않겠다는 의미 = 예외처리
+		}
+		return returnVO;
+	}
+
+	//구글 회원가입
+	@Override
+	public void joinMemberByGoogle(MemberDTO memberDTO) {
+		memberDAO.joinMemberByGoogle(memberDTO);			
 	}
 }

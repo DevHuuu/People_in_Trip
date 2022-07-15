@@ -1,15 +1,11 @@
 package kr.co.intrip.login_signup.dao;
 
 import javax.servlet.http.HttpSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import kr.co.intrip.login_signup.dto.MemberDTO;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Repository
 public class MemberDAO {
 
@@ -38,6 +34,16 @@ public class MemberDAO {
 	// 비밀번호 변경
 	public void update_pw(MemberDTO memberDTO) {
 		sqlSession.update("mapper.member.update_pw", memberDTO);
+	}
+	
+	// 구글 로그인
+	public MemberDTO readMemberWithIDPW(String id) {
+		return sqlSession.selectOne("mapper.member.readMemberWithIDPW", id);
+	}
+
+	// 구글 회원가입
+	public int joinMemberByGoogle(MemberDTO memberDTO){
+		return sqlSession.insert("mapper.member.joinMemberByGoogle", memberDTO);
 	}
 
 }
