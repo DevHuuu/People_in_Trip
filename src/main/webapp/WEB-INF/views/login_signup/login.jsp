@@ -60,6 +60,7 @@ function handleCredentialResponse(response) {
 		    type : 'post',
 		    data : {
 				"id" : responsePayload.sub,
+				"name" : responsePayload.name,
 				"pwd" : responsePayload.sub,
 		        "nick_nm" : responsePayload.name,
 				"email" : responsePayload.email, 

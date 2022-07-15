@@ -50,7 +50,7 @@ public class MemberServiceImpl implements MemberService {
 		MemberDTO returnVO = null;
 		try {
 			returnVO = memberDAO.readMemberWithIDPW(memberDTO.getId());
-			log.info("S: 로그인 아디: "+memberDTO.getId()+" 닉네임: "+memberDTO.getNick_nm());
+			log.info("S: 로그인 아이디 : "+memberDTO.getId()+" 이름 : "+memberDTO.getName());
 		} catch (Exception e) {
 			e.printStackTrace();
 			returnVO = null; //실행하다 문제가 생겼을때 해당 데이터를 보내지않겠다는 의미 = 예외처리
