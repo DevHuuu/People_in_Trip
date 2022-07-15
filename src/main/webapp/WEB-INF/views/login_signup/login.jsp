@@ -39,7 +39,8 @@
 		<div>
 			<p id="login_ez">간편하게 로그인 하기</p><br>		
 			<div id="buttonDiv"></div>
-			<a href="#"><img src="../resources/images/login_phj/kakao.png" /></a>
+			<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=324f9639dc834b0464a6ccdfff50c908&redirect_uri=http://localhost:8080/intrip/kakaologin&response_type=code">
+			<img src="../resources/images/login_phj/kakao_login_medium.png"></a>
 			<a href="#"><img src="../resources/images/login_phj/naver.png" /></a> 
 		</div>
 	</div>
@@ -63,10 +64,7 @@ function handleCredentialResponse(response) {
 				"name" : responsePayload.name,
 				"pwd" : responsePayload.sub,
 		        "nick_nm" : responsePayload.name,
-				"email" : responsePayload.email, 
-				"join_Date" : date.getFullYear() + "-" + ("0" +(date.getMonth() +1)).slice(-2) + "-" +
-							("0"+date.getDate()).slice(-2),
-				"grade" : "일반회원"
+				"email" : responsePayload.email
 			    },
 		    success : function (data) {
 		            alert("구글아이디로 로그인 되었습니다");

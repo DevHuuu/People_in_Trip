@@ -1,5 +1,7 @@
 package kr.co.intrip.login_signup.dao;
 
+import java.util.HashMap;
+
 import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,7 @@ public class MemberDAO {
 	@Autowired
 	SqlSession sqlSession;
 
+	// 로그인
 	public MemberDTO Login(MemberDTO memberDTO, HttpSession session) {
 		return sqlSession.selectOne("mapper.member.Login", memberDTO);
 	}
@@ -41,9 +44,19 @@ public class MemberDAO {
 		return sqlSession.selectOne("mapper.member.readMemberWithIDPW", id);
 	}
 
-	// 구글 회원가입
+	// 구글 로그인 정보 DB에 저장
 	public int joinMemberByGoogle(MemberDTO memberDTO){
 		return sqlSession.insert("mapper.member.joinMemberByGoogle", memberDTO);
+	}
+
+	// 카카오 로그인
+	public MemberDTO findkakao(HashMap<String, Object> userInfo) {
+		return sqlSession.selectOne("mapper.member.findKakao", userInfo);
+	}
+
+	// 카카오 로그인 정보 DB에 저장
+	public void kakaoinsert(HashMap<String, Object> userInfo) {
+		sqlSession.insert("mapper.member.kakaoInsert", userInfo);		
 	}
 
 }

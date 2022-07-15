@@ -81,10 +81,11 @@ h1 {
 }
 
 img  {
-	width: 39px;
-	height: 39px;
+	width: 60px;
+	height: 43px;
 	margin-right: 20px;
-	margin-left: 20px;
+	margin-left: 30px;
+	padding: 0px;
 }
 
 #buttonDiv {

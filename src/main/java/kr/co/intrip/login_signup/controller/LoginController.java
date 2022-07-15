@@ -4,7 +4,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,10 +11,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import kr.co.intrip.login_signup.dto.MemberDTO;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
@@ -56,7 +55,6 @@ public class LoginController {
 	@GetMapping("logout")
 	public ModelAndView logout(HttpSession session)throws Exception {
 		ModelAndView mav = new ModelAndView();
-		log.info("user : " + session.getAttribute("user"));
 		session.invalidate();
 		log.info("로그아웃 성공");
 		mav.setViewName("redirect:/login_signup/login");
@@ -151,25 +149,40 @@ public class LoginController {
     @PostMapping("/loginGoogle")
 	public String loginGooglePOST(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception{
 		MemberDTO returnDTO = memberService.loginMemberByGoogle(memberDTO);
-		String mvo_ajaxid = mmemberDTO.getId(); 
-		log.info("C: 구글아이디 포스트 db에서 가져온 vo "+ memberDTO);
-		log.info("C: 구글아이디 포스트 ajax에서 가져온 id "+ mvo_ajaxid);
+		String mvo_ajaxid = mmemberDTO.getId(); 		
+		
 		if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
-			//구글 회원가입
-			memberService.joinMemberByGoogle(memberDTO);				
+			//구글 회원가입			
+			memberService.joinMemberByGoogle(memberDTO);	
 			//구글 로그인
 			returnDTO = memberService.loginMemberByGoogle(memberDTO);
 			session.setAttribute("id", returnDTO.getId());			
 			rttr.addFlashAttribute("mmemberDTO", returnDTO);
-			log.info("구글 로그인 성공1");
+			log.info("구글 로그인 성공[DB존재X]");
 		}
 		else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
 			//구글 로그인
 			memberService.loginMemberByGoogle(memberDTO);
 			session.setAttribute("id", returnDTO.getId());			
 			rttr.addFlashAttribute("mmemberDTO", returnDTO);
-			log.info("구글 로그인 성공2");
+			log.info("구글 로그인 성공[DB존재O]");
 		}	
+		log.info("google user : "+ returnDTO);
 		return "redirect:/login_signup/signupcomplete";		
 	}
+	
+	// 카카오 로그인
+	@GetMapping("kakaologin")
+	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session) throws Exception {	
+		String access_Token = memberService.getAccessToken(code);		
+		MemberDTO userInfo = memberService.getUserInfo(access_Token);
+		log.info("카카오 로그인 성공");
+		log.info("kakao user : " + userInfo);
+		
+		session.setAttribute("name", userInfo.getName());
+		session.setAttribute("Email", userInfo.getEmail());
+		
+		return "redirect:/login_signup/signupcomplete";
+    }
+
 }

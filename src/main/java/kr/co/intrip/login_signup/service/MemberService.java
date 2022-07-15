@@ -16,4 +16,10 @@ public interface MemberService {
 	
 	// 구글 회원가입
 	public void joinMemberByGoogle(MemberDTO memberDTO);
+
+	// 카카오
+	public String getAccessToken(String code);
+	
+	// 카카오
+	public MemberDTO getUserInfo(String access_Token);
 }
