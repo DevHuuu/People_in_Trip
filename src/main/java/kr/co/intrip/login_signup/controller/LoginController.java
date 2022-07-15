@@ -60,7 +60,6 @@ public class LoginController {
 		session.invalidate();
 		log.info("로그아웃 성공");
 		mav.setViewName("redirect:/login_signup/login");
-		
 		return mav;
 	}
 	
@@ -157,28 +156,19 @@ public class LoginController {
 		log.info("C: 구글아이디 포스트 ajax에서 가져온 id "+ mvo_ajaxid);
 		if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
 			//구글 회원가입
-			memberService.joinMemberByGoogle(memberDTO);	
-			
+			memberService.joinMemberByGoogle(memberDTO);				
 			//구글 로그인
 			returnDTO = memberService.loginMemberByGoogle(memberDTO);
 			session.setAttribute("id", returnDTO.getId());			
 			rttr.addFlashAttribute("mmemberDTO", returnDTO);
+			log.info("구글 로그인 성공1");
 		}
-		if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
+		else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
 			//구글 로그인
 			memberService.loginMemberByGoogle(memberDTO);
 			session.setAttribute("id", returnDTO.getId());			
 			rttr.addFlashAttribute("mmemberDTO", returnDTO);
-		}
-		else {//아이디가 DB에 존재하지 않는 경우	
-			//구글 회원가입
-			memberService.joinMemberByGoogle(memberDTO);
-			
-			//구글 로그인
-			returnDTO = memberService.loginMemberByGoogle(memberDTO);
-			session.setAttribute("id", returnDTO.getId());			
-			rttr.addFlashAttribute("mvo", returnDTO);
-
+			log.info("구글 로그인 성공2");
 		}	
 		return "redirect:/login_signup/signupcomplete";		
 	}
