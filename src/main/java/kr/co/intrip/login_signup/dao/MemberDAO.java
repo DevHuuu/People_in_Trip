@@ -35,5 +35,15 @@ public class MemberDAO {
 	public void update_pw(MemberDTO memberDTO) {
 		sqlSession.update("mapper.member.update_pw", memberDTO);
 	}
+	
+	// 구글 로그인
+	public MemberDTO readMemberWithIDPW(String id) {
+		return sqlSession.selectOne("mapper.member.readMemberWithIDPW", id);
+	}
+
+	// 구글 회원가입
+	public int joinMemberByGoogle(MemberDTO memberDTO){
+		return sqlSession.insert("mapper.member.joinMemberByGoogle", memberDTO);
+	}
 
 }

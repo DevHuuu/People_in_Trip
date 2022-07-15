@@ -20,4 +20,19 @@
 			WHERE NICK_NM = #{nick_nm} AND PWD = #{pwd}
 		]]>	
 	</select>
+	
+	<!-- 구글 로그인 -->
+	<select id="readMemberWithIDPW" resultType="memberDTO">
+		<![CDATA[
+			select * from P_MEMBER where id=#{id}
+		]]>	
+	</select>
+	
+	<!-- 구글 로그인 데이터 넘기기 -->
+	<insert id="joinMemberByGoogle" parameterType="java.util.Map">
+		<![CDATA[
+			insert into P_MEMBER (id, pwd,  nick_nm, email, join_Date, grade)
+			values (#{id}, #{pwd}, #{nick_nm}, #{email}, #{join_Date}, #{grade})
+		]]>	
+	</insert>
 </mapper>

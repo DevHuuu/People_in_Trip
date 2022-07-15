@@ -10,4 +10,10 @@ public interface MemberService {
 	public MemberDTO find_id_out(MemberDTO memberDTO, HttpSession session) throws Exception;
 	MemberDTO find_pw(MemberDTO memberDTO);
 	void update_pw(MemberDTO memberDTO);
+	
+	// 구글 로그인	
+	public MemberDTO loginMemberByGoogle(MemberDTO memberDTO);
+	
+	// 구글 회원가입
+	public void joinMemberByGoogle(MemberDTO memberDTO);
 }
