@@ -12,12 +12,13 @@
 		]]>	
 	</select>
 	
-	<!-- 아이디 찾기 -->
-	<select id="find_id" parameterType="String" resultType="memberDTO">
+	
+	<select id="find_id" resultType="memberDTO">
 		<![CDATA[
 			SELECT * 
 			FROM P_MEMBER 
-			WHERE NICK_NM = #{nick_nm} AND PWD = #{pwd}
+			WHERE NAME = #{name} AND PWD = #{pwd}
 		]]>	
 	</select>
+	
 </mapper>

@@ -1,11 +1,13 @@
 package kr.co.intrip.login_signup.service;
 
 import java.io.PrintWriter;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import kr.co.intrip.login_signup.dao.MemberDAO;
@@ -24,10 +26,11 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.Login(memberDTO, session);
 	}
 
-	// 아이디 찾기
+	
 	@Override
-	public MemberDTO find_id(MemberDTO memberDTO, HttpSession session) throws Exception {
-		return memberDAO.find_id(memberDTO, session);
+	public MemberDTO find_id(MemberDTO memberDTO) {
+		
+		return memberDAO.find_id(memberDTO);	
 	}	
 	
 	// 아이디 찾기1

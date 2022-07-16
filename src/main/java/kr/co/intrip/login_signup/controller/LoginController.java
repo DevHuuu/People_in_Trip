@@ -21,6 +21,7 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class LoginController {
 
+	
 	@Autowired
 	private MemberService memberService;
 
@@ -69,25 +70,23 @@ public class LoginController {
 	}
 
 	// 아이디찾기 페이지
-	@RequestMapping(value = "login_signup/find_id_page")
-	public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
+	@RequestMapping(value = "login_signup/find_id1")
+	public String find_id_page() {
 		return "login_signup/find_id";
 	}
 
 	// 아이디 찾기 실행
-	@RequestMapping(value = "login_signup/find_id", method = RequestMethod.POST)
-	public String findIdAction(MemberDTO memberDTO, Model model, HttpSession session) throws Exception {
-		MemberDTO user = memberService.find_id(memberDTO, session);
-
-		if (user == null) {
-			model.addAttribute("check", 1);
-		} else {
-			model.addAttribute("check", 0);
-			model.addAttribute("id", user.getId());
-		}
-
+	@RequestMapping(value="login_signup/find_id", method= {RequestMethod.POST,RequestMethod.GET})
+	public String findIdAction(MemberDTO memberDTO) {
+		MemberDTO user = memberService.find_id(memberDTO);
+		
+		
+		
 		return "login_signup/find_id";
 	}
+	        
+	
+			
 
 	// 아이디찾기1 페이지
 	@RequestMapping(value = "login_signup/find_id_out")

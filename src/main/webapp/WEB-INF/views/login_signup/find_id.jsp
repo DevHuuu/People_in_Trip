@@ -18,52 +18,54 @@ request.setCharacterEncoding("UTF-8");
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
-	function check() {
-		if ($("#SNAME").val() == "") {
-			alert("이름을 입력해 주세요");
-			$("#SNAME").focus();
-			return false;
-		}
-		if ($("#SEMAIL").val() == "") {
-			alert("이메일 주소를 입력해 주세요");
-			$("#SEMAIL").focus();
-			return false;
-		}
-		if ($("#SINNUM").val() == "") {
-			alert("인증번호를 입력해 주세요");
-			$("#SINNUM").focus();
-			return false;
-		} else {
-			return window.location.href = "find_id_out";
-
-		}
+function check() {
+	
+	if (document.find_id.name.value=="") {
+		alert("이름을 입력해 주세요");
+		document.find_id.name.focus();
+		return false;
 	}
-
-	function btnchange() {
-		alert("인증번호를 발송했습니다 인증번호가 오지 않으면 입력하신 정보가 회원정보와 일치하는지 확인해 주세요");
-		const btnElement = document.getElementById('btn');
-		btnElement.innerText = '인증번호재전송';
-
+	 if (document.find_id.SEMAIL.value=="") {
+		alert("이메일 주소를 입력해 주세요");
+		document.find_id.email.focus();
+		return false;
 	}
+	 if ($("#SINNUM").val() == "") {
+		alert("인증번호를 입력해 주세요");
+		$("#SINNUM").focus();
+		return false;
+	} 
+	 else{
+		 document.find_id.submit();
+		 document.find_id.action="find_id_out";
+	 }
+}
+
+function btnchange() {
+	alert("인증번호를 발송했습니다 인증번호가 오지 않으면 입력하신 정보가 회원정보와 일치하는지 확인해 주세요");
+	const btnElement = document.getElementById('btn');
+	btnElement.innerText = '인증번호재전송';
+
+}
 </script>
 </head>
 <body>
-	<form action="${contextPath}/search_kjh/idSearch" name="find_id"
-		method="post">
 		<div class="SEARCH_FORM">
 			<h1>People in trip</h1>
 			<h5>아이디찾기</h5>
-			<input id="SNAME" type="text" onfocus="this.placeholder='';"
+		<form action="find_id" name="find_id"
+		method="get">
+			<input id="SNAME" name="name" type="text" onfocus="this.placeholder='';"
 				onblur="this.placeholder='이름'" placeholder="이름"><br> <input
 				id="SEMAIL" type="text" onfocus="this.placeholder='';"
-				placeholder="이메일" onblur="this.placeholder='이메일'"><br>
+				placeholder="이메일" name="email" onblur="this.placeholder='이메일'"><br>
 			<button type="button" class="SBTN" onclick="btnchange()" id="btn">
 				<strong>인증번호 전송</strong>
 			</button>
 			<br> <input id="SINNUM" type="text"
 				onfocus="this.placeholder='';" onblur="this.placeholder='인증번호'"
 				placeholder="인증번호"><br>
-			<button type="button" onClick="check()" class="SBTN">
+			<button type="submit" onClick="check()" class="SBTN">
 				<strong>확인</strong>
 			</button>
 		</div>
