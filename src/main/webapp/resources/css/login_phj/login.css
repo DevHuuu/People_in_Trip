@@ -35,7 +35,7 @@ h1 {
 	border: 2px solid #d0cece;
 	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 	outline: none;
-	
+	 
 }
 
 #login_pw {
@@ -80,9 +80,15 @@ h1 {
 	margin: 0px 6px;
 }
 
-img {
-	width: 30px;
-	height: 30px;
+img  {
+	width: 60px;
+	height: 43px;
 	margin-right: 20px;
-	margin-left: 20px;
+	margin-left: 30px;
+	padding: 0px;
+}
+
+#buttonDiv {
+	display: inline-block;
+	margin-right: 2%;
 }

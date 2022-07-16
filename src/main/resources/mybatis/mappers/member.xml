@@ -21,4 +21,36 @@
 		]]>	
 	</select>
 	
+<<<<<<< HEAD
+=======
+	<!-- 구글 로그인 -->
+	<select id="readMemberWithIDPW" resultType="memberDTO">
+		<![CDATA[
+			select * from P_MEMBER where id=#{id}
+		]]>	
+	</select>
+	
+	<!-- 구글 로그인 데이터 넘기기 -->
+	<insert id="joinMemberByGoogle" parameterType="java.util.Map">
+		<![CDATA[
+			insert into P_MEMBER (id, name, pwd, nick_nm, email)
+			values (#{id}, #{name}, #{pwd}, #{nick_nm}, #{email})
+		]]>	
+	</insert>
+	
+	<!-- 카카오 정보 찾기 -->
+	<select id="findKakao" parameterType="java.util.HashMap" resultType="memberDTO">
+		<![CDATA[
+			select * from P_MEMBER where name=#{nick_nm} and email=#{email}
+		]]>	
+	</select>
+
+	<!-- 카카오 정보 저장 -->
+	<insert id="kakaoInsert" parameterType="java.util.HashMap">
+		<![CDATA[
+			insert into P_MEMBER(id, pwd,  name, nick_nm, email )
+			values(#{id}, #{pwd}, #{name}, #{nick_nm}, #{email})
+		]]>
+	</insert>
+>>>>>>> 6add24aa04afb4bb945fb240488b5561fd2af85d
 </mapper>

@@ -94,70 +94,31 @@
 		.tb2th {
 			border-bottom: 1px solid;
 		}
+
+		li {
+		list-style: none;
+	}
+
+	.slide_wrapper {
+		position: relative;
+		width: 780px;
+		margin: 0 auto;
+		height: 200px;
+		overflow: hidden;
+	}
+
+	.slides {
+		padding: 0;
+		position: absolute;
+		left: 0; top: 0;
+		transition: left 0.5s ease-out;
+	}
+
+	.slides li:not(:last-child) {
+		float: left;
+		margin-right: 10px;
+	}
 	</style>
-	<script type="text/javascript">
-	    var slideIndex = 0; //slide index
-	
-	// HTML 로드가 끝난 후 동작
-	window.onload=function() {
-		showSlides(slideIndex);
-
-		// Auto Move Slide
-		var sec = 3000;
-		setInterval(function() {
-			slideIndex++;
-			showSlides(slideIndex);
-		}, sec);
-	}
-
-	// Thumbnail image controls
-	function currentSlide(n) {
-		slideIndex = n;
-		showSlides(slideIndex);
-	}
-
-	function showSlides(n) {
-		var slides = document.getElementsByClassName("mySlides");
-		var dots = document.getElementsByClassName("dot");
-		var size = slides.length;
-
-		if((n+1) > size) {
-			slideIndex = 0; n = 0;
-		} else if(n < 0) {
-			slideIndex = (size-1);
-			n = (size-1);
-		}
-
-		for(i = 0; i< slides.length; i++) {
-			slides[i].style.display = "none";
-		}
-
-		for(i = 0; i< dots.length; i++) {
-			dots[i].className = dots[i].className.replace(" active", "");
-		}
-
-		slides[n].style.display = "block";
-		dots[n].className += " active";
-	}
-		function pfBtn1() {
-			document.getElementById("bestImg1").src="../img_kms/performance1.jpg";
-			document.getElementById("bestImg2").src="../img_kms/performance2.jpg";
-			document.getElementById("bestImg3").src="../img_kms/performance3.jpg";
-			document.getElementById("bestImg4").src="../img_kms/performance4.jpg";
-		}
-		function pfBtn2() {
-			document.getElementById("bestImg1").src="../img_kms/exhibition1.jpg";
-			document.getElementById("bestImg2").src="../img_kms/exhibition2.jpg";
-			document.getElementById("bestImg3").src="../img_kms/exhibition3.jpg";
-			document.getElementById("bestImg4").src="../img_kms/exhibition4.jpg";
-		}
-		function pfBtn3() {
-			document.getElementById("bestImg1").src="../img_kms/festival1.jpg";
-			document.getElementById("bestImg2").src="../img_kms/festival2.jpg";
-			document.getElementById("bestImg3").src="../img_kms/festival3.jpg";
-			document.getElementById("bestImg4").src="../img_kms/festival4.jpg";
-		}
-	</script>
 </head>
 <body>
 	<h3 id="title1">이달의 인기 여행지</h3>
@@ -187,7 +148,7 @@
 	</div>
 
 	<h3 id="title2">이달의 추천 공연/전시/축제</h3>
-	<table bgcolor="#6799FF" align="center" id="table1" border="1px solid black">
+	<table bgcolor="#6799FF" align="center" id="table1" border="1px black">
 		<tr>
 			<th colspan="5" align="left">
 				<input type="button" value="공연" class="tb1btn" onclick="pfBtn1()">
@@ -196,15 +157,25 @@
 			</th>
 		</tr>
 		<tr>
-			<td rowspan="2" width="50" height="80">
-				<div class="tb1div"><img src="../img_kms/left.png" width="50" height="50"></div>
+			<td rowspan="2" width="50" height="30">
+				<div class="prev"><img src="../img_kms/left.png" width="50" height="50"></div>
 			</td>
-			<td rowspan="3"><img id="bestImg1" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
-			<td rowspan="3"><img id="bestImg2" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
-			<td rowspan="3"><img id="bestImg3" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
-			<td rowspan="3"><img id="bestImg4" src="../img_kms/seoul3.jpg" width="215" height="200"> </td>
-			<td colspan="2" width="50" height="80">
-				<div class="tb1div"><img src="../img_kms/right.png" width="50" height="50"></div>
+			<td rowspan="3">	
+                <div class="slide_wrapper">
+                    <ul class="slides">
+                        <li><img id="bestImg1" src="../img_kms/performance1.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg2" src="../img_kms/performance2.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg3" src="../img_kms/performance3.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg4" src="../img_kms/performance4.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg5" src="../img_kms/performance5.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg6" src="../img_kms/performance6.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg7" src="../img_kms/performance7.jpg" width="180" height="200"></li>
+                        <li><img id="bestImg8" src="../img_kms/performance8.jpg" width="180" height="200"></li>
+                    </ul>
+                </div>
+            </td>
+			<td colspan="2" width="50" height="30">
+				<div class="next"><img src="../img_kms/right.png" width="50" height="50"></div>
 			</td>
 		</tr>
 
@@ -251,5 +222,114 @@
 				<td colspan="2" align="center" class="tb2th">5</td>
 			</tr>
 		</table>
+
+	<script type="text/javascript" defer>
+		var slideIndex = 0; //slide index
+	
+		// HTML 로드가 끝난 후 동작
+		window.onload=function() {
+			showSlides(slideIndex);
+
+			// Auto Move Slide
+			var sec = 3000;
+			setInterval(function() {
+				slideIndex++;
+				showSlides(slideIndex);
+			}, sec);
+		}
+
+		// Thumbnail image controls
+		function currentSlide(n) {
+			slideIndex = n;
+			showSlides(slideIndex);
+		}
+
+		function showSlides(n) {
+			var slides = document.getElementsByClassName("mySlides");
+			var dots = document.getElementsByClassName("dot");
+			var size = slides.length;
+
+			if((n+1) > size) {
+				slideIndex = 0; n = 0;
+			} else if(n < 0) {
+				slideIndex = (size-1);
+				n = (size-1);
+			}
+
+			for(i = 0; i< slides.length; i++) {
+				slides[i].style.display = "none";
+			}
+
+			for(i = 0; i< dots.length; i++) {
+				dots[i].className = dots[i].className.replace(" active", "");
+			}
+
+			slides[n].style.display = "block";
+			dots[n].className += " active";
+		}
+
+		var slides = document.querySelector('.slides') ,
+			slide = document.querySelectorAll('.slides li') ,
+			currentIdx = 0 ,
+			slideCount = slide.length ,
+			slideWidth = 180 ,
+			slideMargin = 30 ,
+			prevBtn = document.querySelector('.prev') ,
+			netxBtn = document.querySelector('.next');
+	
+			slides.style.width = (slideWidth + slideMargin) * slideCount - slideMargin + 'px';
+
+			function moveSlide(num) {
+				slides.style.left = -num * 210 + 'px';
+				currentIdx = num;
+			}
+			netxBtn.addEventListener('click', function(){
+				if(currentIdx < slideCount - 3) {
+					moveSlide(currentIdx + 1);
+				} else {
+					moveSlide(0);
+				}
+			});
+
+			prevBtn.addEventListener('click', function(){
+				if(currentIdx > 0) {
+					moveSlide(currentIdx - 1);
+				} else {
+					moveSlide(slideCount - 3);
+				}
+				
+			});
+
+		function pfBtn1() {
+			document.getElementById("bestImg1").src="../img_kms/performance1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/performance2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/performance3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/performance4.jpg";
+			document.getElementById("bestImg5").src="../img_kms/performance5.jpg";
+			document.getElementById("bestImg6").src="../img_kms/performance6.jpg";
+			document.getElementById("bestImg7").src="../img_kms/performance7.jpg";
+			document.getElementById("bestImg8").src="../img_kms/performance8.jpg";
+		}
+		function pfBtn2() {
+			document.getElementById("bestImg1").src="../img_kms/exhibition1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/exhibition2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/exhibition3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/exhibition4.jpg";
+			document.getElementById("bestImg5").src="../img_kms/exhibition5.jpg";
+			document.getElementById("bestImg6").src="../img_kms/exhibition6.jpg";
+			document.getElementById("bestImg7").src="../img_kms/exhibition7.jpg";
+			document.getElementById("bestImg8").src="../img_kms/exhibition8.jpg";
+		}
+		function pfBtn3() {
+			document.getElementById("bestImg1").src="../img_kms/festival1.jpg";
+			document.getElementById("bestImg2").src="../img_kms/festival2.jpg";
+			document.getElementById("bestImg3").src="../img_kms/festival3.jpg";
+			document.getElementById("bestImg4").src="../img_kms/festival4.jpg";
+			document.getElementById("bestImg5").src="../img_kms/festival5.jpg";
+			document.getElementById("bestImg6").src="../img_kms/festival6.jpg";
+			document.getElementById("bestImg7").src="../img_kms/festival7.jpg";
+			document.getElementById("bestImg8").src="../img_kms/festival8.jpg";
+		}
+	</script>
 </body>
 </html>
