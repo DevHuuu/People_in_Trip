@@ -18,15 +18,16 @@ request.setCharacterEncoding("UTF-8");
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
+
 	function check() {
-		if ($("#SNAME").val() == "") {
+		if (document.find_id.name.value == "") {
 			alert("이름을 입력해 주세요");
-			$("#SNAME").focus();
+			document.find_id.name.focus();
 			return false;
 		}
-		if ($("#SEMAIL").val() == "") {
+		if (document.find_id.email.value == "") {
 			alert("이메일 주소를 입력해 주세요");
-			$("#SEMAIL").focus();
+			document.find_id.email.focus();
 			return false;
 		}
 		if ($("#SINNUM").val() == "") {
@@ -34,8 +35,8 @@ request.setCharacterEncoding("UTF-8");
 			$("#SINNUM").focus();
 			return false;
 		} else {
-			return window.location.href = "find_id_out";
-
+			
+			document.find_id.submit();
 		}
 	}
 
@@ -48,14 +49,14 @@ request.setCharacterEncoding("UTF-8");
 </script>
 </head>
 <body>
-	<form action="${contextPath}/search_kjh/idSearch" name="find_id"
-		method="post">
-		<div class="SEARCH_FORM">
-			<h1>People in trip</h1>
-			<h5>아이디찾기</h5>
-			<input id="SNAME" type="text" onfocus="this.placeholder='';"
-				onblur="this.placeholder='이름'" placeholder="이름"><br> <input
-				id="SEMAIL" type="text" onfocus="this.placeholder='';"
+	<div class="SEARCH_FORM">
+		<h1>People in trip</h1>
+		<h5>아이디찾기</h5>
+		<form action="${contextPath}/login_signup/find_id" name="find_id"
+			method="post">
+			<input id="SNAME" name="name" type="text" onfocus="this.placeholder='';"
+				onblur="this.placeholder='이름'" placeholder="이름"><br> 
+				<input id="SEMAIL" name="email" type="text" onfocus="this.placeholder='';"
 				placeholder="이메일" onblur="this.placeholder='이메일'"><br>
 			<button type="button" class="SBTN" onclick="btnchange()" id="btn">
 				<strong>인증번호 전송</strong>
@@ -63,10 +64,17 @@ request.setCharacterEncoding("UTF-8");
 			<br> <input id="SINNUM" type="text"
 				onfocus="this.placeholder='';" onblur="this.placeholder='인증번호'"
 				placeholder="인증번호"><br>
-			<button type="button" onClick="check()" class="SBTN">
+			<button type="submit" onClick="check()" class="SBTN">
 				<strong>확인</strong>
-			</button>
-		</div>
+			</button><br><br>
+			<c:if test="${check == 1}">
+			<script>
+				opener.document."find_id".name.value = "";
+				opener.document."find_id".email.value = "";
+			</script>
+			<h3 style="color: red;">일치하신 정보가 없습니다.</h3>
+		</c:if>
+	</div>
 	</form>
 </body>
 </html>
