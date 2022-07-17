@@ -35,7 +35,7 @@
 	            </table>
 	        </div>
 	        <div id="main_div2">
-	        	<form action="#" name="form_input" method="post"  >
+	        	<form action="${contextPath}/login_signup/signup_input" name="form_input" method="post"  >
 	                <table id="main_table2" border="1">
 	                    <tr>
 	                        <td class="table2_td1"><strong>아이디</strong></td>

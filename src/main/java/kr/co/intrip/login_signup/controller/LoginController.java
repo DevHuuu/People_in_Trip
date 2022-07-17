@@ -121,7 +121,14 @@ public class LoginController {
 		return "login_signup/update_pw";
 	}
 	
+	//회원가입 정보입력 페이지 (Get방식 요청) 
 	@RequestMapping(value = "login_signup/signup_input", method = RequestMethod.GET)
+	public String signupInput() {
+	
+		return "signup_input";
+	}
+	//회원가입 정보입력 페이지 (Post방식 요청)
+	@RequestMapping(value = "login_signup/signup_input", method = RequestMethod.POST)
 	public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("signup_input");
