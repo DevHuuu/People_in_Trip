@@ -192,5 +192,4 @@ public class LoginController {
 		
 		return "redirect:/login_signup/signupcomplete";
     }
-
 }

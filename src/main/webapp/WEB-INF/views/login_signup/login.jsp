@@ -16,7 +16,7 @@
 	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>	
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>      
 </head>
 <body>
 	<div class="login_form">
@@ -64,7 +64,7 @@ function handleCredentialResponse(response) {
 				"name" : responsePayload.name,
 				"pwd" : responsePayload.sub,
 		        "nick_nm" : responsePayload.name,
-				"email" : responsePayload.email
+				"email" : responsePayload.email, 
 			    },
 		    success : function (data) {
 		            alert("구글아이디로 로그인 되었습니다");
