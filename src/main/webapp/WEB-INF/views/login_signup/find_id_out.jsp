@@ -22,15 +22,15 @@ request.setCharacterEncoding("UTF-8");
 </script>
 </head>
 <body>
-	<form action="${contextPath}/search_kjh/idSearchOutPut"
-		name="find_id_out" method="post">
-		<div class="SEARCH_FORM">
-			<h1>People in trip</h1>
-			<h5>아이디찾기</h5>
-			<input id="SID" type="text" value="사용자 아이디 출력"><br>
-			<button type="button" class="SBTN" onclick="page()">
-				<strong>로그인 페이지로 이동</strong>
-		</div>
+	<div class="SEARCH_FORM">
+		<h1>People in trip</h1>
+		<h5>아이디찾기</h5>
+	<form action="${contextPath}/login_signup/find_id" name="find_id"
+			method="post">
+		<input id="SID" type="text" value="${id}"><br>
+		<button type="button" class="SBTN" onclick="page()">
+			<strong>로그인 페이지로 이동</strong>
 	</form>
+	</div>
 </body>
 </html>
