@@ -34,8 +34,9 @@
 	<!-- 비밀번호 변경 -->
 	<update id="update_pw">
 		<![CDATA[
-			 P_MEMBER SET PWD = #{pwd} 
-			 WHERE ID = #{id} AND EMAIL = #{email}
+			UPDATE P_MEMBER 
+			SET PWD = #{pwd} 
+			WHERE ID = #{id}
 		]]>	
 	</update>
 	

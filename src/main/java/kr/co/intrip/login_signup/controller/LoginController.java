@@ -112,8 +112,7 @@ public class LoginController {
 			return "login_signup/find_pw";
 		} else {
 			model.addAttribute("check", 0);
-			model.addAttribute("updatepw", user.getId());
-			model.addAttribute("updatepw", user.getEmail());
+			model.addAttribute("updateid", user.getId());
 				
 		}
 			return "login_signup/update_pw";
@@ -127,14 +126,14 @@ public class LoginController {
 		
 		
 		// 비밀번호 바꾸기 실행
-		@RequestMapping(value = "login_signup/update_pw1", method = RequestMethod.POST)
-		public String updatePasswordAction(@RequestParam(value = "updatepw", defaultValue = "", required = false) String email, String id,MemberDTO memberDTO) {
+		@RequestMapping(value = "login_signup/update_pw", method = RequestMethod.POST)
+		public String updatePasswordAction(@RequestParam(value = "updateid", defaultValue = "", required = false) String id, MemberDTO memberDTO) {
 			memberDTO.setId(id);
-			memberDTO.setEmail(email);
 			memberService.update_pw(memberDTO);
-			return "login_signup/update_pw";
+			return "login_signup/login";
 		}
-	
+		
+
 	
 	@RequestMapping(value = "login_signup/signup_certifyemail")
 	public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
