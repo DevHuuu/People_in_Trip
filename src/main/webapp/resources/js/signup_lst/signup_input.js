@@ -320,7 +320,7 @@
 
         //이메일 버튼을 누르면 이메일 팝업을 띄우는 것으로
         function email_popup() {
-            let url = "signup_certifyemail.jsp";
+            let url = "signup_certifyemail";
             let name = "이메일 인증코드 입력"
             let option = "width = 850, height = 500, top = 100 left = 300"
             window.open(url, name, option);
