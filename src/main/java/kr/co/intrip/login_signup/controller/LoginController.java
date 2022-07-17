@@ -68,42 +68,41 @@ public class LoginController {
       return "login_signup/signupcomplete";
    }
 
-   // 아이디찾기 페이지
-   @RequestMapping(value = "login_signup/find_id_page")
-   public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
-      return "login_signup/find_id";
-      }
+// 아이디찾기 페이지
+	@RequestMapping(value = "login_signup/find_id_page")
+	public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		return "login_signup/find_id";
+		}
 
-   // 아이디 찾기 실행
-   @RequestMapping(value="login_signup/find_id", method= {RequestMethod.POST,RequestMethod.GET})
-   public String findIdAction(MemberDTO memberDTO, Model model) throws Exception {
-   MemberDTO user = memberService.find_id(memberDTO);
-            
-      if(user == null) { 
-         model.addAttribute("check", 1);
-         return "login_signup/find_id";
-      }else {
-         model.addAttribute("check", 0);
-         model.addAttribute("id", user.getId());
-      }
-      return "login_signup/find_id_out";
-         }
-         
-      
-   // 아이디찾기 출력 페이지
-   @RequestMapping(value = "login_signup/find_id_out", method= {RequestMethod.POST,RequestMethod.GET})
-   public String find_id_out(HttpServletRequest request, HttpServletResponse response) throws Exception {
-         return "login_signup/find_id_out";
+	// 아이디 찾기 실행
+	@RequestMapping(value="login_signup/find_id", method= {RequestMethod.POST,RequestMethod.GET})
+	public String findIdAction(MemberDTO memberDTO, Model model) throws Exception {
+	MemberDTO user = memberService.find_id(memberDTO);
+				
+		if(user == null) { 
+			model.addAttribute("check", 1);
+			return "login_signup/find_id";
+		}else {
+			model.addAttribute("check", 0);
+			model.addAttribute("id", user.getId());
+		}
+		return "login_signup/find_id_out";
+			}
+			
+		
+	// 아이디찾기 출력 페이지
+	@RequestMapping(value = "login_signup/find_id_out", method= {RequestMethod.POST,RequestMethod.GET})
+	public String find_id_out(HttpServletRequest request, HttpServletResponse response) throws Exception {
+			return "login_signup/find_id_out";
 
-      }
+		}
 
-   // 비밀번호 찾기 페이지로 이동
-   @RequestMapping(value = "login_signup/find_pw_page")
-   public String find_pw_page() {
-      return "login_signup/find_pw";
-      }
+	// 비밀번호 찾기 페이지로 이동
+	@RequestMapping(value = "login_signup/find_pw_page")
+	public String find_pw_page() {
+		return "login_signup/find_pw";
+		}
 
-<<<<<<< HEAD
 	// 비밀번호 찾기 실행
 	@RequestMapping(value = "login_signup/find_pw",  method= {RequestMethod.POST,RequestMethod.GET})
 	public String findPasswordAction(MemberDTO memberDTO, Model model) {
@@ -133,67 +132,6 @@ public class LoginController {
 			memberService.update_pw(memberDTO);
 			return "login_signup/login";
 		}
-		
-
-	
-	@RequestMapping(value = "login_signup/signup_certifyemail")
-	public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("signup_certifyemail");
-		
-		return mav;
-	}
-	
-	@RequestMapping(value = "login_signup/signup_certifyemailcode")
-	public ModelAndView signupCertifyEmailCode (HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("signup_certifyemailcode");
-		
-		return mav;
-	}
-	
-	/* 구글아이디로 로그인 */	
-	@ResponseBody
-=======
-   // 비밀번호 찾기 실행
-   @RequestMapping(value = "login_signup/find_pw",  method= {RequestMethod.POST,RequestMethod.GET})
-   public String findPasswordAction(MemberDTO memberDTO, Model model) {
-      MemberDTO user = memberService.find_pw(memberDTO);
-      if (user == null) {
-         model.addAttribute("check", 1);
-         return "login_signup/find_pw";
-      } else {
-         model.addAttribute("check", 0);
-         model.addAttribute("updatepw", user.getId());
-         model.addAttribute("updatepw", user.getEmail());
-            
-      }
-         return "login_signup/update_pw";
-      }
-
-      // 비밀번호 변경 페이지로 이동
-      @RequestMapping(value = "login_signup/update_pw")
-      public String update_pw() {
-         return "login_signup/update_pw";
-      }
-      
-      
-      // 비밀번호 바꾸기 실행
-      @RequestMapping(value = "login_signup/update_pw1", method = RequestMethod.POST)
-      public String updatePasswordAction(@RequestParam(value = "updatepw", defaultValue = "", required = false) String email, String id,MemberDTO memberDTO) {
-         memberDTO.setId(id);
-         memberDTO.setEmail(email);
-         memberService.update_pw(memberDTO);
-         return "login_signup/update_pw";
-      }
-   
-      @RequestMapping(value = "login_signup/signup_input")
-      public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
-         ModelAndView mav = new ModelAndView();
-         mav.setViewName("signup_input");
-         
-         return mav;
-      }
    
    @RequestMapping(value = "login_signup/signup_certifyemail")
    public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -213,7 +151,6 @@ public class LoginController {
    
    /* 구글아이디로 로그인 */   
    @ResponseBody
->>>>>>> bdf20e3a30a57285ab3c5a2200c68a6a63e43fea
     @PostMapping("/loginGoogle")
    public String loginGooglePOST(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception{
       MemberDTO returnDTO = memberService.loginMemberByGoogle(memberDTO);
@@ -252,8 +189,5 @@ public class LoginController {
       
       return "redirect:/login_signup/signupcomplete";
     }
-<<<<<<< HEAD
 
-=======
->>>>>>> 7dad3ea0a1d377f16e8526f68bb2284cd64cc046
 }
