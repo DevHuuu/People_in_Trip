@@ -19,14 +19,14 @@ request.setCharacterEncoding("UTF-8");
 	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript">
 	function check() {
-		if ($("#SID_IN").val() == "") {
+		if (document.find_pw.id.value == "") {
 			alert("아이디를 입력해 주세요");
-			$("#SID_IN").focus();
+			document.find_pw.id.value == ""
 			return false;
 		}
-		if ($("#SEMAIL").val() == "") {
+		if (document.find_pw.email.value == "") {
 			alert("이메일 주소를 입력해 주세요");
-			$("#SEMAIL").focus();
+			document.find_pw.email.value == ""
 			return false;
 		}
 		if ($("#SINNUM").val() == "") {
@@ -34,7 +34,7 @@ request.setCharacterEncoding("UTF-8");
 			$("#SINNUM").focus();
 			return false;
 		} else {
-			return window.location.href = "update_pw";
+			document.find_pw.submit();
 		}
 
 	}
@@ -47,14 +47,15 @@ request.setCharacterEncoding("UTF-8");
 	}
 </script>
 </head>
-<body>
-
+<body>	
+	<form action="${contextPath}/login_signup/find_pw" name="find_pw"
+			method="post">
 	<div class="SEARCH_FORM">
 		<h1>People in trip</h1>
 		<h5>비밀번호 찾기</h5>
-		<input id="SID_IN" type="text" onfocus="this.placeholder='';"
+		<input id="SID_IN" name="id" type="text" onfocus="this.placeholder='';"
 			onblur="this.placeholder='아이디 입력'" placeholder="아이디 입력"><br>
-		<input id="SEMAIL" type="text" onfocus="this.placeholder='';"
+		<input id="SEMAIL" name="email" type="text" onfocus="this.placeholder='';"
 			placeholder="이메일" onblur="this.placeholder='이메일'"><br>
 		<button type="button" class="SBTN" onclick="btnchange()" id="btn">
 			<strong>인증번호 전송</strong>
@@ -65,6 +66,13 @@ request.setCharacterEncoding("UTF-8");
 		<button type="button" onClick="check()" class="SBTN">
 			<strong>확인</strong>
 		</button>
+		<c:if test="${check == 1}">
+			<script>
+				opener.document."find_id".name.value = "";
+				opener.document."find_id".email.value = "";
+			</script>
+			<h3 style="color: red;">일치하신 정보가 없습니다.</h3>
+		</c:if>
 	</div>
-
+</form>
 </body>
