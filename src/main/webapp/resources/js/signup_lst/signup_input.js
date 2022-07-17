@@ -55,6 +55,21 @@
                     document.getElementById('input_not1').style.boxShadow = '0px 0px 0px purple';
                 })
             }, false);
+            
+            var inputName = document.getElementById('input_name');
+            inputName.addEventListener("focus", function () {
+                document.getElementById('table2_nameinput').style.backgroundColor = '#c0ace8';
+                document.getElementById('table2_nameinput').style.fontWeight = 'bolder';
+                document.getElementById('table2_nameinput').style.color = 'white';
+                document.getElementById('table2_nameinput').style.boxShadow = '5px 5px 3px purple';
+                inputName.addEventListener("blur", function () {
+                    document.getElementById('table2_nameinput').style.backgroundColor = 'white';
+                    document.getElementById('table2_nameinput').style.fontWeight = 'normal';
+                    document.getElementById('table2_nameinput').style.color = 'black';
+                    document.getElementById('table2_nameinput').style.boxShadow = '0px 0px 0px purple';
+                })
+            }, false);
+            
             var inputPw = document.getElementById('input_pass');
             inputPw.addEventListener("focus", function () {
                 document.getElementById('table2_tr2_td4').style.backgroundColor = '#c0ace8';
@@ -134,6 +149,7 @@
         checkcode = 1;
 
         checkId();
+        checkName();
         checkPass();
         checkNickName();
         alert(checkcode);
@@ -186,6 +202,17 @@
                 alert("아이디는 특수문자를 포함 할 수 없습니다.");
                 form_input.input_id.focus();
                 checkcode = -1;
+                return false;
+            }
+        }
+
+	/*이름 유효성검사*/
+        function checkName() {
+            let name = document.getElementById('input_name').value;
+            if(name == '') {
+                alert('이름 입력은 필수입니다.');
+                form_input.input_name.focus();
+                checkcode =-1;
                 return false;
             }
         }
