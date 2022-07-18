@@ -68,18 +68,7 @@ public class LoginController {
       return "login_signup/signupcomplete";
    }
 
-<<<<<<< HEAD
-	// 회원가입 완료 페이지
-
-	@GetMapping("login_signup/signupcomplete")
-	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
-		return "login_signup/signupcomplete";
-	}
-
 	// 아이디찾기 페이지
-=======
-// 아이디찾기 페이지
->>>>>>> 45712270795c741eac797632ae976657f6282468
 	@RequestMapping(value = "login_signup/find_id_page")
 	public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		return "login_signup/find_id";
@@ -200,8 +189,5 @@ public class LoginController {
       
       return "redirect:/login_signup/signupcomplete";
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 4da4ed248f4e9288dfec7f368b8637831821fe73
 }
