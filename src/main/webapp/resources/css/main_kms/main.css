@@ -1,0 +1,198 @@
+@charset "UTF-8";
+
+body {
+	width: 1060px;
+	margin: 0px auto;
+}
+
+/* 1번배너 */
+.slideshow-container {
+    max-width: 1000px;
+    max-height: 300px;
+    position: relative;
+    margin: auto;
+}
+
+.slideshow-container .mySlides img {
+    width: 1000px;
+    height: 300px;
+}
+
+.mySlides {
+    display: none;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6 ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+/* Fading animation */
+      .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+      }
+
+.table-hover thead tr:hover th, .table-hover tbody tr:hover td {
+	background-color: #9966ff;
+	color: white;
+}
+
+@-webkit-keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+
+@keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+}
+/* 1번배너 */
+
+#title1 {
+	color: #9966FF;
+}
+
+#title2 {
+	color: #9966FF;
+}
+
+#title3 {
+	color: #9966FF;
+}
+
+.tb1btn {
+	width: 50px;
+	height: 30px;
+	background-color: transparent;
+	border: 1px solid gray;
+}
+
+.tb1btn:hover {
+	background-color: #9966FF;
+}
+
+.tb1div {
+	background-color: #9966FF;
+}
+
+#body1 {
+	max-width: 1060px;
+	margin: 0px auto;
+}
+	
+.tb2th {
+	border-bottom: 1px solid;
+}
+
+
+.board {
+    float: left;
+    width: 50%;
+    margin-top: 30px;
+}
+   
+table {
+    border-collapse: collapse;
+    text-align: center;
+}
+   
+.tableboard {
+    width: 100%;
+    border-top: 2px solid dimgray;
+    border-bottom: 1px solid dimgray;
+    color: black;
+}
+
+   tr {
+    border-top: 1px solid dimgray;
+}
+
+.viewCnt {
+    text-align: center;	
+}
+     
+th {
+    height: 35px;
+	font-size: 11pt;
+}
+      
+td {
+	height: 27px;
+	font-size: 10pt;
+	font-weight:bold;
+}
+
+.besttable {
+	margin-left: 90px;
+}
+
+/* 2번 배너 */
+li {
+	list-style: none;
+}
+
+.slide_wrapper {
+	position: relative;
+	width: 780px;
+	margin: 0 auto;
+	height: 200px;
+	overflow: hidden;
+}
+
+.slides {
+	padding: 0;
+	position: absolute;
+	left: 0; top: 0;
+	transition: left 0.5s ease-out;
+}
+
+.slides li:not(:last-child) {
+	float: left;
+	margin-right: 10px;
+}
+
+/* 2번 배너 */
+
+/* 게시판 */
+
+.main3 {
+	padding-left: 20px; 
+	font-weight: bold; 
+	color: #9966FF;
+}
+
+.sub1 {
+	float:right; 
+	font-weight: bold; 
+	margin-right: 5px; 
+	font-size: 10pt;
+}
+
+.main4{
+	padding-left: 20px; 
+	margin-left: 5px; 
+	font-weight: bold; 
+	color: #9966FF;
+}
+
+.sub2 {
+	float:right; 
+	vertical-align: middle; 
+	font-weight: bold; 
+	font-size: 10pt;
+}
+
+/* 게시판 */

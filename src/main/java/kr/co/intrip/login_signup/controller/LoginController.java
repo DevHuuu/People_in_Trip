@@ -23,50 +23,50 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class LoginController {
 
-	
-	@Autowired
-	private MemberService memberService;
+   
+   @Autowired
+   private MemberService memberService;
 
-	// 로그인 페이지
-	@GetMapping("login_signup/login")
-	public String login() {
-		return "login_signup/login";
-	}
-	
-	@PostMapping("login_signup/login") 
-	public ModelAndView login(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
-		MemberDTO user = memberService.Login(memberDTO, session);	
-		ModelAndView mav = new ModelAndView();
-		if (user != null) {
-			log.info("로그인 성공");
-			session.setAttribute("user", user);
-			session.setAttribute("isLogIn", true);
-			log.info("user : " + user);
-			mav.setViewName("redirect:/login_signup/signupcomplete");
-		}
-		else {
-			log.info("로그인 실패");
-			mav.addObject("message", "error");
-			mav.setViewName("login_signup/login");
-		}
-		return mav;
-	}
-	
-	// 로그아웃
-	@GetMapping("logout")
-	public ModelAndView logout(HttpSession session)throws Exception {
-		ModelAndView mav = new ModelAndView();
-		session.invalidate();
-		log.info("로그아웃 성공");
-		mav.setViewName("redirect:/login_signup/login");
-		return mav;
-	}
-	
-	// 회원가입 완료 페이지
-	@GetMapping("login_signup/signupcomplete")
-	public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
-		return "login_signup/signupcomplete";
-	}
+   // 로그인 페이지
+   @GetMapping("login_signup/login")
+   public String login() {
+      return "login_signup/login";
+   }
+   
+   @PostMapping("login_signup/login") 
+   public ModelAndView login(@ModelAttribute MemberDTO memberDTO, HttpSession session)throws Exception {
+      MemberDTO user = memberService.Login(memberDTO, session);   
+      ModelAndView mav = new ModelAndView();
+      if (user != null) {
+         log.info("로그인 성공");
+         session.setAttribute("user", user);
+         session.setAttribute("isLogIn", true);
+         log.info("user : " + user);
+         mav.setViewName("redirect:/login_signup/signupcomplete");
+      }
+      else {
+         log.info("로그인 실패");
+         mav.addObject("message", "error");
+         mav.setViewName("login_signup/login");
+      }
+      return mav;
+   }
+   
+   // 로그아웃
+   @GetMapping("logout")
+   public ModelAndView logout(HttpSession session)throws Exception {
+      ModelAndView mav = new ModelAndView();
+      session.invalidate();
+      log.info("로그아웃 성공");
+      mav.setViewName("redirect:/login_signup/login");
+      return mav;
+   }
+   
+   // 회원가입 완료 페이지
+   @GetMapping("login_signup/signupcomplete")
+   public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
+      return "login_signup/signupcomplete";
+   }
 
 	// 아이디찾기 페이지
 	@RequestMapping(value = "login_signup/find_id_page")
@@ -112,8 +112,7 @@ public class LoginController {
 			return "login_signup/find_pw";
 		} else {
 			model.addAttribute("check", 0);
-			model.addAttribute("updatepw", user.getId());
-			model.addAttribute("updatepw", user.getEmail());
+			model.addAttribute("updateid", user.getId());
 				
 		}
 			return "login_signup/update_pw";
@@ -127,71 +126,70 @@ public class LoginController {
 		
 		
 		// 비밀번호 바꾸기 실행
-		@RequestMapping(value = "login_signup/update_pw1", method = RequestMethod.POST)
-		public String updatePasswordAction(@RequestParam(value = "updatepw", defaultValue = "", required = false) String email, String id,MemberDTO memberDTO) {
+		@RequestMapping(value = "login_signup/update_pw", method = RequestMethod.POST)
+		public String updatePasswordAction(@RequestParam(value = "updateid", defaultValue = "", required = false) String id, MemberDTO memberDTO) {
 			memberDTO.setId(id);
-			memberDTO.setEmail(email);
 			memberService.update_pw(memberDTO);
-			return "login_signup/update_pw";
+			return "login_signup/login";
 		}
-	
-	
-	@RequestMapping(value = "login_signup/signup_certifyemail")
-	public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("signup_certifyemail");
-		
-		return mav;
-	}
-	
-	@RequestMapping(value = "login_signup/signup_certifyemailcode")
-	public ModelAndView signupCertifyEmailCode (HttpServletRequest request, HttpServletResponse response) throws Exception {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("signup_certifyemailcode");
-		
-		return mav;
-	}
-	
-	/* 구글아이디로 로그인 */	
-	@ResponseBody
+   
+   @RequestMapping(value = "login_signup/signup_certifyemail")
+   public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
+      ModelAndView mav = new ModelAndView();
+      mav.setViewName("signup_certifyemail");
+      
+      return mav;
+   }
+   
+   @RequestMapping(value = "login_signup/signup_certifyemailcode")
+   public ModelAndView signupCertifyEmailCode (HttpServletRequest request, HttpServletResponse response) throws Exception {
+      ModelAndView mav = new ModelAndView();
+      mav.setViewName("signup_certifyemailcode");
+      
+      return mav;
+   }
+   
+   /* 구글아이디로 로그인 */   
+   @ResponseBody
     @PostMapping("/loginGoogle")
-	public String loginGooglePOST(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception{
-		MemberDTO returnDTO = memberService.loginMemberByGoogle(memberDTO);
-		String mvo_ajaxid = mmemberDTO.getId(); 		
-		
-		if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
-			//구글 회원가입			
-			memberService.joinMemberByGoogle(memberDTO);	
-			//구글 로그인
-			returnDTO = memberService.loginMemberByGoogle(memberDTO);
-			session.setAttribute("id", returnDTO.getId());			
-			rttr.addFlashAttribute("mmemberDTO", returnDTO);
-			log.info("구글 로그인 성공[DB존재X]");
-		}
-		else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
-			//구글 로그인
-			memberService.loginMemberByGoogle(memberDTO);
-			session.setAttribute("id", returnDTO.getId());			
-			rttr.addFlashAttribute("mmemberDTO", returnDTO);
-			log.info("구글 로그인 성공[DB존재O]");
-		}	
-		log.info("google user : "+ returnDTO);
-		return "redirect:/login_signup/signupcomplete";		
-	}
-	
-	// 카카오 로그인
-	@GetMapping("kakaologin")
-	public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session) throws Exception {	
-		String access_Token = memberService.getAccessToken(code);		
-		MemberDTO userInfo = memberService.getUserInfo(access_Token);
-		log.info("카카오 로그인 성공");
-		log.info("kakao user : " + userInfo);
-		
-		session.setAttribute("name", userInfo.getName());
-		session.setAttribute("Email", userInfo.getEmail());
-		
-		return "redirect:/login_signup/signupcomplete";
+   public String loginGooglePOST(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception{
+      MemberDTO returnDTO = memberService.loginMemberByGoogle(memberDTO);
+      String mvo_ajaxid = mmemberDTO.getId();       
+      
+      if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
+         //구글 회원가입         
+         memberService.joinMemberByGoogle(memberDTO);   
+         //구글 로그인
+         returnDTO = memberService.loginMemberByGoogle(memberDTO);
+         session.setAttribute("id", returnDTO.getId());         
+         rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         log.info("구글 로그인 성공[DB존재X]");
+      }
+      else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
+         //구글 로그인
+         memberService.loginMemberByGoogle(memberDTO);
+         session.setAttribute("id", returnDTO.getId());         
+         rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         log.info("구글 로그인 성공[DB존재O]");
+      }   
+      log.info("google user : "+ returnDTO);
+      return "redirect:/login_signup/signupcomplete";      
+   }
+   
+   // 카카오 로그인
+   @GetMapping("kakaologin")
+   public String kakaoLogin(@RequestParam(value = "code", required = false) String code, HttpSession session) throws Exception {   
+      String access_Token = memberService.getAccessToken(code);      
+      MemberDTO userInfo = memberService.getUserInfo(access_Token);
+      log.info("카카오 로그인 성공");
+      log.info("kakao user : " + userInfo);
+      
+      session.setAttribute("name", userInfo.getName());
+      session.setAttribute("Email", userInfo.getEmail());
+      
+      return "redirect:/login_signup/signupcomplete";
     }
+<<<<<<< HEAD
 	
 	@RequestMapping(value="", method= RequestMethod.GET)
     public String index() {
@@ -204,4 +202,7 @@ public class LoginController {
         log.info("callback controller");
         return "login_signup/callback";
     }
+=======
+
+>>>>>>> 94f0e312dc01a3c67b12324b34f580bad5c8dcd5
 }
