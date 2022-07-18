@@ -38,7 +38,7 @@ request.setCharacterEncoding("UTF-8");
 		<h5>비밀번호 변경</h5>
 		<form action="${contextPath}/login_signup/update_pw" name="find_pw1"
 			method="post">
-			<input type="hidden" id="id" name="updateid" value="${updateid }" readonly>
+			<input type="hidden" id="id" name="updateid" value="${updateid }">
 			<input id="SPWD" name="pwd" type="password" 
 				onfocus="this.placeholder='';" onblur="this.placeholder='비밀번호'"
 				placeholder="비밀번호" /><br>

@@ -69,10 +69,6 @@ public class LoginController {
    }
 
 
-
-
-// 아이디찾기 페이지
-
    @RequestMapping(value = "login_signup/find_id_page")
    public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
       return "login_signup/find_id";
@@ -260,4 +256,17 @@ public class LoginController {
       
       return mav;
    }
+	
+	@RequestMapping(value="", method= RequestMethod.GET)
+    public String index() {
+        log.info("home controller");
+        return "login_signup/login";
+    }
+
+    @RequestMapping(value="login_signup/oauth2/code/naver", method=RequestMethod.GET)
+    public String loginPOSTNaver(HttpSession session) {
+        log.info("callback controller");
+        return "login_signup/callback";
+    }
+
 }
