@@ -20,19 +20,19 @@ body {
     float: left;
     font-family: 'Raleway', sans-serif;
     font-weight: 600;
-    margin-top: 20px;
+    margin-top: 18px;
     font-size: 20px;
     text-align: center;
     width: 25%;
     background-color: white;
-    height: 640px;
+    height: 740px;
     border-right: solid 2px lightgray;
 }
 #aside_box1 {
     border: solid 3px #9966FF;
     box-sizing: border-box;
     border-radius: 20px;
-    margin: 100px 65px;
+    margin: 150px 65px;
     padding: 30px;
     background-color: white;
 }
@@ -134,6 +134,12 @@ body {
     font-size: 12.8px;
     font-style: italic;
 }
+#table2_nameinput {
+        border-radius: 5px;
+        font-size: 12.8px;
+        font-style: italic;
+    }
+    
 #table2_tr3_td3 {
     border-right: solid 2px #9966FF;
     text-align: right;
