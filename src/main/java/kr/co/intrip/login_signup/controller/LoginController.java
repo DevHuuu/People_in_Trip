@@ -189,7 +189,6 @@ public class LoginController {
       
       return "redirect:/login_signup/signupcomplete";
     }
-<<<<<<< HEAD
 	
 	@RequestMapping(value="", method= RequestMethod.GET)
     public String index() {
@@ -202,7 +201,4 @@ public class LoginController {
         log.info("callback controller");
         return "login_signup/callback";
     }
-=======
-
->>>>>>> 94f0e312dc01a3c67b12324b34f580bad5c8dcd5
 }
