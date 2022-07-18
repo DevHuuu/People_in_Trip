@@ -192,4 +192,16 @@ public class LoginController {
 		
 		return "redirect:/login_signup/signupcomplete";
     }
+	
+	@RequestMapping(value="", method= RequestMethod.GET)
+    public String index() {
+        log.info("home controller");
+        return "login_signup/login";
+    }
+
+    @RequestMapping(value="login_signup/oauth2/code/naver", method=RequestMethod.GET)
+    public String loginPOSTNaver(HttpSession session) {
+        log.info("callback controller");
+        return "login_signup/callback";
+    }
 }
