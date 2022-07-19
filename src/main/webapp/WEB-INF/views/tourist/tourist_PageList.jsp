@@ -19,6 +19,8 @@
 	<jsp:include page="/header_lhj/header.jsp" flush="false" />
 	<%-- <jsp:include page="/header_lhj/header.jsp" flush="false" /> 여기에는 메뉴가 들어갈거예요. --%>
 	
+	
+<form name="frm_tourPage" action="#">
 	<div id="tourPage_div">
 		<div name="tour_div1" id="tour_div1">
 			정렬 &nbsp; <select id="tour_allign">
@@ -69,5 +71,6 @@
 			<a href="#">5</a>&nbsp;&nbsp;&nbsp;&nbsp;
 		</div>
 	</div>
+</form>
 </body>
 </html>
