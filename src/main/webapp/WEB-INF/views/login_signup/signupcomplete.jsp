@@ -30,7 +30,7 @@
 				<p>닉네임 : </p>
 			</div>
 			<div class="main_home">
-				<a href="${contextPath}/login_phj/login_phj">메인 페이지 바로가기</a>		
+				<a href="${contextPath}/logout">메인 페이지 바로가기</a>		
 			</div>	
 		</div> 
 </body>
