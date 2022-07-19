@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="mapper.tourist">
+  	<resultMap type="touristDTO" id="touristResult">
+ 		<result property="id" column="id" />
+ 		<result property="tour_title" column="tour_title" /> 	
+ 		<result property="tour_content" column="tour_content" /> 	
+ 		<result property="tour_date" column="tour_date" /> 	
+ 		<result property="visitcount" column="visitcount" /> 	
+ 		<result property="count_star" column="count_star" /> 	
+ 		<result property="count_commnet" column="count_commnet" /> 	
+ 		<result property="count_heart" column="count_heart" /> 
+ 		<result property="count_heart" column="ofile" /> 
+ 		<result property="count_heart" column="sfile" /> 				
+  	</resultMap>
+ </mapper>

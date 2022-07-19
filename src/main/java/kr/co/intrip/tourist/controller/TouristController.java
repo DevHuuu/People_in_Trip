@@ -1,4 +1,4 @@
-package kr.co.intrip.login_signup.controller;
+package kr.co.intrip.tourist.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
