@@ -68,11 +68,6 @@ body {
     color: var(--white-color);
 }
 
-.fa-solid fa-bullhorn {
-    font-size: 50px;
-    color: black;
-}
-
 .main-board {
     min-width: 450px;
     margin-left: 250px;
@@ -85,31 +80,6 @@ body {
     border-bottom: 2px solid var(--black-color);
 }
 
-.dropdown-top {
-    padding: 20px 50px;
-}
-
-.option-box {
-    width: 80px;
-    height: 25px;
-    text-align: center;
-    float: left;
-}
-
-.small-title {
-    float: left;
-    margin: 0 20px;
-}
-
-.text-box {
-    width: 450px;
-    height: 20px;
-    display: inline-flex;
-    position: absolute;
-    left: 452px;
-    top: 59.5px;
-}
-
 .textarea-box {
     width: 605px;
     height: 300px;
@@ -118,25 +88,6 @@ body {
     margin: 20px;
     overflow: auto;
     resize: none;
-}
-
-.bottom-btn {
-    text-align: right;
-    display: inline-flex;
-    position: absolute;
-    left: 520px;
-    top: 500px;
-}
-
-.bottom-btn input {
-    background-color: var(--purple-color);
-    color: var(--white-color);
-    border: var(--purple-color);
-    width: 80px;
-    height: 30px;
-    font-size: var(--font-medium);
-    margin: 5px;
-    cursor: pointer;
 }
 
 

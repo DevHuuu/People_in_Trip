@@ -13,10 +13,12 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<link rel="stylesheet" href="../resources/css/login_phj/login.css" />
 	<script type="text/javascript" src="../resources/js/login_phj/login.js"></script>
-	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>	
+	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' />	
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
     <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<div class="login_form">
@@ -41,7 +43,7 @@
 			<div id="buttonDiv"></div>
 			<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=324f9639dc834b0464a6ccdfff50c908&redirect_uri=http://localhost:8080/intrip/kakaologin&response_type=code">
 			<img src="../resources/images/login_phj/kakao_login_medium.png"></a>
-			<a href="#"><img src="../resources/images/login_phj/naver.png" /></a> 
+			<div id="naver_id_login"></div>
 		</div>
 	</div>
 </body>
@@ -103,5 +105,15 @@ function attachSignin(element) {
   alert(JSON.stringify(error, undefined, 2));
 });
 }
+</script>
+
+<script type="text/javascript">
+    var naver_id_login = new naver_id_login("I650TE1jF8gBiGSdtx4x", "http://localhost:8080/login_signup/oauth2/code/naver");
+    var state = naver_id_login.getUniqState();
+    naver_id_login.setButton("white", 2,40);
+    naver_id_login.setDomain("http://localhost:8080/");
+    naver_id_login.setState(state);
+    naver_id_login.setPopup();
+    naver_id_login.init_naver_id_login();
 </script>
 </html>

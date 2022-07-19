@@ -1,0 +1,56 @@
+	@charset "UTF-8";
+	body {
+		max-width: 1060px;
+		width: 1060px;
+		margin: 0 auto;
+		padding: 0;
+	}
+	a {
+		text-decoration: none;
+	}
+	
+	#tour_div1 {
+		float:right;
+		font-size: 20px;
+	}
+	
+	#tour_div1 select {
+		margin-top: 20px;
+		width: 100px;
+		height: 30px;
+		text-align: center;
+		font-size: 18px;
+	}
+	
+	#tour_div2 {
+		clear:both;
+	}
+	
+	#tour_div2 table {
+		padding-bottom: px;
+	}
+	
+	#tour_div2 tr {
+		height: 250px;
+	}
+	
+	#tour_div2 table tr td img {
+		width: 400px;
+		height: 200px;
+	}
+	
+	.tb_td1 {
+		width: 30%;
+	}
+	
+	.tb_td2 {
+		width: 70%;
+		padding-left: 20px;
+		/* font-size: 25px; 선택자 활용하여 형제요소 몇 번째 */
+	}
+	
+	#tour_div3 {
+		margin-top: 30px;
+		text-align: center;
+		font-size: 1.3em;
+	}
