@@ -1,13 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: minsu
-=======
-<<<<<<< HEAD
-Built-By: LST
-=======
-Built-By: Runner
->>>>>>> 4da4ed248f4e9288dfec7f368b8637831821fe73
->>>>>>> 45712270795c741eac797632ae976657f6282468
 Build-Jdk: 11.0.14.1
 Created-By: Maven Integration for Eclipse
 
