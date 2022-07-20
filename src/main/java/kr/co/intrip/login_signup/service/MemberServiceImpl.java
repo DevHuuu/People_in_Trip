@@ -1,7 +1,6 @@
 package kr.co.intrip.login_signup.service;
 
 import java.io.PrintWriter;
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -22,13 +21,9 @@ import org.springframework.stereotype.Service;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-
-import kr.co.intrip.login_signup.controller.LoginController;
 import kr.co.intrip.login_signup.dao.MemberDAO;
 import kr.co.intrip.login_signup.dto.MemberDTO;
-import lombok.extern.slf4j.Slf4j;
 
-@Slf4j
 @Service
 public class MemberServiceImpl implements MemberService {
 
@@ -163,13 +158,13 @@ public class MemberServiceImpl implements MemberService {
 			String name = properties.getAsJsonObject().get("nickname").getAsString();
 			String nick_nm = properties.getAsJsonObject().get("nickname").getAsString();
 			String email = kakao_account.getAsJsonObject().get("email").getAsString();
-			log.info("json 형식 : " + element);
+			System.out.println(element);
 			userInfo.put("id", id);
 			userInfo.put("pwd", pwd);
 			userInfo.put("name", name);
 			userInfo.put("nick_nm", nick_nm);
 			userInfo.put("email", email);
-			
+			System.out.println(userInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -182,24 +177,5 @@ public class MemberServiceImpl implements MemberService {
 		} else {
 			return result;
 		}
-	}
-
-	// 네이버 로그인
-	@Override
-	public MemberDTO loginMemberByNaver(MemberDTO memberDTO) throws Exception {
-		MemberDTO returnVO = null;
-		try {
-			returnVO = memberDAO.readMemberWithIDPWNaver(memberDTO.getId());
-		} catch (Exception e) {
-			e.printStackTrace();
-			returnVO = null; // 실행하다 문제가 생겼을때 해당 데이터를 보내지않겠다는 의미 = 예외처리
-		}
-		return returnVO;
-	}
-
-	// 네이버 회원가입
-	@Override
-	public void joinMemberByNaver(MemberDTO memberDTO) throws Exception {
-		memberDAO.joinMemberByNaver(memberDTO);		
 	}
 }

@@ -63,14 +63,5 @@ public class MemberDAO {
 	public void kakaoinsert(HashMap<String, Object> userInfo) {
 		sqlSession.insert("mapper.member.kakaoInsert", userInfo);
 	}
-	
-	// 네이버 로그인 정보 DB에 저장
-	public int joinMemberByNaver(MemberDTO memberDTO) {
-		return sqlSession.insert("mapper.member.joinMemberByNaver", memberDTO);
-	}
 
-	// 네이버 로그인
-	public MemberDTO readMemberWithIDPWNaver(String id) {
-		return sqlSession.selectOne("mapper.member.readMemberWithIDPWNaver", id);
-	}
 }
