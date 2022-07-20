@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: maves
+=======
+Built-By: LST
+>>>>>>> 6f5fbe6cf78fc04f683148ac8c9988a00489834b
 Build-Jdk: 11.0.14.1
 Created-By: Maven Integration for Eclipse
 
