@@ -1,0 +1,67 @@
+:root {
+    /* Color 변수로 지정 */
+    --white-color:#fff;
+    --black-color:#140a00;
+    --purple-color: #9966ff;
+
+    /* Font Size 변수로 지정 */
+    --font-large: 18px;
+    --font-medium: 14px;
+    --font-small: 12px;
+    --font-micro: 10px;
+}
+
+.wrapper {
+    max-width: 1060px;
+    margin: 0 auto;
+    transform: scale(1, 1);
+}
+#header-msg {
+    border-bottom: 1px solid var(--purple-color);
+}
+body {
+    font-family: Roboto;
+}
+
+.left-menu {
+    width: 250px;
+    float: left;
+}
+
+.left-menu-ul {
+    background-color: var(--white-color);
+    border-right: 1px solid var(--black-color);
+    position: fixed;
+    height: 100%;
+    width: 250px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    list-style: none;
+}
+
+#top-message {
+	font-size: 23px;
+	border-bottom: 2px solid var(--black-color);
+	margin: 4px;
+}
+
+.left-menu-ul .menu-list {
+    font-size: 26px;
+    padding-right: 10px;
+}
+
+.left-menu-ul .menu-list a {
+    display: block;
+    font-size: var(--font-large);
+    font-weight: bold;
+    color: var(--black-color);
+    text-decoration: none;
+    padding: 20px;
+    text-align: center;
+}
+
+.left-menu-ul .menu-list a:hover {
+    background-color: var(--purple-color);
+    color: var(--white-color);
+}

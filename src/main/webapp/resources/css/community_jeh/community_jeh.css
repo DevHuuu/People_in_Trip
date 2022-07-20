@@ -42,6 +42,17 @@ body {
     list-style: none;
 }
 
+#top-message {
+	font-size: 23px;
+	border-bottom: 2px solid var(--black-color);
+	margin: 4px;
+}
+
+.left-menu-ul .menu-list {
+    font-size: 26px;
+    padding-right: 10px;
+}
+
 .left-menu-ul .menu-list a {
     display: block;
     font-size: var(--font-large);
@@ -52,12 +63,7 @@ body {
     text-align: center;
 }
 
-.left-menu-ul li i {
-    font-size: 26px;
-    padding-right: 10px;
-}
-
-.left-menu-ul li a:hover {
+.left-menu-ul .menu-list a:hover {
     background-color: var(--purple-color);
     color: var(--white-color);
 }

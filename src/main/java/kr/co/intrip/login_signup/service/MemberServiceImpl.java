@@ -158,13 +158,13 @@ public class MemberServiceImpl implements MemberService {
 			String name = properties.getAsJsonObject().get("nickname").getAsString();
 			String nick_nm = properties.getAsJsonObject().get("nickname").getAsString();
 			String email = kakao_account.getAsJsonObject().get("email").getAsString();
-
+			System.out.println(element);
 			userInfo.put("id", id);
 			userInfo.put("pwd", pwd);
 			userInfo.put("name", name);
 			userInfo.put("nick_nm", nick_nm);
 			userInfo.put("email", email);
-
+			System.out.println(userInfo);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
