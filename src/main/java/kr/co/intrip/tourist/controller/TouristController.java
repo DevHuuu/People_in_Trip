@@ -1,4 +1,4 @@
-package kr.co.intrip.login_signup.controller;
+package kr.co.intrip.tourist.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.intrip.login_signup.service.MemberService;
+import kr.co.intrip.tourist.service.TouristService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -16,9 +17,9 @@ import lombok.extern.slf4j.Slf4j;
 public class TouristController {
 
 	@Autowired
-	   private MemberService memberService;
+	   private TouristService tourservice;
 	
-	// 회원가입 정보 입력 팝업
+	// 관광지 페이지 목록
 	   @RequestMapping(value = "tourist/tourist_PageList")
 	   public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
