@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.intrip.login_signup.service.MemberService;
-import kr.co.intrip.tourist.service.TouristService;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
@@ -17,9 +16,9 @@ import lombok.extern.slf4j.Slf4j;
 public class TouristController {
 
 	@Autowired
-	   private TouristService tourservice;
+	   private MemberService memberService;
 	
-	// 관광지 페이지 목록
+	// 회원가입 정보 입력 팝업
 	   @RequestMapping(value = "tourist/tourist_PageList")
 	   public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
