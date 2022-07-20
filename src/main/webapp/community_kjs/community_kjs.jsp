@@ -13,17 +13,34 @@
 </head>
 <body>
     <!-- 헤더 -->
-    <div id="page">
-    <div id="header-jeh">
-       	<%@ include file="../header_lhj/header.jsp" %>
-    </div>
+    <div class="page">
+    <header>
+        <table class="header">
+        	<tr>
+        		<td><a>People in trip</a></td>
+        		<td><a>관광지</a></td>
+        		<td>
+					<div class="header-type">
+						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!">
+						<button class="form-button">검색</button>
+					</div>
+				</td>
+				<td><a>마이페이지</a></td>
+				<td><a>쪽지함</a></td>
+				<td><a>로그아웃</a></td>
+			</tr>
+        </table>
+    </header>
+
     <!-- 왼쪽 메뉴바 -->
     <div class="left-menu">
-    	<ul class="left-menu-ul">
-        	<li class="menu-list"><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
-            <li class="menu-list"><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
-        </ul>
-    </div>
+    	<nav class="nav1">
+        	<ul class="menu">
+            	<li><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
+            	<li><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
+        	</ul>
+    	</nav>
+	</div>
     <!-- 정보게시판 본문 -->
     <section class="content">
         <div>
@@ -62,7 +79,7 @@
         		<button class="write-delete">삭제</button>
         	</p>
         	<p class="write-comment4">테스트 댓글</p>
-        	<p class="write-declaration2"><button class="write-declaration2-btn">신고</button></p>
+        	<p class="write-declaration2"><button>신고</button></p>
         </div>
         <div class="write-form">
         	<button class="write-form-write">글쓰기</button>
