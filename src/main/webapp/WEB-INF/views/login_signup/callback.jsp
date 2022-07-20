@@ -9,20 +9,31 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
-<script type="text/javascript">
-    var naver_id_login = new naver_id_login("I650TE1jF8gBiGSdtx4x", "http://localhost:8080/login_signup/oauth2/code/naver");
-    // 접근 토큰 값 출력
-    alert(naver_id_login.oauthParams.access_token);
+<script type="text/javascript">	
+    var naver_id_login = new naver_id_login("I650TE1jF8gBiGSdtx4x", "http://localhost:8080/intrip/login/oauth2/code/naver");
     // 네이버 사용자 프로필 조회
     naver_id_login.get_naver_userprofile("naverSignInCallback()");
-
     // 네이버 사용자 프로필 조회 이후 프로필 정보를 처리할 callback function
-    function naverSignInCallback() {
-        alert(naver_id_login.getProfileData('email'));
-        alert(naver_id_login.getProfileData('nickname'));
-        alert(naver_id_login.getProfileData('id'));
+    function naverSignInCallback() {  
+     	$(function() {
+    		var date = new Date();
+			$.ajax({
+		    	url : '/intrip/naverlogin',
+		    	type : 'post',
+		    	data : {
+					"id" : naver_id_login.getProfileData('id'),
+					"name" : naver_id_login.getProfileData('name'),
+					"pwd" : naver_id_login.getProfileData('id'),
+		        	"nick_nm" : naver_id_login.getProfileData('name'),
+					"email" : naver_id_login.getProfileData('email')
+			    },
+		    	success : function (data) {
+		            alert("네이버아이디로 로그인 되었습니다.");
+		            location.href="/intrip/login_signup/signupcomplete";
+		        }
+			}); 
+    	});
     }
-
 </script>
 </body>
 </html>
