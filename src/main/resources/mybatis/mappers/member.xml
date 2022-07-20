@@ -58,7 +58,7 @@
 	<!-- 카카오 정보 찾기 -->
 	<select id="findKakao" parameterType="java.util.HashMap" resultType="memberDTO">
 		<![CDATA[
-			select * from P_MEMBER where name=#{nick_nm} and email=#{email}
+			select * from P_MEMBER where id=#{id}
 		]]>	
 	</select>
 
@@ -68,6 +68,21 @@
 			insert into P_MEMBER(id, pwd,  name, nick_nm, email )
 			values(#{id}, #{pwd}, #{name}, #{nick_nm}, #{email})
 		]]>
+	</insert>
+	
+	<!-- 네이버 로그인 -->
+	<select id="readMemberWithIDPWNaver" resultType="memberDTO">
+		<![CDATA[
+			select * from P_MEMBER where id=#{id}
+		]]>	
+	</select>
+	
+	<!-- 네이버 로그인 데이터 넘기기 -->
+	<insert id="joinMemberByNaver" parameterType="java.util.Map">
+		<![CDATA[
+			insert into P_MEMBER (id, name, pwd, nick_nm, email)
+			values (#{id}, #{name}, #{pwd}, #{nick_nm}, #{email})
+		]]>	
 	</insert>
 
 </mapper>

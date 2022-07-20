@@ -81,14 +81,18 @@ h1 {
 }
 
 img  {
-	width: 60px;
-	height: 43px;
-	margin-right: 20px;
-	margin-left: 30px;
+	width: 49px;
+	height: 40px;
+	margin-right: 0px;
+	margin-left: 40px;
 	padding: 0px;
 }
 
 #buttonDiv {
 	display: inline-block;
-	margin-right: 2%;
+	margin-right: 1%;
+}
+
+#naver_id_login {
+	display: inline-block;
 }

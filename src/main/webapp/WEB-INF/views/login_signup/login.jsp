@@ -43,7 +43,7 @@
 			<div id="buttonDiv"></div>
 			<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=324f9639dc834b0464a6ccdfff50c908&redirect_uri=http://localhost:8080/intrip/kakaologin&response_type=code">
 			<img src="../resources/images/login_phj/kakao_login_medium.png"></a>
-			<div id="naver_id_login"></div>
+			<a id="naver_id_login"><img src="../resources/images/login_phj/naver.png"></a>
 		</div>
 	</div>
 </body>
@@ -69,7 +69,7 @@ function handleCredentialResponse(response) {
 				"email" : responsePayload.email, 
 			    },
 		    success : function (data) {
-		            alert("구글아이디로 로그인 되었습니다");
+		            alert("구글아이디로 로그인 되었습니다.");
 		            location.href="/intrip/login_signup/signupcomplete";
 		        }
 		});
@@ -108,12 +108,10 @@ function attachSignin(element) {
 </script>
 
 <script type="text/javascript">
-    var naver_id_login = new naver_id_login("I650TE1jF8gBiGSdtx4x", "http://localhost:8080/login_signup/oauth2/code/naver");
+    var naver_id_login = new naver_id_login("I650TE1jF8gBiGSdtx4x", "http://localhost:8080/intrip/login/oauth2/code/naver");
     var state = naver_id_login.getUniqState();
-    naver_id_login.setButton("white", 2,40);
     naver_id_login.setDomain("http://localhost:8080/");
     naver_id_login.setState(state);
-    naver_id_login.setPopup();
     naver_id_login.init_naver_id_login();
 </script>
 </html>
