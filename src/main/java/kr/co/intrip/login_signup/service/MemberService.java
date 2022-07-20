@@ -23,21 +23,15 @@ public interface MemberService {
 
 	
 	// 구글 로그인	
-	public MemberDTO loginMemberByGoogle(MemberDTO memberDTO) throws Exception;
+	public MemberDTO loginMemberByGoogle(MemberDTO memberDTO);
 	
 	// 구글 회원가입
-	public void joinMemberByGoogle(MemberDTO memberDTO) throws Exception;
+	public void joinMemberByGoogle(MemberDTO memberDTO);
 
 	// 카카오
-	public String getAccessToken(String code) throws Exception;
+	public String getAccessToken(String code);
 	
 	// 카카오
-	public MemberDTO getUserInfo(String access_Token) throws Exception;
-	
-	// 네이버 로그인
-	public MemberDTO loginMemberByNaver(MemberDTO memberDTO) throws Exception;
-	
-	// 네이버 회원가입
-	public void joinMemberByNaver(MemberDTO memberDTO) throws Exception;
+	public MemberDTO getUserInfo(String access_Token);
 
 }
