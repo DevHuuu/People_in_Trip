@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />    
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <%
 	request.setCharacterEncoding("UTF-8");
 %>    
@@ -44,10 +44,21 @@
             </div>
     </div>
         <div class="seacrh_container"><input type="text" placeholder="검색어를 입력해주세요!" ></div>
-        <div class="container2">
-            <div class="login"><a href="${contextPath}/login_phj/login_phj">로그인</a></div>
-            <div class="join"><a href="#">회원가입</a></div>
-        </div>
+        <c:choose>
+        	<c:when test="${isLogIn==null}">
+		        <div class="container2">
+		            <div class="login"><a href="${contextPath}/login_signup/login">로그인</a></div>
+		            <div class="join"><a href="${contextPath}/login_signup/signup_input">회원가입</a></div>
+		        </div>
+        	</c:when>
+        	<c:otherwise>
+		        <div class="container2">
+        			<div class="login"><a href="${contextPath}[마이페이지 경로]">마이페이지</a></div>
+        			<div class="login"><a href="${contextPath}[쪽지함 경로]">쪽지함</a></div>
+        			<div class="login"><a href="${contextPath}/logout">로그아웃</a></div>
+        		</div>
+        	</c:otherwise>
+        </c:choose>
     </header>
 </body>
 </html>
