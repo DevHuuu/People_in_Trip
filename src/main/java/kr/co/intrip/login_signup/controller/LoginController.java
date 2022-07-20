@@ -167,8 +167,8 @@ public class LoginController {
       log.info("카카오 로그인 성공");
       log.info("kakao user : " + userInfo);
       
-      session.setAttribute("email", userInfo.getEmail());
-      session.setAttribute("id", userInfo.getId());
+      session.setAttribute("name", userInfo.getName());
+      session.setAttribute("Email", userInfo.getEmail());
       
       return "redirect:/login_signup/signupcomplete";
     }
@@ -256,44 +256,16 @@ public class LoginController {
       return mav;
    }
 	
-   	// 네이버
-	@GetMapping("")
+	@RequestMapping(value="", method= RequestMethod.GET)
     public String index() {
         log.info("home controller");
         return "login_signup/login";
     }
 
-	// 네이버
-    @GetMapping("login/oauth2/code/naver")
+    @RequestMapping(value="login_signup/oauth2/code/naver", method=RequestMethod.GET)
     public String loginPOSTNaver(HttpSession session) {
         log.info("callback controller");
         return "login_signup/callback";
     }
-    
-    // 네이버 로그인
-    @PostMapping("/naverlogin")
-    public String naverlogin(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr, MemberDTO mmemberDTO) throws Exception {
-    	MemberDTO returnDTO = memberService.loginMemberByNaver(memberDTO);
-        String mvo_ajaxid = mmemberDTO.getId();       
-        
-        if(returnDTO == null) { //아이디가 DB에 존재하지 않는 경우
-           // 네이버 회원가입         
-           memberService.joinMemberByNaver(memberDTO);   
-           // 네이버 로그인
-           returnDTO = memberService.loginMemberByNaver(memberDTO);
-           session.setAttribute("id", returnDTO.getId());         
-           rttr.addFlashAttribute("mmemberDTO", returnDTO);
-           log.info("네이버 로그인 성공[DB존재X]");
-        }
-        else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
-           // 네이버 로그인
-           memberService.loginMemberByNaver(memberDTO);
-           session.setAttribute("id", returnDTO.getId());         
-           rttr.addFlashAttribute("mmemberDTO", returnDTO);
-           log.info("네이버 로그인 성공[DB존재O]");
-        }   
-        log.info("naver user : "+ returnDTO);
-        return "redirect:/login_signup/signupcomplete";      
-     }
 
 }
