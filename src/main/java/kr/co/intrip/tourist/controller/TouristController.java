@@ -23,6 +23,10 @@ public class TouristController {
 	   @RequestMapping(value = "tourist/tourist_PageList")
 	   public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
 	      ModelAndView mav = new ModelAndView();
+	      
+	      String viewName = (String) request.getAttribute("viewName");
+	      System.out.println(viewName);
+	    		  
 	      mav.setViewName("tourist/tourist_PageList");
 	      
 	      return mav;

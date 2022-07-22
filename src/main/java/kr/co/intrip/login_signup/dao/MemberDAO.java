@@ -73,4 +73,22 @@ public class MemberDAO {
 	public MemberDTO readMemberWithIDPWNaver(String id) {
 		return sqlSession.selectOne("mapper.member.readMemberWithIDPWNaver", id);
 	}
+
+	// 회원가입 id 중복검사
+	public String selectDuplicateCheckId(String id) {
+		String result = sqlSession.selectOne("mapper.member.duplicatecheckId", id);
+		return result;
+	}
+
+	// 회원가입 닉네임 중복검사
+	public String selectDuplicateCheckNick(String nick_nm) {
+		String result = sqlSession.selectOne("mapper.member.duplicatecheckNick", nick_nm);
+		return result;
+	}
+
+	//회원가입 멤버 추가
+	public int addMember(MemberDTO _memberDTO) {
+		int result = sqlSession.insert("mapper.member.addMember", _memberDTO);
+		return result;
+	}
 }
