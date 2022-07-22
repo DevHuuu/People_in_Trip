@@ -2,6 +2,7 @@
 <beans:beans xmlns="http://www.springframework.org/schema/mvc"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc https://www.springframework.org/schema/mvc/spring-mvc.xsd
 		http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
@@ -29,5 +30,13 @@
 		<beans:property name="maxInMemorySize" value="50000000" />	<!-- 디스크에 임시 파일을 생성하기 전 메모리 보관할수 있는 최대 바이트 크기 설정 -->
 		<beans:property name="defaultEncoding" value="utf-8" />	    <!-- 전달되는 매개변수의 인코딩 설정 -->
 	</beans:bean>
+	
+	<mvc:interceptors>
+		<mvc:interceptor>	
+			<mvc:mapping path="/*/*.do"/>	<!-- 모든 요청에 대해 인터셉터를 수행함 -->
+			<mvc:mapping path="/*/*/*.do"/>	<!-- 모든 요청에 대해 인터셉터를 수행함 -->
+			<beans:bean class="kr.co.intrip.common.ViewNameInterceptor" />
+		</mvc:interceptor>
+	</mvc:interceptors>
 </beans:beans>
 

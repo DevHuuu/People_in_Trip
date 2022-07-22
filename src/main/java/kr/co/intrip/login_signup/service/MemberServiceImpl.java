@@ -202,4 +202,22 @@ public class MemberServiceImpl implements MemberService {
 	public void joinMemberByNaver(MemberDTO memberDTO) throws Exception {
 		memberDAO.joinMemberByNaver(memberDTO);		
 	}
+
+	@Override
+	public String duplicateCheckId(String id) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectDuplicateCheckId(id);
+	}
+
+	@Override
+	public String duplicateCheckNick(String nick_nm) {
+		// TODO Auto-generated method stub
+		return memberDAO.selectDuplicateCheckNick(nick_nm);
+	}
+
+	@Override
+	public int addMember(MemberDTO _memberDTO) {
+		// TODO Auto-generated method stub
+		return memberDAO.addMember(_memberDTO);
+	}
 }
