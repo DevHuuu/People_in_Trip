@@ -4,6 +4,9 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
+<script type="text/javascript">
+
+</script>
 <head>
 	<link rel="stylesheet" href="../resources/css/signup_lst/signup_input.css">
 	<script type="text/javascript" src="../resources/js/signup_lst/signup_input.js"></script>
@@ -35,14 +38,16 @@
 	            </table>
 	        </div>
 	        <div id="main_div2">
-	        	<form action="${contextPath}/login_signup/signup_input" name="form_input" method="post"  >
+	        	<form action="${contextPath}/signup/addMember" name="form_input" method="post"  >
 	                <table id="main_table2" border="1">
 	                    <tr>
 	                        <td class="table2_td1"><strong>아이디</strong></td>
 	                        <td class="table2_td2">
-	                            <input type="text" id="input_id" name="input_id"/><div id="hiddendiv_id"></div></td>
+	                            <input type="text" id="input_id" name="id"/>
+	                            <input type="hidden" id="input_id_hid" name="id"/>
+	                            <div id="hiddendiv_id"></div></td>
 	                        <td class="table2_td3">
-	                            <button class="t2_btn" type="button">중복<br/>확인</button>
+	                            <button class="t2_btn" type="button" id="Btn_IDduplicate" onclick="fn_IDduplicatecheck()">중복<br/>확인</button>
 	                        </td>
 	                        <td colspan="2" class="table2_td4" id="input_not1">
 	                                <span>영문, 숫자를 조합하여 <br/> 6~20자 이내로 입력하세요.<br/>
@@ -55,7 +60,7 @@
 	                    <tr>
                         <td class="table2_td1"><strong>이름</strong></td>
                         <td class="table2_td2">
-                            <input type="text" id="input_name" name="input_name"/>
+                            <input type="text" id="input_name" name="name"/>
                         </td>
                         <td class="table2_td3"></td>
                         <td class="table2_td4_name" id="table2_nameinput" colspan="3">
@@ -67,7 +72,7 @@
 	                    <tr>
 	                        <td class="table2_td1"><strong>비밀번호</strong></td>
 	                        <td class="table2_td2">
-	                            <input type="password" id="input_pass" name="input_pass"/>
+	                            <input type="password" id="input_pass" name="pwd"/>
 	                        </td>
 	                        <td class="table2_td3"></td>
 	                        <td class="table2_td4" id="table2_tr2_td4" colspan="3">
@@ -86,11 +91,13 @@
 	                    <tr>
 	                        <td class="table2_td1"><strong>닉네임</strong></td>
 	                        <td class="table2_td2">
-	                            <input type="text" id="input_nick" name="input_nick"/><div id="hiddendiv_nick"></div>
+	                            <input type="text" id="input_nick" name="nick_nm"/>
+	                            <input type="hidden" id="input_nick_hid" name="nick_nm"/>
+	                            <div id="hiddendiv_nick"></div>
 	                        </td>
-	                        <td class="table2_td3"><button class="t2_btn" type="button">중복<br/>확인</button></td>
+	                        <td class="table2_td3"><button class="t2_btn" type="button" id="Btn_nickDuplicate" onclick="fn_NickduplicateCheck()">중복<br/>확인</button></td>
 	                        <td colspan="2" class="table2_td4" id = "input_not3" >
-	                                <span >한글, 영문, 숫자 사용이 가능합니다. <br/> 6~20자 이내로 입력하세요. <br/> 한글은 최대 10자까지 입력 가능합니다.<br/>
+	                                <span >한글, 영문, 숫자 사용이 가능합니다. <br/> 6~20자 이내로 입력하세요. <br/> 한글은 3~10자까지 입력 가능합니다.<br/>
 	                                    <!-- (대소문자 구별X. 특수문자, <br/> 띄어쓰기 사용 불가) -->
 	                                </span>
 	                        </td>
@@ -99,7 +106,8 @@
 	                        <td class="table2_td1"><strong>이메일</strong></td>
 	                        <td colspan="1" id="table2_mtd1">
 	                            <div class="hiddendiv_email_sub">&nbsp;</div>
-	                            <input class="mailinput" id="mailinput1" name="mailinput1" type="text"/>
+	                            <input class="mailinput" id="mailinput1" name="email" type="text"/>
+	                             <!--히든타입 인풋을 만들어 name을 email로 하고 값을 메일인풋1과2를 합친것으로 저장해야함-->
 	                            <div class="hiddendiv_email">&nbsp;</div>
 	                        </td>
 	                        <td id="table2_mtd2"> @</td>

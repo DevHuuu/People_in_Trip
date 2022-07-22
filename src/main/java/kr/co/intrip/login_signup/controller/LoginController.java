@@ -1,9 +1,14 @@
 package kr.co.intrip.login_signup.controller;
 
+import java.net.URI;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -63,7 +68,7 @@ public class LoginController {
    }
    
    // 회원가입 완료 페이지
-   @GetMapping("login_signup/signupcomplete")
+   @RequestMapping(value = "login_signup/signupcomplete", method = {RequestMethod.GET, RequestMethod.POST})
    public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
       return "login_signup/signupcomplete";
    }
@@ -255,6 +260,55 @@ public class LoginController {
       
       return mav;
    }
+   
+   //DB에 멤버 추가
+   @RequestMapping(value = "signup/addMember", method = RequestMethod.POST)
+   public ModelAndView addMember(@ModelAttribute("member") MemberDTO _memberDTO, HttpServletRequest request, 
+		   HttpServletResponse response) throws Exception {
+	   System.out.println("here_addMember");
+	   int result = memberService.addMember(_memberDTO);
+	   ModelAndView mav = new ModelAndView();
+	   mav.setViewName("redirect:/login_signup/signupcomplete");
+	   
+	   return mav;
+   }
+//   public ResponseEntity<MemberDTO> addMember(@ModelAttribute("member") MemberDTO _memberDTO, HttpServletRequest request, 
+//		   HttpServletResponse response) throws Exception {
+//	   System.out.println("here_addMember");
+//	   int result = memberService.addMember(_memberDTO);
+//	   ResponseEntity<MemberDTO> resEntity_member = new ResponseEntity<MemberDTO>(_memberDTO, HttpStatus.OK);
+//	   HttpHeaders headers = new HttpHeaders();
+//       headers.setLocation(URI.create("/intrip/login_signup/signupcomplete"));
+//		/*
+//		 * ModelAndView mav = new ModelAndView();
+//		 * mav.setViewName("redirect:/login_signup/signupcomplete");
+//		 */
+//	   
+//       return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
+//   }
+   
+   
+   //중복 확인
+   @RequestMapping(value = "signup/duplicateCheckId", method = RequestMethod.POST)
+	public ResponseEntity<String> duplicateCheckId(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("here_idDup "+id);
+		String result = memberService.duplicateCheckId(id);
+		ResponseEntity<String> resEntity = new ResponseEntity<String>(result, HttpStatus.OK);
+				
+		return resEntity;
+	}
+ //중복 확인
+   @RequestMapping(value = "signup/duplicateCheckNick", method = RequestMethod.POST)
+	public ResponseEntity<String> duplicateCheckNick(@RequestParam("nick_nm") String nick_nm, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("here_nickDup "+nick_nm);
+		String result = memberService.duplicateCheckNick(nick_nm);
+		ResponseEntity<String> resEntity_nick = new ResponseEntity<String>(result, HttpStatus.OK);
+				
+		return resEntity_nick;
+	}
+   
 	
    	// 네이버
 	@GetMapping("")

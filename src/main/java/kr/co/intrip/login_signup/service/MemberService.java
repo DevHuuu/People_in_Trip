@@ -39,5 +39,8 @@ public interface MemberService {
 	
 	// 네이버 회원가입
 	public void joinMemberByNaver(MemberDTO memberDTO) throws Exception;
+	public String duplicateCheckId(String id);
+	public String duplicateCheckNick(String nick_nm);
+	public int addMember(MemberDTO _memberDTO);
 
 }
