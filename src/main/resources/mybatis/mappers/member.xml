@@ -99,7 +99,7 @@
 	<!-- 멤버 추가하기 -->
 	<insert id="addMember" parameterType="memberDTO">
 		<![CDATA[
-			INSERT INTO P_MEMBER2 (ID, PWD, NAME, NICK_NM, EMAIL)
+			INSERT INTO P_MEMBER (ID, PWD, NAME, NICK_NM, EMAIL)
 			VALUES(#{id}, #{pwd}, #{name}, #{nick_nm}, #{email})
 		]]>
 	</insert>
@@ -107,7 +107,7 @@
 	<select id="duplicatecheckId" parameterType="String" resultType="String">
 		<![CDATA[
 			SELECT DECODE(COUNT(*), 1, 'true', 0, 'false')
-			FROM P_MEMBER2
+			FROM P_MEMBER
 			WHERE ID = #{id}	
 		]]>
 	</select>
@@ -116,7 +116,7 @@
 	<select id="duplicatecheckNick" parameterType="String" resultType="String">
 		<![CDATA[
 			SELECT DECODE(COUNT(*), 1, 'true', 0, 'false')
-			FROM P_MEMBER2
+			FROM P_MEMBER
 			WHERE NICK_NM = #{nick_nm}
 		]]>
 	</select>
