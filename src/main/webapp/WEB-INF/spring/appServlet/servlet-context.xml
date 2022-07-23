@@ -35,7 +35,7 @@
 		<mvc:interceptor>	
 			<mvc:mapping path="/*/*.do"/>	<!-- 모든 요청에 대해 인터셉터를 수행함 -->
 			<mvc:mapping path="/*/*/*.do"/>	<!-- 모든 요청에 대해 인터셉터를 수행함 -->
-			<beans:bean class="kr.co.intrip.common.ViewNameInterceptor" />
+			<beans:bean class="kr.co.intrip.common.interceptor.ViewNameInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
 </beans:beans>
