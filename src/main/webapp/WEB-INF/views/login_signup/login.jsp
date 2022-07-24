@@ -30,7 +30,7 @@
 				<ul>
 					<li id="login_menu"><a href="${contextPath}/login_signup/find_id_page" id="login_menu">아아디 찾기</a></li>
 					<li id="login_menu"><a href="${contextPath}/login_signup/find_pw_page" id="login_menu">비밀번호 찾기</a></li>
-					<li id="login_menu"><a href="../signup_lst/signup_input.jsp" id="login_menu">회원가입</a></li>
+					<li id="login_menu"><a href="${contextPath}/login_signup/signup_input" id="login_menu">회원가입</a></li>
 				</ul>
 				<button type="submit" id="login_bt" onclick="loginChk();"><strong>로그인</strong></button>
 				 <c:if test="${message == 'error'}">

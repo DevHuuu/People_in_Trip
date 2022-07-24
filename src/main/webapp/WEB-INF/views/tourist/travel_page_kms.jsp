@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 	<title>Insert title here</title>
-	<link rel="stylesheet" href="${contextPath}/resources/css/main_kms/travler.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/tourist/travler.css">
 	<script type="text/javascript">
 	var slideIndex = 0; //slide index
 	
@@ -65,6 +65,26 @@
 	</script>
 </head>
 <body>
+
+	<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	
+	<!-- 헤더 -->
+	<header>
+		<div class="title">
+			<h2 style="display: inline;"><strong><a href="#">제주도</a></strong></h2>&nbsp;
+			<h3 style="display: inline;">jeju</h3>
+		</div>
+		<nav class="tourismenu">
+			<ul>
+				<li><a href="#"><strong>홈</strong></a></li>
+				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="#"><strong>축제</strong></a></li>
+				<li><a href="#"><strong>전시관</strong></a></li>
+			</ul>
+		</nav>
+	</header>
+	<br/><br/><br/>
+	
 	<div class="slideshow-container" >
         <div class="mySlides fade">
             <img src="${contextPath}/resources/img_kms/travler1.png" style="width: 100%;">
