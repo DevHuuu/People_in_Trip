@@ -1,14 +1,36 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html>
 <head>
+	<link rel="stylesheet" href="${contextPath}/resources/css/tourist/tourist_View.css" />
+	<script type="text/javascript" src="${contextPath}/resources/js/tourist/tourist_View.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<meta charset="UTF-8">
-	<title>Insert title here</title>
-	<link rel="stylesheet" href="../resources/css/tour/tourBody.css" />
+	<title>관광지 상세보기</title>
 </head>
 <body>
-    
+	<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	
+	<!-- 헤더 -->
+	<header>
+		<div class="title">
+			<h2 style="display: inline;"><strong><a href="#">제주도</a></strong></h2>&nbsp;
+			<h3 style="display: inline;">jeju</h3>
+		</div>
+		<nav class="tourismenu">
+			<ul>
+				<li><a href="#"><strong>홈</strong></a></li>
+				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="#"><strong>축제</strong></a></li>
+				<li><a href="#"><strong>전시관</strong></a></li>
+			</ul>
+		</nav>
+	</header>
+	<br/><br/><br/>
+	<!-- 상세보기 화면 -->
     <div class="title_text">
         <span><strong>돈내코 유원지</strong></span>
     </div>
@@ -73,6 +95,27 @@
                 </span>
             </li>
         </ul>
+    </div>	
+    
+    <!-- 댓글창 -->
+    <div id="outter">	 
+		  <div id="form-commentInfo">
+		  <hr align="left" style="border: solid 1px; width: 60%;">
+	        <div id="comment-count">작성된 댓글 <span id="count">(1개)</span></div>
+	        <div id="css1">
+	        <hr align="left" style="border: solid 1px;  width: 60%;"></div>
+	        <input type="text" id="comment_input" placeholder="댓글을 입력해 주세요.">
+	        <button type="button" onClick="btnbtn()" class="submit" >등록</button>
+	    </div><br><br>
+	    <div class=list>
+			<span class="name">test |</span>
+			<span class="wdate">2022-07-18</span>&nbsp; &nbsp;
+			<button type="submit" onClick="check2()" class="SEDIT">수정</button>
+			<button type="submit" onClick="check1()" class="SDEL">삭제</button><br>
+			<c:out value="초밥 맛있어요~!!!!"></c:out><br>
+			<button type="submit" onClick="check()" class="SBTN1">신고</button>
+			 <hr align="left" style="border: solid 0.1px; width: 60%;"><br><br>		   
     </div>
+  </div>
 </body>
 </html>

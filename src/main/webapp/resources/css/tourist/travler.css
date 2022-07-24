@@ -1,5 +1,59 @@
 @charset "UTF-8";
 
+/* 헤더 */
+	
+.title {
+	border-top: 1px solid #9966ff;
+	text-align:left;
+	width: 100%;
+	padding-top: 30px;
+	padding-left: 100px;
+	font-size: 20px;
+}
+.title > h3 {
+	color: #7f7f7f;
+}
+.tourismenu {
+	margin:0;
+	padding:0;
+	position:absolute;
+	margin-top: 40px;
+	width: 640px;
+	margin-left: 310px;
+	padding: 0px;
+	list-style-type: none;
+	text-align: left;
+	line-height: 1.2;
+	background-color: #ac82ff;
+	border-radius: 10px;
+}
+.tourismenu > ul {
+	text-align: center;
+}
+
+.tourismenu > ul > li {
+	position:relative;
+	display: inline-block;
+	width: 150px;			
+	padding: 0.3em;	
+	border-left: 1px solid white;	
+	float: left;	
+}
+
+.tourismenu > ul > li:first-child {
+	border-left: none;
+}
+
+.tourismenu > ul > li > a {
+	display:block;
+	text-decoration: none;
+	color: white;
+	font-size: 15px;
+	padding: 10px 49px;
+}
+
+/* 메인 화면 */
+
 * {
 	margin: 0;
 	padding: 0;
