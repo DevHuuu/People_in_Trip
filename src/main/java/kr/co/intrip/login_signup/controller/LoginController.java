@@ -263,10 +263,11 @@ public class LoginController {
    
    //DB에 멤버 추가
    @RequestMapping(value = "signup/addMember", method = RequestMethod.POST)
-   public ModelAndView addMember(@ModelAttribute("member") MemberDTO _memberDTO, HttpServletRequest request, 
+   public ModelAndView addMember(@ModelAttribute("member") MemberDTO _memberDTO,HttpSession session, HttpServletRequest request, 
 		   HttpServletResponse response) throws Exception {
 	   System.out.println("here_addMember");
-	   int result = memberService.addMember(_memberDTO);
+	   memberService.addMember(_memberDTO);
+	   session.setAttribute("member", _memberDTO);
 	   ModelAndView mav = new ModelAndView();
 	   mav.setViewName("redirect:/login_signup/signupcomplete");
 	   
