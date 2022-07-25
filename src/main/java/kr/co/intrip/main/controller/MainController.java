@@ -13,9 +13,10 @@ public class MainController {
 	@RequestMapping(value = "/mainpage/main" )
 	public ModelAndView main(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ModelAndView mav = new ModelAndView();
-		System.out.println("테스트");
-		mav.setViewName("/mainpage/main");
-
+		
+		String viewName = (String) request.getAttribute("viewName");
+		mav.setViewName(viewName);
+		
 		return mav;
 	}
 }
