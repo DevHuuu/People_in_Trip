@@ -47,7 +47,7 @@ public class LoginController {
          session.setAttribute("user", user);
          session.setAttribute("isLogIn", true);
          log.info("user : " + user);
-         mav.setViewName("redirect:/login_signup/signupcomplete");
+         mav.setViewName("redirect:/main_kms/main_page_kms.jsp");
       }
       else {
          log.info("로그인 실패");
@@ -151,6 +151,7 @@ public class LoginController {
          returnDTO = memberService.loginMemberByGoogle(memberDTO);
          session.setAttribute("id", returnDTO.getId());         
          rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         session.setAttribute("isLogIn", true);
          log.info("구글 로그인 성공[DB존재X]");
       }
       else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
@@ -158,10 +159,11 @@ public class LoginController {
          memberService.loginMemberByGoogle(memberDTO);
          session.setAttribute("id", returnDTO.getId());         
          rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         session.setAttribute("isLogIn", true);
          log.info("구글 로그인 성공[DB존재O]");
       }   
       log.info("google user : "+ returnDTO);
-      return "redirect:/login_signup/signupcomplete";      
+      return "redirect:/main_kms/main_page_kms.jsp";      
    }
    
    // 카카오 로그인
@@ -174,8 +176,9 @@ public class LoginController {
       
       session.setAttribute("email", userInfo.getEmail());
       session.setAttribute("id", userInfo.getId());
+      session.setAttribute("isLogIn", true);
       
-      return "redirect:/login_signup/signupcomplete";
+      return "redirect:/main_kms/main_page_kms.jsp";
     }
 
    
@@ -338,6 +341,7 @@ public class LoginController {
            returnDTO = memberService.loginMemberByNaver(memberDTO);
            session.setAttribute("id", returnDTO.getId());         
            rttr.addFlashAttribute("mmemberDTO", returnDTO);
+           session.setAttribute("isLogIn", true);
            log.info("네이버 로그인 성공[DB존재X]");
         }
         else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
@@ -345,10 +349,11 @@ public class LoginController {
            memberService.loginMemberByNaver(memberDTO);
            session.setAttribute("id", returnDTO.getId());         
            rttr.addFlashAttribute("mmemberDTO", returnDTO);
+           session.setAttribute("isLogIn", true);
            log.info("네이버 로그인 성공[DB존재O]");
         }   
         log.info("naver user : "+ returnDTO);
-        return "redirect:/login_signup/signupcomplete";      
+        return "redirect:/main_kms/main_page_kms.jsp";      
      }
 
 }

@@ -29,7 +29,7 @@
 			    },
 		    	success : function (data) {
 		            alert("네이버아이디로 로그인 되었습니다.");
-		            location.href="/intrip/login_signup/signupcomplete";
+		            location.href="/intrip/main_kms/main_page_kms.jsp";
 		        }
 			}); 
     	});
