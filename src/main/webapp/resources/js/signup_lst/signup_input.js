@@ -129,7 +129,7 @@ window.onload = function() {
             if($("#email_option").val() == "direct") {
                 $("#mailinput2").show();
                 $("#mailinput2").val('');
-                $("#mailinput2").attr("disabled",false); //활성화
+                
             }  else {
                 $("#mailinput2").hide();
             }
@@ -173,6 +173,13 @@ function last_validate() {
     }
     if(nickDupcode != 1) {
         alert('닉네임 중복확인 인증을 해주세요.');
+        checkcode = -1;
+        return false;
+    }
+    emailCerticode = document.getElementById('emailCerticode').value;
+    if(emailCerticode != 1) {
+    	alert(emailCerticode);
+        alert('이메일 인증을 완료해주세요.')
         checkcode = -1;
         return false;
     }
@@ -448,21 +455,13 @@ function checkNickName () {
     checkcode = 1;
 }
 
-//이메일 버튼을 누르면 이메일 팝업을 띄우는 것으로
-function email_popup() {
-    let url = "signup_certifyemail.html";
-    let name = "이메일 인증코드 입력"
-    let option = "width = 850, height = 500, top = 100 left = 300"
-    window.open(url, name, option);
-}
-
 //아이디 DB에서 중복체크
 function fn_IDduplicatecheck() {
     checkId();
     let input_id = $("#input_id").val()
     $.ajax({
         type: "post",
-        url: "/lentcar/member/duplicateCheckId.do",
+        url: "/intrip/signup/duplicateCheckId",
         dataType: "text",
         data: {id: input_id},
         success: function (data, textStatus) {
@@ -493,7 +492,7 @@ function fn_NickduplicateCheck() {
     let input_nick = $("#input_nick").val()
     $.ajax({
         type: "post",
-        url: "/lentcar/member/duplicateCheckNick.do",
+        url: "/intrip/signup/duplicateCheckNick",
         dataType: "text",
         data: {nick_nm: input_nick},
         success: function (data, textStatus) {
@@ -519,9 +518,19 @@ function fn_NickduplicateCheck() {
 }
 
 /* 이메일에 셀렉트 옵션값 받아오기*/
-	var selectBoxChange = function (value) {
-    	$('#email').val(value);
-	}
+var selectBoxChange = function (value) {
+    if(value == 'direct') {
+        let email_direct = document.getElementById('mailinput2');
+        email_direct.addEventListener("change", function () {
+            let email_directV = document.getElementById('mailinput2').value;
+
+            $('#email').val(email_directV);
+        })
+    }
+    else {
+        $('#email').val(value);
+    }
+}
 
 /* 이메일 인증 (유효성, 중복검사 및 이메일 코드 인증)*/
 function checkEmail() {
@@ -542,7 +551,7 @@ function checkEmail() {
 	}
     $.ajax({
         type: "post",
-        url: "/lentcar/member/duplicateCheckEmail.do",
+        url: "/intrip/signup/duplicateCheckEmail",
         dataType: "text",
         data: {email: email},
         success: function (data, textStatus) {
@@ -557,7 +566,7 @@ function checkEmail() {
 
 					email_popup();
 					
-                    emailCerticode = 1;
+                    
                 }
             }
             else {
@@ -574,4 +583,38 @@ function checkEmail() {
 
 
 }
+
+
+//이메일 버튼을 누르면 이메일 팝업을 띄우는 것으로
+function email_popup() {
+	//email2에는  히든태그 email의 내용 받기 (중복체크 실행 이후 시점이므로 온전한 email값이 담김)
+    let email2 = $('#email').val();
+    let emailPopup = null;
+   
+    let url = "signup_certifyemail?email="+email2;
+    let name = "이메일 인증코드 입력"
+    let option = "width = 850, height = 500, top = 100 left = 300"
+    emailPopup = window.open(url, name, option);
+    
+    
+    
+    /* $.ajax({
+        type : 'get',
+        url : "post_certifyemail",
+        dataType: "text",
+        data: {email: email2},
+        success : function (data) {
+            code =data;
+            checkcode = 1;
+        },
+        error : function(err) {
+            alert('전달받은값'+email2);
+            alert("이메일 코드 전송에 실패했습니다.");
+            checkcode = -1;
+        }
+    }); // end ajax */
+
+   
+}
+
 

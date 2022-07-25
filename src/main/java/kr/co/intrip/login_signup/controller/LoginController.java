@@ -1,6 +1,7 @@
 package kr.co.intrip.login_signup.controller;
 
 import java.net.URI;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.intrip.login_signup.dto.MemberDTO;
+import kr.co.intrip.login_signup.service.MailSendService_Add;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,6 +33,9 @@ public class LoginController {
    
    @Autowired
    private MemberService memberService;
+   
+	@Autowired
+	private MailSendService_Add mailService;
 
    // 로그인 페이지
    @GetMapping("login_signup/login")
@@ -235,8 +240,8 @@ public class LoginController {
    
    /* 회원가입 정보입력 페이지 ,이메일 인증입력 팝업, 이메일 인증출력 팝업*/
    
-   // 회원가입 정보 입력 팝업
-   @RequestMapping(value = "login_signup/signup_input")
+   // 회원가입 정보 입력 페이지
+   @RequestMapping(value = "login_signup/signup_input", method = {RequestMethod.POST, RequestMethod.GET})
    public ModelAndView signupInput (HttpServletRequest request, HttpServletResponse response) throws Exception {
       ModelAndView mav = new ModelAndView();
       mav.setViewName("login_signup/signup_input");
@@ -245,13 +250,50 @@ public class LoginController {
    }
    
    // 이메일인증 입력 팝업
-   @RequestMapping(value = "login_signup/signup_certifyemail")
-   public ModelAndView signupCertifyEmail (HttpServletRequest request, HttpServletResponse response) throws Exception {
+   @RequestMapping(value = "login_signup/signup_certifyemail", method = {RequestMethod.POST, RequestMethod.GET})
+   public ModelAndView signupCertifyEmail (@RequestParam(value="email", required = false)String email2, 
+		   HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+      System.out.println("here_emailcerti: " + email2);
+      session.setAttribute("email", email2);
       ModelAndView mav = new ModelAndView();
       mav.setViewName("login_signup/signup_certifyemail");
       
+      //MailSendService에서 생성된 난수를 login_signup/signup_certifymail로 POST방식으로 넘기는 메소드. 값 authNumber도 받아야함 그래서 세션에 저장한거 바탕으로 js파일로 유효성검사
+      
+
+      
+    //이메일 인증
+      String code = mailService.joinEmail(email2); //code는 코드번호이다. 코드를 넘겨줘야됨.
+      session.setAttribute("code", code);
+      System.out.println("이메일 인증 요청이 들어옴!");
+		System.out.println("이메일 인증 이메일 : " + email2);
+
+
+		System.out.println("코드번호" + code);
+      
       return mav;
    }
+   
+   // 이메일코드 전송 
+   @ResponseBody
+   @RequestMapping(value = "login_signup/post_certifyemail", method = RequestMethod.GET)
+   public ModelAndView postCertifyEmail (@RequestParam(value="email", required = false)String email2, 
+		   @RequestParam(value="code", required = false)String code,
+		   HttpServletRequest request, HttpServletResponse response, HttpSession session) throws Exception {
+      System.out.println("here_emailcerti: " + email2);
+      session.setAttribute("email", email2);
+		session.removeAttribute("code");
+		
+		TimeUnit.SECONDS.sleep(1);
+		session.setAttribute("code", code);
+		
+		 ModelAndView mav = new ModelAndView();
+	      mav.setViewName("login_signup/signup_certifyemail");
+     
+      return mav;
+   }
+   
+   
    // 이메일인증 출력 팝업
    @RequestMapping(value = "login_signup/signup_certifyemailcode")
    public ModelAndView signupCertifyEmailCode (HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -289,7 +331,7 @@ public class LoginController {
 //   }
    
    
-   //중복 확인
+   //아이디 중복 확인
    @RequestMapping(value = "signup/duplicateCheckId", method = RequestMethod.POST)
 	public ResponseEntity<String> duplicateCheckId(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -299,7 +341,7 @@ public class LoginController {
 				
 		return resEntity;
 	}
- //중복 확인
+ //닉네임 중복 확인
    @RequestMapping(value = "signup/duplicateCheckNick", method = RequestMethod.POST)
 	public ResponseEntity<String> duplicateCheckNick(@RequestParam("nick_nm") String nick_nm, HttpServletRequest request, HttpServletResponse response)
 			throws Exception {
@@ -309,6 +351,20 @@ public class LoginController {
 				
 		return resEntity_nick;
 	}
+// 이메일 중복 확인
+   @RequestMapping(value = "signup/duplicateCheckEmail", method = RequestMethod.POST)
+	public ResponseEntity<String> duplicateCheckEmail(@RequestParam("email") String email, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("here_emailDup "+email);
+		String result = memberService.duplicateCheckEmail(email);
+		ResponseEntity<String> resEntity_email = new ResponseEntity<String>(result, HttpStatus.OK);
+				
+		return resEntity_email;
+	}
+   
+   
+   
+   
    
 	
    	// 네이버

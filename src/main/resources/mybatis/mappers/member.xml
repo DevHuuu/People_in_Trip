@@ -120,5 +120,14 @@
 			WHERE NICK_NM = #{nick_nm}
 		]]>
 	</select>
+	
+	<!-- 이메일 중복검사 -->
+	<select id="duplicatecheckEmail" parameterType="String" resultType="String">
+		<![CDATA[
+			SELECT DECODE(COUNT(*), 1, 'true', 0, 'false')
+			FROM P_MEMBER
+			WHERE EMAIL = #{email}
+		]]>
+	</select>
 
 </mapper>

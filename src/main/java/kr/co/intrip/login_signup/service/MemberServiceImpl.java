@@ -204,20 +204,26 @@ public class MemberServiceImpl implements MemberService {
 	}
 
 	@Override
-	public String duplicateCheckId(String id) {
+	public String duplicateCheckId(String id) throws Exception {
 		// TODO Auto-generated method stub
 		return memberDAO.selectDuplicateCheckId(id);
 	}
 
 	@Override
-	public String duplicateCheckNick(String nick_nm) {
+	public String duplicateCheckNick(String nick_nm) throws Exception {
 		// TODO Auto-generated method stub
 		return memberDAO.selectDuplicateCheckNick(nick_nm);
 	}
 
 	@Override
-	public int addMember(MemberDTO _memberDTO) {
+	public int addMember(MemberDTO _memberDTO) throws Exception {
 		// TODO Auto-generated method stub
 		return memberDAO.addMember(_memberDTO);
+	}
+
+	@Override
+	public String duplicateCheckEmail(String email) throws Exception {
+		// TODO Auto-generated method stub
+		return memberDAO.selectDuplicateCheckEmail(email);
 	}
 }

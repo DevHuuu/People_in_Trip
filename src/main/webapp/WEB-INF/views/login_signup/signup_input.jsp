@@ -128,6 +128,7 @@
 	                        </td>
 	                        <td id="table2_mtd4">
 	                            <button class="t2_btn" type="button" onclick="checkEmail()">이메일<br/>인증</button>
+	                            <input type="hidden" id="emailCerticode" name="emailCerticode" value=""/>
 	                        </td>
 	                    </tr>
 	                    <tr id="last_tr">

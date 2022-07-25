@@ -91,4 +91,9 @@ public class MemberDAO {
 		int result = sqlSession.insert("mapper.member.addMember", _memberDTO);
 		return result;
 	}
+
+	public String selectDuplicateCheckEmail(String email) {
+		String result = sqlSession.selectOne("mapper.member.duplicatecheckEmail", email);
+		return result;
+	}
 }
