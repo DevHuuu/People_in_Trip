@@ -16,26 +16,57 @@ request.setCharacterEncoding("UTF-8");
 	rel='stylesheet'>
 <link rel="stylesheet" href="../resources/css/search_kjh/idSearch.css">
 <script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
+	$(document).ready(function() {
+		$('#btn123').click(function() {
+			const email = $('#SEMAIL').val();
+			console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
+			const checkInput = $('#SINNUM') // 인증번호 입력하는곳 
+
+			$.ajax({
+				type : 'get',
+				url : "/intrip/mailCheck?email=" + email, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+				success : function(data) {
+					console.log("data : " + data);
+					checkInput.attr('disabled', false);
+					code = data;
+
+				}
+			}); // end ajax
+		}); // end send eamil
+	});
+
 	function check() {
 		if (document.find_pw.id.value == "") {
 			alert("아이디를 입력해 주세요");
-			document.find_pw.id.value == ""
+			document.find_pw.id.focus();
 			return false;
 		}
+
 		if (document.find_pw.email.value == "") {
 			alert("이메일 주소를 입력해 주세요");
-			document.find_pw.email.value == ""
+			document.find_pw.email.focus();
 			return false;
 		}
 		if ($("#SINNUM").val() == "") {
 			alert("인증번호를 입력해 주세요");
 			$("#SINNUM").focus();
 			return false;
-		} else {
-			document.find_pw.submit();
 		}
+		$('#SINNUM').blur(function() {
+			const inputCode = $(this).val();
+			if (inputCode === code) {
+				$('#btn123').attr('disabled', true);
+				$('#SEMAIL').attr('readonly', true);
+				return document.find_pw.submit();
+			}
+			if (inputCode != code) {
+				$('#btn123').attr('disabled', true);
+				$('#SEMAIL').attr('readonly', true);
+				alert("인증번호가 다릅니다")
+			}
+		});
 
 	}
 
@@ -47,32 +78,27 @@ request.setCharacterEncoding("UTF-8");
 	}
 </script>
 </head>
-<body>	
+<body>
 	<form action="${contextPath}/login_signup/find_pw" name="find_pw"
-			method="post">
-	<div class="SEARCH_FORM">
-		<h1>People in trip</h1>
-		<h5>비밀번호 찾기</h5>
-		<input id="SID_IN" name="id" type="text" onfocus="this.placeholder='';"
-			onblur="this.placeholder='아이디 입력'" placeholder="아이디 입력"><br>
-		<input id="SEMAIL" name="email" type="text" onfocus="this.placeholder='';"
-			placeholder="이메일" onblur="this.placeholder='이메일'"><br>
-		<button type="button" class="SBTN" onclick="btnchange()" id="btn">
-			<strong>인증번호 전송</strong>
-		</button>
-		<br> <input id="SINNUM" type="text"
-			onfocus="this.placeholder='';" onblur="this.placeholder='인증번호'"
-			placeholder="인증번호"><br>
-		<button type="button" onClick="check()" class="SBTN">
-			<strong>확인</strong>
-		</button>
-		<c:if test="${check == 1}">
-			<script>
-				opener.document."find_id".name.value = "";
-				opener.document."find_id".email.value = "";
-			</script>
-			<h3 style="color: red;">일치하신 정보가 없습니다.</h3>
-		</c:if>
-	</div>
-</form>
+		method="post">
+		<div class="SEARCH_FORM">
+			<h1>People in trip</h1>
+			<h5>비밀번호 찾기</h5>
+			<input id="SID_IN" name="id" type="text"
+				onfocus="this.placeholder='';" onblur="this.placeholder='아이디 입력'"
+				placeholder="아이디 입력"><br> <input id="SEMAIL"
+				name="email" type="text" onfocus="this.placeholder='';"
+				placeholder="이메일" onblur="this.placeholder='이메일'"><br>
+			<button type="button" class="SBTN" onclick="btnchange()" id="btn123">
+				<strong>인증번호 전송</strong>
+			</button>
+			<br> <input id="SINNUM" type="text"
+				onfocus="this.placeholder='';" onblur="this.placeholder='인증번호'"
+				placeholder="인증번호"><br>
+			<button type="button" onClick="check()" class="SBTN">
+				<strong>확인</strong>
+			</button>
+
+		</div>
+	</form>
 </body>

@@ -27,7 +27,7 @@ request.setCharacterEncoding("UTF-8");
 		<h5>아이디찾기</h5>
 	<form action="${contextPath}/login_signup/find_id" name="find_id"
 			method="post">
-		<input id="SID" type="text" value="${id}"><br>
+		<input id="SID" type="text" value="${id}" disabled><br>
 		<button type="button" class="SBTN" onclick="page()">
 			<strong>로그인 페이지로 이동</strong>
 	</form>

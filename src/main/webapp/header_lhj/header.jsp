@@ -30,7 +30,7 @@
                 </div>
                 <ul class="submenuitem">
                     <li><a href="#">서울</a></li>
-                    <li><a href="#">제주도</a></li>
+                    <li><a href="${contextPath}/tourist/travel_page_kms">제주도</a></li>
                 </ul>
             </div> 
             <div class="menu" style="z-index: 1">
