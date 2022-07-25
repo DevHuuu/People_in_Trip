@@ -1,9 +1,14 @@
 package kr.co.intrip.login_signup.controller;
 
+import java.net.URI;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.intrip.login_signup.dto.MemberDTO;
+import kr.co.intrip.login_signup.service.MailSendService;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +29,8 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 public class LoginController {
 
-   
+	@Autowired
+ 	private MailSendService mailService;
    @Autowired
    private MemberService memberService;
 
@@ -42,7 +49,7 @@ public class LoginController {
          session.setAttribute("user", user);
          session.setAttribute("isLogIn", true);
          log.info("user : " + user);
-         mav.setViewName("redirect:/login_signup/signupcomplete");
+         mav.setViewName("redirect:/main_kms/main_page_kms.jsp");
       }
       else {
          log.info("로그인 실패");
@@ -63,19 +70,19 @@ public class LoginController {
    }
    
    // 회원가입 완료 페이지
-   @GetMapping("login_signup/signupcomplete")
+   @RequestMapping(value = "login_signup/signupcomplete", method = {RequestMethod.GET, RequestMethod.POST})
    public String signupcomplete(HttpServletRequest request, HttpServletResponse response)  {
       return "login_signup/signupcomplete";
    }
 
-	//아이디 찾기 페이지
-   @RequestMapping(value = "login_signup/find_id_page")
+   //아이디 찾기 페이지
+   @RequestMapping(value = "login_signup/find_id")
    public String find_id_page(HttpServletRequest request, HttpServletResponse response) throws Exception {
       return "login_signup/find_id";
       }
 
    // 아이디 찾기 실행
-   @RequestMapping(value="login_signup/find_id", method= {RequestMethod.POST,RequestMethod.GET})
+   @RequestMapping(value="login_signup/find_id", method= RequestMethod.POST)
    public String findIdAction(MemberDTO memberDTO, Model model) throws Exception {
    MemberDTO user = memberService.find_id(memberDTO);
             
@@ -97,13 +104,13 @@ public class LoginController {
       }
 
    // 비밀번호 찾기 페이지로 이동
-   @RequestMapping(value = "login_signup/find_pw_page")
+   @RequestMapping(value = "login_signup/find_pw")
    public String find_pw_page() {
       return "login_signup/find_pw";
       }
 
    // 비밀번호 찾기 실행
-   @RequestMapping(value = "login_signup/find_pw",  method= {RequestMethod.POST,RequestMethod.GET})
+   @RequestMapping(value = "login_signup/find_pw",  method= RequestMethod.POST)
    public String findPasswordAction(MemberDTO memberDTO, Model model) {
       MemberDTO user = memberService.find_pw(memberDTO);
       if (user == null) {
@@ -131,6 +138,15 @@ public class LoginController {
          memberService.update_pw(memberDTO);
          return "login_signup/login";
       }
+      
+	   // 메일 서비스
+	   @GetMapping("/mailCheck")
+	   @ResponseBody
+	   public String mailCheck(String email) {
+	   System.out.println("이메일 인증 요청이 들어옴!");
+	   System.out.println("이메일 인증 이메일 : " + email);
+	  	return mailService.joinEmail(email);
+	 }
    
    /* 구글아이디로 로그인 */   
    @ResponseBody
@@ -146,6 +162,7 @@ public class LoginController {
          returnDTO = memberService.loginMemberByGoogle(memberDTO);
          session.setAttribute("id", returnDTO.getId());         
          rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         session.setAttribute("isLogIn", true);
          log.info("구글 로그인 성공[DB존재X]");
       }
       else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
@@ -153,10 +170,11 @@ public class LoginController {
          memberService.loginMemberByGoogle(memberDTO);
          session.setAttribute("id", returnDTO.getId());         
          rttr.addFlashAttribute("mmemberDTO", returnDTO);
+         session.setAttribute("isLogIn", true);
          log.info("구글 로그인 성공[DB존재O]");
       }   
       log.info("google user : "+ returnDTO);
-      return "redirect:/login_signup/signupcomplete";      
+      return "redirect:/main_kms/main_page_kms.jsp";      
    }
    
    // 카카오 로그인
@@ -169,8 +187,9 @@ public class LoginController {
       
       session.setAttribute("email", userInfo.getEmail());
       session.setAttribute("id", userInfo.getId());
+      session.setAttribute("isLogIn", true);
       
-      return "redirect:/login_signup/signupcomplete";
+      return "redirect:/main_kms/main_page_kms.jsp";
     }
 
    
@@ -255,6 +274,56 @@ public class LoginController {
       
       return mav;
    }
+   
+   //DB에 멤버 추가
+   @RequestMapping(value = "signup/addMember", method = RequestMethod.POST)
+   public ModelAndView addMember(@ModelAttribute("member") MemberDTO _memberDTO,HttpSession session, HttpServletRequest request, 
+		   HttpServletResponse response) throws Exception {
+	   System.out.println("here_addMember");
+	   memberService.addMember(_memberDTO);
+	   session.setAttribute("member", _memberDTO);
+	   ModelAndView mav = new ModelAndView();
+	   mav.setViewName("redirect:/login_signup/signupcomplete");
+	   
+	   return mav;
+   }
+//   public ResponseEntity<MemberDTO> addMember(@ModelAttribute("member") MemberDTO _memberDTO, HttpServletRequest request, 
+//		   HttpServletResponse response) throws Exception {
+//	   System.out.println("here_addMember");
+//	   int result = memberService.addMember(_memberDTO);
+//	   ResponseEntity<MemberDTO> resEntity_member = new ResponseEntity<MemberDTO>(_memberDTO, HttpStatus.OK);
+//	   HttpHeaders headers = new HttpHeaders();
+//       headers.setLocation(URI.create("/intrip/login_signup/signupcomplete"));
+//		/*
+//		 * ModelAndView mav = new ModelAndView();
+//		 * mav.setViewName("redirect:/login_signup/signupcomplete");
+//		 */
+//	   
+//       return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
+//   }
+   
+   
+   //중복 확인
+   @RequestMapping(value = "signup/duplicateCheckId", method = RequestMethod.POST)
+	public ResponseEntity<String> duplicateCheckId(@RequestParam("id") String id, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("here_idDup "+id);
+		String result = memberService.duplicateCheckId(id);
+		ResponseEntity<String> resEntity = new ResponseEntity<String>(result, HttpStatus.OK);
+				
+		return resEntity;
+	}
+ //중복 확인
+   @RequestMapping(value = "signup/duplicateCheckNick", method = RequestMethod.POST)
+	public ResponseEntity<String> duplicateCheckNick(@RequestParam("nick_nm") String nick_nm, HttpServletRequest request, HttpServletResponse response)
+			throws Exception {
+		System.out.println("here_nickDup "+nick_nm);
+		String result = memberService.duplicateCheckNick(nick_nm);
+		ResponseEntity<String> resEntity_nick = new ResponseEntity<String>(result, HttpStatus.OK);
+				
+		return resEntity_nick;
+	}
+   
 	
    	// 네이버
 	@GetMapping("")
@@ -283,6 +352,7 @@ public class LoginController {
            returnDTO = memberService.loginMemberByNaver(memberDTO);
            session.setAttribute("id", returnDTO.getId());         
            rttr.addFlashAttribute("mmemberDTO", returnDTO);
+           session.setAttribute("isLogIn", true);
            log.info("네이버 로그인 성공[DB존재X]");
         }
         else if(mvo_ajaxid.equals(returnDTO.getId())){ //아이디가 DB에 존재하는 경우
@@ -290,10 +360,11 @@ public class LoginController {
            memberService.loginMemberByNaver(memberDTO);
            session.setAttribute("id", returnDTO.getId());         
            rttr.addFlashAttribute("mmemberDTO", returnDTO);
+           session.setAttribute("isLogIn", true);
            log.info("네이버 로그인 성공[DB존재O]");
         }   
         log.info("naver user : "+ returnDTO);
-        return "redirect:/login_signup/signupcomplete";      
+        return "redirect:/main_kms/main_page_kms.jsp";      
      }
 
 }

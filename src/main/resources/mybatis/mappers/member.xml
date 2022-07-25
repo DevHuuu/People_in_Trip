@@ -4,6 +4,17 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="mapper.member"> 	
+	<resultMap type="memberDTO" id="memberResult">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+		<result property="pwd" column="pwd" />
+		<result property="nick_nm" column="nick_nm" />
+		<result property="email" column="email" />
+		<result property="join_Date" column="join_Date" />
+		<result property="last_update" column="last_update" />
+		<result property="grade" column="grade" />
+	</resultMap>
+	
 	<select id="Login" resultType="memberDTO" parameterType="memberDTO">
 		<![CDATA[
 			SELECT * 
@@ -84,5 +95,30 @@
 			values (#{id}, #{name}, #{pwd}, #{nick_nm}, #{email})
 		]]>	
 	</insert>
+	
+	<!-- 멤버 추가하기 -->
+	<insert id="addMember" parameterType="memberDTO">
+		<![CDATA[
+			INSERT INTO P_MEMBER (ID, PWD, NAME, NICK_NM, EMAIL)
+			VALUES(#{id}, #{pwd}, #{name}, #{nick_nm}, #{email})
+		]]>
+	</insert>
+	<!-- ID 중복검사 -->
+	<select id="duplicatecheckId" parameterType="String" resultType="String">
+		<![CDATA[
+			SELECT DECODE(COUNT(*), 1, 'true', 0, 'false')
+			FROM P_MEMBER
+			WHERE ID = #{id}	
+		]]>
+	</select>
+	
+	<!-- 닉네임 중복검사 -->
+	<select id="duplicatecheckNick" parameterType="String" resultType="String">
+		<![CDATA[
+			SELECT DECODE(COUNT(*), 1, 'true', 0, 'false')
+			FROM P_MEMBER
+			WHERE NICK_NM = #{nick_nm}
+		]]>
+	</select>
 
 </mapper>
