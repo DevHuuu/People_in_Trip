@@ -6,7 +6,7 @@
 <html>
 <head>
 	<link rel="stylesheet" href="${contextPath}/resources/css/tourist/tourist_PageList.css">
-	<script type="text/javascript" src="${contextPath}/esources\js\tourist\tourist_PageList.js"></script>
+	<script type="text/javascript" src="${contextPath}/resources/js/tourist/tourist_PageList.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,21 @@
 </head>
 <body>
 	<jsp:include page="/header_lhj/header.jsp" flush="false" />
-	<%-- <jsp:include page="/header_lhj/header.jsp" flush="false" /> 여기에는 메뉴가 들어갈거예요. --%>
+	
+	<header>
+		<div class="title">
+			<h2 style="display: inline;"><strong><a href="#">제주도</a></strong></h2>&nbsp;
+			<h3 style="display: inline;">jeju</h3>
+		</div>
+		<nav class="tourismenu">
+			<ul>
+				<li><a href="#"><strong>홈</strong></a></li>
+				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="#"><strong>축제</strong></a></li>
+				<li><a href="#"><strong>전시관</strong></a></li>
+			</ul>
+		</nav>
+	</header>
 	
 	<form name="frm_tourPage" action="#" method="get">
 		<div id="tourPage_div">

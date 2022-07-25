@@ -106,16 +106,19 @@
 	                        <td class="table2_td1"><strong>이메일</strong></td>
 	                        <td colspan="1" id="table2_mtd1">
 	                            <div class="hiddendiv_email_sub">&nbsp;</div>
-	                            <input class="mailinput" id="mailinput1" name="email" type="text"/>
+	                            <input class="mailinput" id="mailinput1" name="_email" type="text"/>
+	                            <input type="hidden" id="email" name="email" value="" />
 	                             <!--히든타입 인풋을 만들어 name을 email로 하고 값을 메일인풋1과2를 합친것으로 저장해야함-->
 	                            <div class="hiddendiv_email">&nbsp;</div>
 	                        </td>
 	                        <td id="table2_mtd2"> @</td>
 	                        <td id="table2_mtd3">
 	                            <div class="hiddendiv_email_sub">&nbsp;</div>
-	                            <input class="mailinput" id="mailinput2" name="mailinput2" type="text" placeholder="직접입력" onfocus="this.placeholder=''"
-	                                   value="dir" style="width: 135px; height: 25px;" disabled/>
-	                            <select id="email_option" name="email_option">
+	                            <input class="mailinput" id="mailinput2" name="mailinput2" type="text" 
+	                            	 style="width: 135px; height: 25px;" />
+	                           	<input type="hidden" id="mail2" name="mail2" value="">
+	                            <select id="email_option" name="email_option" onchange="selectBoxChange(this.value)">
+	                                <option value="">도메인 선택</option>
 	                                <option value="gmail.com">gmail.com</option>
 	                                <option value="naver.com">naver.com</option>
 	                                <option value="daum.net">daum.net</option>
@@ -124,7 +127,7 @@
 	                             <div class="hiddendiv_email">&nbsp;</div>
 	                        </td>
 	                        <td id="table2_mtd4">
-	                            <button class="t2_btn" type="button" onclick="email_popup()">이메일<br/>인증</button>
+	                            <button class="t2_btn" type="button" onclick="checkEmail()">이메일<br/>인증</button>
 	                        </td>
 	                    </tr>
 	                    <tr id="last_tr">

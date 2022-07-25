@@ -21,6 +21,8 @@ let emailCerticode = 0;
 
 
 window.onload = function() {
+
+	
     /*비밀번호 일치 여부에 따른 HTML문구 삽입*/
     let pass = document.getElementById('input_pass');
     let pass2 = document.getElementById('input_pass2');
@@ -460,7 +462,7 @@ function fn_IDduplicatecheck() {
     let input_id = $("#input_id").val()
     $.ajax({
         type: "post",
-        url: "/intrip/signup/duplicateCheckId",
+        url: "/lentcar/member/duplicateCheckId.do",
         dataType: "text",
         data: {id: input_id},
         success: function (data, textStatus) {
@@ -491,7 +493,7 @@ function fn_NickduplicateCheck() {
     let input_nick = $("#input_nick").val()
     $.ajax({
         type: "post",
-        url: "/intrip/signup/duplicateCheckNick",
+        url: "/lentcar/member/duplicateCheckNick.do",
         dataType: "text",
         data: {nick_nm: input_nick},
         success: function (data, textStatus) {
@@ -514,5 +516,62 @@ function fn_NickduplicateCheck() {
         }
 
     })
+}
+
+/* 이메일에 셀렉트 옵션값 받아오기*/
+	var selectBoxChange = function (value) {
+    	$('#email').val(value);
+	}
+
+/* 이메일 인증 (유효성, 중복검사 및 이메일 코드 인증)*/
+function checkEmail() {
+	//email1에 첫번째 이메일 칸 내용 받기
+    let email1 = document.getElementById('mailinput1').value;
+    //email2에는  히든태그 email의 내용 받기 (셀렉트의 옵션태그 값)
+    let email2 = $('#email').val();
+    
+    let email = email1 + "@" + email2;
+
+    if(email1 == null || email1 == "" || email2 == "") {
+        alert('이메일을 입력하여야 합니다.');
+        checkcode = -1;
+        return false;
+    }
+    else {
+    checkcode = 1;
+	}
+    $.ajax({
+        type: "post",
+        url: "/lentcar/member/duplicateCheckEmail.do",
+        dataType: "text",
+        data: {email: email},
+        success: function (data, textStatus) {
+            if(data == 'false') {
+                if(checkcode ==1) {
+                    alert("사용할 수 있는 이메일입니다.");
+                    $('input[name=email]').attr('value',email);
+                    alert(email);
+                    $('#mailinput1').prop("disabled", true)
+                    $('#mailinput2').prop("disabled", true)
+                    $('#email_option').prop("disabled", true)
+
+					email_popup();
+					
+                    emailCerticode = 1;
+                }
+            }
+            else {
+                alert("사용할 수 없는 이메일입니다.");
+                emailCerticode = -1;
+            }
+        },
+        error : function(err) {
+            alert("사용할 수 없는 이메일입니다.");
+            checkcode = -1;
+        }
+
+    })
+
+
 }
 
