@@ -8,7 +8,7 @@
     <title>정보게시판 > 글쓰기</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/community/community_detail.css">
+    <link rel="stylesheet" href="../resources/css/community/community_write.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script type="text/javascript">
     	$(document).ready(function() {
