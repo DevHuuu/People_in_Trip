@@ -9,7 +9,7 @@
     <title>게시판(글쓰기)</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/community_kjs/writeStyle.css"/>
+    <link rel="stylesheet" href="../resources/css/community/community_detail.css"/>
 </head>
 <body>
     <!-- 헤더 -->
