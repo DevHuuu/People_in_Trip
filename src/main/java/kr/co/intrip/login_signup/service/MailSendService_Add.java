@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MailSendService_Add {
+	
 	@Autowired
 	private JavaMailSenderImpl mailSender;
 	private int authNumber; 
@@ -27,7 +28,7 @@ public class MailSendService_Add {
 	}
 	
 	
-			//이메일 보낼 양식! 
+	//이메일 보낼 양식! 
 	public String joinEmail(String email) {
 		makeRandomNumber();
 		String setFrom = "ezen0824@gmail.com"; // email-config에 설정한 자신의 이메일 주소를 입력 
