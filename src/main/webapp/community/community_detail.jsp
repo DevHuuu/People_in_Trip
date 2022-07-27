@@ -4,43 +4,24 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판(글쓰기)</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/community_kjs/writeStyle.css"/>
+    <link rel="stylesheet" href="../resources/css/community/community_detail.css"/>
 </head>
 <body>
     <!-- 헤더 -->
-    <div class="page">
-    <header>
-        <table class="header">
-        	<tr>
-        		<td><a>People in trip</a></td>
-        		<td><a>관광지</a></td>
-        		<td>
-					<div class="header-type">
-						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!">
-						<button class="form-button">검색</button>
-					</div>
-				</td>
-				<td><a>마이페이지</a></td>
-				<td><a>쪽지함</a></td>
-				<td><a>로그아웃</a></td>
-			</tr>
-        </table>
-    </header>
-
+    <div id="page">
+    <div id="header-jeh">
+       	<%@ include file="../header_lhj/header.jsp" %>
+    </div>
     <!-- 왼쪽 메뉴바 -->
     <div class="left-menu">
-    	<nav class="nav1">
-        	<ul class="menu">
-            	<li><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
-            	<li><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
-        	</ul>
-    	</nav>
-	</div>
+    	<ul class="left-menu-ul">
+        	<li class="menu-list"><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
+            <li class="menu-list"><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
+        </ul>
+    </div>
     <!-- 정보게시판 본문 -->
     <section class="content">
         <div>
