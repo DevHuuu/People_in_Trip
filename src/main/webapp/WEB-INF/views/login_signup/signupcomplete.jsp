@@ -11,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입 완료</title>
-<link rel="stylesheet" href="../resources/css/signup_phj/signup1.css" />
+<link rel="stylesheet" href="../resources/css/login_signup/signupcomplete.css" />
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
 </head>

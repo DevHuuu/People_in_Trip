@@ -14,7 +14,7 @@ request.setCharacterEncoding("UTF-8");
 <title>pw_search</title>
 <link href='https://fonts.googleapis.com/css?family=Pacifico'
 	rel='stylesheet'>
-<link rel="stylesheet" href="../resources/css/search_kjh/idSearch.css">
+<link rel="stylesheet" href="../resources/css/login_signup/idSearch.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
