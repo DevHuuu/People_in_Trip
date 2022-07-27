@@ -69,9 +69,9 @@ function handleCredentialResponse(response) {
 				"email" : responsePayload.email, 
 			    },
 		    success : function (data) {
-		            alert("구글아이디로 로그인 되었습니다.");
-		            location.href="/intrip/main_kms/main_page_kms.jsp";
-		        }
+				alert("구글아이디로 로그인 되었습니다.");
+				location.href="/intrip/mainpage/main";
+			}
 		});
 	})
 }          
@@ -86,24 +86,24 @@ function parseJwt (token) {
 };
 
 window.onload = function () {
-  google.accounts.id.initialize({
-    client_id: "1078833173748-jtu86j39qajahe8lo49oi53e67jmrpsp.apps.googleusercontent.com",
-    callback: handleCredentialResponse
-  });
-  google.accounts.id.renderButton(
-    document.getElementById("buttonDiv"),
-    { type: "icon", theme: "filled_blue", size: "large"}  // customization attributes
-  );  
-  google.accounts.id.prompt(); // also display the One Tap dialog
+	google.accounts.id.initialize({
+		client_id: "1078833173748-jtu86j39qajahe8lo49oi53e67jmrpsp.apps.googleusercontent.com",
+		callback: handleCredentialResponse
+	});
+	google.accounts.id.renderButton(
+		document.getElementById("buttonDiv"),
+		{ type: "icon", theme: "filled_blue", size: "large"}  // customization attributes
+	);  
+	google.accounts.id.prompt(); // also display the One Tap dialog
 }
 
 function attachSignin(element) {
 	handleCredentialResponse.attachClickHandler(element, {},
         function(responsePayload) {
-}, function(error) {
-	console.log('call check2'); 
-  alert(JSON.stringify(error, undefined, 2));
-});
+	}, function(error) {
+		console.log('call check2'); 
+  		alert(JSON.stringify(error, undefined, 2));
+	});
 }
 </script>
 
