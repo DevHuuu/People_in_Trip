@@ -83,7 +83,7 @@ public class LoginController {
 		return "login_signup/find_id";
 	}
 
-<<<<<<< HEAD
+
    // 아이디 찾기 실행
    @RequestMapping(value="login_signup/find_id", method= RequestMethod.POST)
    public String findIdAction(MemberDTO memberDTO, Model model ) throws Exception {
@@ -98,23 +98,6 @@ public class LoginController {
       }
       return "login_signup/find_id_out";
          }
-=======
-	// 아이디 찾기 실행
-	@RequestMapping(value="login_signup/find_id", method= RequestMethod.POST)
-	public String findIdAction(MemberDTO memberDTO, Model model) throws Exception {
-		MemberDTO user = memberService.find_id(memberDTO);
-            
-		if(user == null) { 
-			model.addAttribute("check", 1);
-			return "login_signup/find_id";
-		}
-		else {
-			model.addAttribute("check", 0);
-			model.addAttribute("id", user.getId());
-		}
-		return "login_signup/find_id_out";
-	}
->>>>>>> ad44b9f9ce3158559a1ea3667051868560942bac
       
 	// 아이디찾기 출력 페이지
 	@RequestMapping(value = "login_signup/find_id_out", method= {RequestMethod.POST,RequestMethod.GET})

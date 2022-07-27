@@ -21,21 +21,21 @@ request.setCharacterEncoding("UTF-8");
 	$(document).ready(function() {
 		$('#btn123').click(function() {
 			const email = $('#SEMAIL').val();
-			console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
-			const checkInput = $('#SINNUM') // 인증번호 입력하는곳 
+			console.log('완성된 이메일 : ' + email); 
+			const checkInput = $('#SINNUM') 
 			
 
 			$.ajax({
 				type : 'get',
-				url : "/intrip/mailCheck?email=" + email, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+				url : "/intrip/mailCheck?email=" + email, 
 				success : function(data) {
 					console.log("data : " + data);
 					checkInput.attr('disabled', false);
 					code = data;
 
 				}
-			}); // end ajax
-		}); // end send eamil
+			}); 
+		}); 
 	});
 
 	function check() {
