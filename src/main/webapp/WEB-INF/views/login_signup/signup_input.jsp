@@ -8,7 +8,7 @@
 
 </script>
 <head>
-	<link rel="stylesheet" href="../resources/css/signup_lst/signup_input.css">
+	<link rel="stylesheet" href="../resources/css/login_signup/signup_input.css">
 	<script type="text/javascript" src="../resources/js/signup_lst/signup_input.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
