@@ -26,7 +26,9 @@
 <body>
     <!-- 헤더 -->
    	<div id="header-jeh">
-       	<%@ include file="../header_lhj/header.jsp" %>
+      <header>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	</header>
     </div>
     
     <div class="wrapper">
