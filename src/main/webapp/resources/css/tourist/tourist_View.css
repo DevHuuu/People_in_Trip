@@ -151,22 +151,25 @@ body {
 
 
 /* 댓글창 */
+
 #outter{
-	margin-left: 600px;
-	margin-top: 7%;
+	
+margin-top: 7%;
 	
 }
 
 #form-commentInfo{
     width: 100%;
+    margin-bottom: 5px;
 }
 
 #comment-count{
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 #comment_input{
-    width: 50%;
+    width: 90%;
     height: 3.3em;
     margin-top: 4%;
 }
@@ -186,5 +189,5 @@ body {
 
 
 .SBTN1{
-	margin-left: 700px;
+	margin-left: 1010px;
 }
