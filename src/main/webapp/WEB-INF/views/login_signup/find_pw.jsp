@@ -14,27 +14,27 @@ request.setCharacterEncoding("UTF-8");
 <title>pw_search</title>
 <link href='https://fonts.googleapis.com/css?family=Pacifico'
 	rel='stylesheet'>
-<link rel="stylesheet" href="../resources/css/search_kjh/idSearch.css">
+<link rel="stylesheet" href="../resources/css/login_signup/idSearch.css">
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('#btn123').click(function() {
 			const email = $('#SEMAIL').val();
-			console.log('완성된 이메일 : ' + email); // 이메일 오는지 확인
-			const checkInput = $('#SINNUM') // 인증번호 입력하는곳 
+			console.log('완성된 이메일 : ' + email); 
+			const checkInput = $('#SINNUM') 
 
 			$.ajax({
 				type : 'get',
-				url : "/intrip/mailCheck?email=" + email, // GET방식이라 Url 뒤에 email을 뭍힐수있다.
+				url : "/intrip/mailCheck?email=" + email, 
 				success : function(data) {
 					console.log("data : " + data);
 					checkInput.attr('disabled', false);
 					code = data;
 
 				}
-			}); // end ajax
-		}); // end send eamil
+			}); 
+		}); 
 	});
 
 	function check() {
@@ -54,27 +54,21 @@ request.setCharacterEncoding("UTF-8");
 			$("#SINNUM").focus();
 			return false;
 		}
-		$('#SINNUM').blur(function() {
-			const inputCode = $(this).val();
-			if (inputCode === code) {
-				$('#btn123').attr('disabled', true);
-				$('#SEMAIL').attr('readonly', true);
-				return document.find_pw.submit();
-			}
-			if (inputCode != code) {
-				$('#btn123').attr('disabled', true);
-				$('#SEMAIL').attr('readonly', true);
-				alert("인증번호가 다릅니다")
-			}
-		});
+		if ($("#SINNUM").val() == code) {
+			return document.find_pw.submit();
+		}
+
+		if ($("#SINNUM").val() != code) {
+			alert("인증번호가 틀렸습니다!");
+			return false;
+		}
 
 	}
 
 	function btnchange() {
 		alert("인증번호를 발송했습니다 인증번호가 오지 않으면 입력하신 정보가 회원정보와 일치하는지 확인해 주세요");
-		const btnElement = document.getElementById('btn');
+		const btnElement = document.getElementById('btn123');
 		btnElement.innerText = '인증번호재전송';
-
 	}
 </script>
 </head>
@@ -97,8 +91,16 @@ request.setCharacterEncoding("UTF-8");
 				placeholder="인증번호"><br>
 			<button type="button" onClick="check()" class="SBTN">
 				<strong>확인</strong>
-			</button>
-
+			</button><br><br>
+			
+			<c:if test="${check == 1}">
+			<script>
+				opener.document.find_pw.name.value = "";
+				opener.document.find_pw.email.value = "";
+			</script>
+			<h3 style="color: red;">일치하는 정보가 존재하지 않습니다.</h3>
+		</c:if>
+		
 		</div>
 	</form>
 </body>

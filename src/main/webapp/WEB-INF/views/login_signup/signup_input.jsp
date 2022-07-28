@@ -8,7 +8,7 @@
 
 </script>
 <head>
-	<link rel="stylesheet" href="../resources/css/signup_lst/signup_input.css">
+	<link rel="stylesheet" href="../resources/css/login_signup/signup_input.css">
 	<script type="text/javascript" src="../resources/js/signup_lst/signup_input.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -128,6 +128,7 @@
 	                        </td>
 	                        <td id="table2_mtd4">
 	                            <button class="t2_btn" type="button" onclick="checkEmail()">이메일<br/>인증</button>
+	                            <input type="hidden" id="emailCerticode" name="emailCerticode" value=""/>
 	                        </td>
 	                    </tr>
 	                    <tr id="last_tr">

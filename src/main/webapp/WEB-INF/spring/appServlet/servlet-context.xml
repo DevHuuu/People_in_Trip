@@ -38,5 +38,9 @@
 			<beans:bean class="kr.co.intrip.common.interceptor.ViewNameInterceptor" />
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	  
+
+   
 </beans:beans>
 

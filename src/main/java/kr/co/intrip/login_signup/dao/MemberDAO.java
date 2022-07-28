@@ -1,15 +1,9 @@
 package kr.co.intrip.login_signup.dao;
 
-import java.util.List;
-
 import javax.servlet.http.HttpSession;
-
 import java.util.HashMap;
-
-import javax.servlet.http.HttpSession;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 import kr.co.intrip.login_signup.dto.MemberDTO;
 
@@ -17,7 +11,7 @@ import kr.co.intrip.login_signup.dto.MemberDTO;
 public class MemberDAO {
 
 	@Autowired
-	SqlSession sqlSession;
+	private SqlSession sqlSession;
 
 	// 로그인
 	public MemberDTO Login(MemberDTO memberDTO, HttpSession session) {
@@ -89,6 +83,11 @@ public class MemberDAO {
 	//회원가입 멤버 추가
 	public int addMember(MemberDTO _memberDTO) {
 		int result = sqlSession.insert("mapper.member.addMember", _memberDTO);
+		return result;
+	}
+
+	public String selectDuplicateCheckEmail(String email) {
+		String result = sqlSession.selectOne("mapper.member.duplicatecheckEmail", email);
 		return result;
 	}
 }

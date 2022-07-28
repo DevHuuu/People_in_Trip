@@ -164,13 +164,20 @@
 		    <version>1.4</version>
 		</dependency>
 		
-		
 		<!-- https://mvnrepository.com/artifact/javax.mail/mail -->
 		<dependency>
 		    <groupId>javax.mail</groupId>
 		    <artifactId>mail</artifactId>
 		    <version>1.4.7</version>
 		</dependency>
+		
+		<!-- https://mvnrepository.com/artifact/org.springframework/spring-context-support -->
+		<dependency>
+		    <groupId>org.springframework</groupId>
+		    <artifactId>spring-context-support</artifactId>
+		    <version>5.3.9</version>
+		</dependency>
+		
 
 		<!-- mail 서포트 -->
 		<dependency>
@@ -179,7 +186,7 @@
 			<version>${org.springframework-version}</version>
 		</dependency>
 		
-		
+
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
