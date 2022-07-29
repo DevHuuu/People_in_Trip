@@ -8,5 +8,6 @@
 	<typeAliases>
 		<typeAlias type="kr.co.intrip.login_signup.dto.MemberDTO" alias="memberDTO"/>
 		<typeAlias type="kr.co.intrip.tourist.dto.TouristDTO" alias="TouristDTO"/>
+		<typeAlias type="kr.co.intrip.board.dto.BoardDTO" alias="boardDTO"/>
 	</typeAliases>
 </configuration>  

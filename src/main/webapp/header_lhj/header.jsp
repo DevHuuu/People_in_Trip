@@ -39,7 +39,7 @@
                 </div>
                 <ul class="submenuitem">  
                     <li><a href="#">정보게시판</a></li>
-                    <li><a href="#">동행구해요</a></li>
+                    <li><a href="${contextPath}/board/community-acco">동행구해요</a></li>
                 </ul>
             </div>
     </div>

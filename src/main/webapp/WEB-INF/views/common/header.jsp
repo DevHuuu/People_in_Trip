@@ -53,7 +53,7 @@
         	</c:when>
         	<c:otherwise>
 		        <div class="container2">
-        			<div class="login"><a href="${contextPath}[마이페이지 경로]">마이페이지</a></div>
+        			<div class="login"><a href="${contextPath}/mypage/mypage_renewal">마이페이지</a></div>
         			<div class="login"><a href="${contextPath}[쪽지함 경로]">쪽지함</a></div>
         			<div class="login"><a href="${contextPath}/logout">로그아웃</a></div>
         		</div>

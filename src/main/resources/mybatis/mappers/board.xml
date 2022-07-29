@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="mapper.board">
+	<resultMap type="boardDTO" id="boardResult">
+		<result property="post_num" column="post_num"/>
+		<result property="id" column="id"/>
+		<result property="board_num" column="board_num"/>
+		<result property="post_title" column="post_title"/>
+		<result property="post_content" column="post_content"/>
+		<result property="post_date" column="post_date"/>
+		<result property="visitcount" column="visitcount"/>
+		<result property="count_comment" column="count_comment"/>
+	</resultMap>
+	
+	<select id="selectAllBoardList" resultMap="boardResult">
+		<![CDATA[
+			SELECT POST_NUM		,
+				   id 			,
+				   POST_TITLE 	,
+				   POST_DATE
+			FROM P_BOARD 
+			ORDER by POST_NUM desc		
+		]]>
+	</select>
+</mapper>

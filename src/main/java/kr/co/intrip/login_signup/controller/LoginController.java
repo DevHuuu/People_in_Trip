@@ -19,8 +19,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import kr.co.intrip.login_signup.dto.MemberDTO;
-import kr.co.intrip.login_signup.service.MailSendService_Add;
+/*import kr.co.intrip.login_signup.service.MailSendService_Add;*/
 import kr.co.intrip.login_signup.service.MailSendService;
+import kr.co.intrip.login_signup.service.MailSendService_Add;
 import kr.co.intrip.login_signup.service.MemberService;
 import lombok.extern.slf4j.Slf4j;
 
@@ -33,7 +34,7 @@ public class LoginController {
 	@Autowired
 	private MemberService memberService;  
 	@Autowired
-	private MailSendService_Add mailService1;
+	private MailSendService_Add mailService1; 
 
 	// 로그인 페이지
 	@GetMapping("login_signup/login")
