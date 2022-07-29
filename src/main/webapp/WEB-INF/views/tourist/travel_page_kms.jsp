@@ -77,7 +77,7 @@
 		<nav class="tourismenu">
 			<ul>
 				<li><a href="#"><strong>홈</strong></a></li>
-				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="${contextPath}/tourist/tourist_PageList"><strong>여행지</strong></a></li>
 				<li><a href="#"><strong>축제</strong></a></li>
 				<li><a href="#"><strong>전시관</strong></a></li>
 			</ul>
