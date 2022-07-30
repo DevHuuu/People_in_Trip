@@ -16,4 +16,12 @@
  		<result property="count_heart" column="ofile" /> 
  		<result property="count_heart" column="sfile" /> 				
   	</resultMap>
+  	
+  	<!-- 관광지 api db에 저장용 -->
+  	<insert id="touristadd">
+		<foreach collection="list" open="DECLARE BEGIN" close="; END;" separator=";" item="pvo">		
+			insert into P_tourist (alltag, label, label2, title, address, tag, introduction, imgpath)
+			values (#{pvo.alltag, jdbcType=VARCHAR}, #{pvo.label, jdbcType=VARCHAR}, #{pvo.label2, jdbcType=VARCHAR}, #{pvo.title, jdbcType=VARCHAR}, #{pvo.address, jdbcType=VARCHAR}, #{pvo.tag, jdbcType=VARCHAR}, #{pvo.introduction, jdbcType=VARCHAR}, #{pvo.imgpath, jdbcType=VARCHAR})
+		</foreach>
+	</insert>
  </mapper>
