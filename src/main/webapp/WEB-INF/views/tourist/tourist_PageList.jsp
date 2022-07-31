@@ -52,8 +52,8 @@
 							<span>⭐⭐⭐⭐⚝ 4.5/5.0</span>  <br/>
 							<span class="tourpost_title">${plist.title}</span> 🧡 0,000개 💬 0,000개 <br/>
 							<span class="tourpost_place">${plist.address }</span>
-							<p class="tourpost_content">${plist.introduction}
-							</p>
+							<p class="tourpost_content">${plist.introduction}</p>
+							<p class="tourpost_content">${plist.alltag}</p>
 						</td>
 					</tr>					
 				</table>

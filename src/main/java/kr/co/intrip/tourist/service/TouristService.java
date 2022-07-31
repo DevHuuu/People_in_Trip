@@ -7,6 +7,7 @@ import kr.co.intrip.tourist.dto.ApiDTO;
 
 public interface TouristService {
 
-	// 관광지 api
-	public ArrayList<ApiDTO> parkApi(String schAirportCode) throws IOException;
+	// 관광지 api db에 저장용
+	public void parkApi(String schAirportCode) throws IOException;
+
 }
