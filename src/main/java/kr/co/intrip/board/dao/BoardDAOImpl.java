@@ -20,4 +20,17 @@ public class BoardDAOImpl implements BoardDAO {
 		List<BoardDTO> boardsList = sqlSession.selectList("mapper.board.selectAllBoardList");
 		return boardsList;
 	}
+	
+	//상세보기
+	@Override
+	public BoardDTO selectBoard(int post_num) throws DataAccessException {
+		
+		return sqlSession.selectOne("mapper.board.selectBoard",post_num);
+	}
+
+	
+
+	
+	
+	
 }

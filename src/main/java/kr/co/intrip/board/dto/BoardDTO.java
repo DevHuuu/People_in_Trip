@@ -22,10 +22,12 @@ public class BoardDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public BoardDTO(int post_num, String id, String post_title) {
+	public BoardDTO(int post_num, String id, String post_title, String post_content, int board_num) {
 		this.post_num = post_num;
 		this.id = id;
 		this.post_title = post_title;
+		this.post_content= post_content;
+		this.board_num =board_num;
 	}
 
 	public int getPost_num() {

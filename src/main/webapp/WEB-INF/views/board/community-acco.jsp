@@ -17,28 +17,15 @@
     	background-color: #9966ff;
     	color: white;
 	}
+	
 	</style>
 </head>
 <body>
+<header>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	</header>
 <div class="container">
-	<div>
-		<table class="table">
-			<tr>
-				<th><a>People in Trip</a></th>
-				<th><a>관광지</a></th>
-				<th><a>커뮤니티</a></th>
-				<th>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
-						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-						</div>
-					</div>
-				</th>
-				<th><a>마이페이지</a></th>
-				<th><a>쪽지함</a></th>
-				<th><a>로그아웃</a></th>
-			</tr>
+	<div>	<br><br>
 			<tr>
 				<th><h4><strong>동행구해요</strong></h4></th>
 				<th><b class="text-muted">정보게시판</b></th>
@@ -90,7 +77,9 @@
 					<tbody>
 						<tr>
 							<td>${boards.post_num }</td>
-							<td><a>${boards.post_title }</a></td>
+							<td><a href="/board/read?boardsList=${boardsList}">
+								<c:out value="${boards.post_title }"></c:out> 
+							</a></td>
 							<td>${boards.id }</td>
 							<td><fmt:formatDate value="${boards.post_date }"/></td>
 						</tr>

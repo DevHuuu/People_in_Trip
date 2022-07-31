@@ -25,4 +25,13 @@
 			ORDER by POST_NUM desc		
 		]]>
 	</select>
+	
+
+	
+	<select id="selectBoard"  parameterType="java.lang.Integer" resultType="boardDTO">
+		<![CDATA[
+			SELECT * FROM P_BOARD
+			WHERE POST_NUM = #{post_num}	
+		]]>
+	</select>
 </mapper>

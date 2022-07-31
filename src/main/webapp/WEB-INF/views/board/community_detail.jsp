@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -31,17 +33,21 @@
         </div>
         <div class="write-title">
         	<div class="write-titlemain">
-        		[자유] | TEST
+        		<input type="text"  value="${board.POST_TITLE }"  disabled />
+   			    <input type="hidden" name="articleNO" value="${board.POST_TITLE }"  />  --%>
         	</div>
         	<div class="write-titlesub">
-        		test1 | date | 추천 : 0 | 조회수 : 1
+        		 <!-- | date | 추천 : 0 | 조회수 : 1 -->
+        		<input type="text" value="${board.post_num }" disabled />
+					<%-- 글수정시 글번호를 컨트롤러에게 전송하기 위해 글번호 저장함 --%>
+					<input type="hidden" name="post_num" value="${board.post_num }">
         	</div>
         </div>
         <div>
         	<p class="write-file">첨부파일 : XX.xxx</p>
         </div>
         <div>
-        	<p class="write-content">테스트 내용입니다.</p>
+        	<p class="write-content">${board.POST_CONTENT }</p>>
         </div>
         <div>
         	<p class="write-comment1">작성된 댓글( X 개)</p>

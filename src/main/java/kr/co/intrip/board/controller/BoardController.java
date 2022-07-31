@@ -8,4 +8,11 @@ import org.springframework.web.servlet.ModelAndView;
 public interface BoardController {
 
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception;
+
+	public ModelAndView viewdetail(int post_num, HttpServletRequest request, HttpServletResponse response) throws Exception;
+	
+	
+
+	
+	
 }

@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,25 +19,13 @@
 </head>
 
 <body>
+<header>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	</header>
 <div class="container">
 	<div>
 		<table class="table">
-			<tr>
-				<th><a>People in Trip</a></th>
-				<th><a>관광지</a></th>
-				<th><a>커뮤니티</a></th>
-				<th>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
-						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-						</div>
-					</div>
-				</th>
-				<th><a>마이페이지</a></th>
-				<th><a>쪽지함</a></th>
-				<th><a>로그아웃</a></th>
-			</tr>
+			<br><br>
 			<tr>
 				<th><h4><strong>정보게시판</strong></h4></th>
 				<th><b class="text-muted">동행구해요</b></th>
