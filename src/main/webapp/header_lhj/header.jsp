@@ -18,7 +18,7 @@
 <body>
     <header>
         <div class="logo">
-            <a class="to_index" href="#">
+            <a class="to_index" href="${contextPath}/mainpage/main">
                 People in Trip
             </a>
         </div>
@@ -38,7 +38,7 @@
                     <p>커뮤니티</p>
                 </div>
                 <ul class="submenuitem">  
-                    <li><a href="#">정보게시판</a></li>
+                    <li><a href="${contextPath}/board/community-info">정보게시판</a></li>
                     <li><a href="${contextPath}/board/community-acco">동행구해요</a></li>
                 </ul>
             </div>

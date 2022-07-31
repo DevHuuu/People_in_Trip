@@ -56,7 +56,6 @@ public class BoardControllerImpl implements BoardController {
 	}
 	
 	
-	
 	@RequestMapping(value = "board/community_writeInfo")
 	public String writeInfo() {
 		return "board/community_writeInfo";
@@ -72,10 +71,21 @@ public class BoardControllerImpl implements BoardController {
 		return "board/community-info";
 	}
 	
+	
 	/*
 	 * @RequestMapping(value = "board/community-acco") public String acco() { return
 	 * "board/community-acco"; }
 	 */
+	
+	@RequestMapping(value = "/board/community-info", method = {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView infolistArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		String viewName = (String) request.getAttribute("viewName");
+		List<BoardDTO> boardsList = boardService.listArticles();
+		ModelAndView mav = new ModelAndView(viewName);
+		mav.addObject("boardsList", boardsList);
+		
+		return mav;
+	}
 	
 	@RequestMapping(value = "/board/community-acco", method = {RequestMethod.GET, RequestMethod.POST})
 	public ModelAndView listArticles(HttpServletRequest request, HttpServletResponse response) throws Exception {
