@@ -38,7 +38,6 @@ public class MemberServiceImpl implements MemberService {
 	// 로그인
 	@Override
 	public MemberDTO Login(MemberDTO memberDTO, HttpSession session) throws Exception {
-
 		return memberDAO.Login(memberDTO, session);
 	}
 
@@ -46,7 +45,6 @@ public class MemberServiceImpl implements MemberService {
 	@Override
 	public MemberDTO find_id(MemberDTO memberDTO) {
 		return memberDAO.find_id(memberDTO);
-
 	}
 
 	// 아이디 찾기 출력
@@ -73,7 +71,8 @@ public class MemberServiceImpl implements MemberService {
 		MemberDTO returnVO = null;
 		try {
 			returnVO = memberDAO.readMemberWithIDPW(memberDTO.getId());
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 			returnVO = null; // 실행하다 문제가 생겼을때 해당 데이터를 보내지않겠다는 의미 = 예외처리
 		}
@@ -126,12 +125,14 @@ public class MemberServiceImpl implements MemberService {
 
 			br.close();
 			bw.close();
-		} catch (IOException e) {
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		return access_Token;
 	}
 
+	// 카카오 로그인
 	public MemberDTO getUserInfo(String access_Token) {
 		HashMap<String, Object> userInfo = new HashMap<String, Object>();
 		String reqURL = "https://kapi.kakao.com/v2/user/me";
@@ -151,7 +152,6 @@ public class MemberServiceImpl implements MemberService {
 			while ((line = br.readLine()) != null) {
 				result += line;
 			}
-
 			JsonParser parser = new JsonParser();
 			JsonElement element = parser.parse(result);
 
@@ -168,9 +168,9 @@ public class MemberServiceImpl implements MemberService {
 			userInfo.put("pwd", pwd);
 			userInfo.put("name", name);
 			userInfo.put("nick_nm", nick_nm);
-			userInfo.put("email", email);
-			
-		} catch (IOException e) {
+			userInfo.put("email", email);			
+		} 
+		catch (IOException e) {
 			e.printStackTrace();
 		}
 		MemberDTO result = memberDAO.findkakao(userInfo);
@@ -179,7 +179,8 @@ public class MemberServiceImpl implements MemberService {
 			memberDAO.kakaoinsert(userInfo);
 
 			return memberDAO.findkakao(userInfo);
-		} else {
+		} 
+		else {
 			return result;
 		}
 	}
@@ -190,7 +191,8 @@ public class MemberServiceImpl implements MemberService {
 		MemberDTO returnVO = null;
 		try {
 			returnVO = memberDAO.readMemberWithIDPWNaver(memberDTO.getId());
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
 			e.printStackTrace();
 			returnVO = null; // 실행하다 문제가 생겼을때 해당 데이터를 보내지않겠다는 의미 = 예외처리
 		}

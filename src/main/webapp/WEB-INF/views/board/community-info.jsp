@@ -1,7 +1,11 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,25 +21,13 @@
 </head>
 
 <body>
+<header>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	</header>
 <div class="container">
 	<div>
 		<table class="table">
-			<tr>
-				<th><a>People in Trip</a></th>
-				<th><a>관광지</a></th>
-				<th><a>커뮤니티</a></th>
-				<th>
-					<div class="input-group mb-3">
-						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!" aria-label="Recipient's username" aria-describedby="button-addon2">
-						<div class="input-group-append">
-							<button class="btn btn-outline-secondary" type="button" id="button-addon2">검색</button>
-						</div>
-					</div>
-				</th>
-				<th><a>마이페이지</a></th>
-				<th><a>쪽지함</a></th>
-				<th><a>로그아웃</a></th>
-			</tr>
+			<br><br>
 			<tr>
 				<th><h4><strong>정보게시판</strong></h4></th>
 				<th><b class="text-muted">동행구해요</b></th>
@@ -69,88 +61,33 @@
 				<td>조회수</td>
 			</tr>
 		</thead>
-		<tbody>
-			<tr>
-				<td>42</td>
-				<td>[정보] 경복궁 야간개장 시간~~[1]</td>
-				<td>test</td>
-				<td>2022.06.12</td>
-				<td>5</td>
-				<td>26</td>
-			</tr>
-			<tr>
-				<td>41</td>
-				<td>[정보] 서귀포 비와요ㅜ[2]</td>
-				<td>test2</td>
-				<td>2022.06.12</td>
-				<td>15</td>
-				<td>16</td>
-			</tr>
-			<tr>
-				<td>40</td>
-				<td>[자유] 데스노트 존잼[12]</td>
-				<td>test3</td>
-				<td>2022.06.12</td>
-				<td>30</td>
-				<td>48</td>
-			</tr>
-			<tr>
-				<td>39</td>
-				<td>[정보] 남산타워맛집</td>
-				<td>test4</td>
-				<td>2022.06.11</td>
-				<td>13</td>
-				<td>20</td>
-			</tr>
-			<tr>
-				<td>38</td>
-				<td>[자유] 아 오늘 날씨 좋네요![1]</td>
-				<td>test5</td>
-				<td>2022.06.11</td>
-				<td>8</td>
-				<td>9</td>
-			</tr>
-			<tr>
-				<td>37</td>
-				<td>[자유] 여기 진짜 맛있어요!!!</td>
-				<td>test6</td>
-				<td>2022.06.11</td>
-				<td>5</td>
-				<td>9</td>
-			</tr>
-			<tr>
-				<td>36</td>
-				<td>[정보] 지금 비 많이 와용</td>
-				<td>test7</td>
-				<td>2022.06.11</td>
-				<td>3</td>
-				<td>9</td>
-			</tr>
-			<tr>
-				<td>35</td>
-				<td>[질문] XX역 근처 맛집 있나요?[2]</td>
-				<td>test8</td>
-				<td>2022.06.10</td>
-				<td>10</td>
-				<td>28</td>
-			</tr>
-			<tr>
-				<td>34</td>
-				<td>[질문] ㅁㅁ축제 입장료 초등학생도 할인 되나요?</td>
-				<td>test9</td>
-				<td>2022.06.10</td>
-				<td>1</td>
-				<td>5</td>
-			</tr>
-			<tr>
-				<td>33</td>
-				<td>[자유] 오늘 A공원 앞 먹자골목에서 ㅁㅁ곱창집</td>
-				<td>test0</td>
-				<td>2022.06.10</td>
-				<td>2</td>
-				<td>3</td>
-			</tr>
-		</tbody>
+		<!-- 테이블 상단바 -->
+		<c:choose>
+			<c:when test="${empty boardsList }">
+				<tr height="10">
+					<td colspan="6">
+						<p>
+							<b><span style="font-size: 9pt;">등록된 글이 없습니다.</span></b>
+						</p>
+					</td>
+				</tr>
+			</c:when>
+			
+			<c:when test="${!empty boardsList }">
+				<c:forEach var="boards" items="${boardsList}" varStatus="boardsNum">
+					<tbody>
+						<tr>
+							<td>${boards.post_num }</td>
+							<td><a href="/board/read?boardsList=${boardsList}">
+								<c:out value="${boards.post_title }"></c:out> 
+							</a></td>
+							<td>${boards.id }</td>
+							<td><fmt:formatDate value="${boards.post_date }"/></td>
+						</tr>
+					</tbody>
+				</c:forEach>
+			</c:when>
+		</c:choose>
 		
 	</table>
 	<hr/>

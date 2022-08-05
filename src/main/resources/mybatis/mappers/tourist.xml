@@ -18,6 +18,7 @@
  		<result property="sfile" column="sfile" /> 	 				
   	</resultMap>
   	
+<<<<<<< HEAD
   	<select id="selectTotArticles" resultType="int">
 		<![CDATA[
 			SELECT count(DISTINCT TOUR_POSTNUM) FROM P_TOURIST
@@ -40,4 +41,13 @@
 			WHERE RN BETWEEN (#{section}-1)*50 + (#{pageNum}-1)*10+1 AND (#{section}-1)*50 + #{pageNum}*10
 		 ]]>
 	</select>
+=======
+  	<!-- 관광지 api db에 저장용 -->
+  	<insert id="touristadd">
+		<foreach collection="list" open="DECLARE BEGIN" close="; END;" separator=";" item="pvo">		
+			insert into P_tourist (alltag, label, label2, title, address, tag, introduction, imgpath)
+			values (#{pvo.alltag, jdbcType=VARCHAR}, #{pvo.label, jdbcType=VARCHAR}, #{pvo.label2, jdbcType=VARCHAR}, #{pvo.title, jdbcType=VARCHAR}, #{pvo.address, jdbcType=VARCHAR}, #{pvo.tag, jdbcType=VARCHAR}, #{pvo.introduction, jdbcType=VARCHAR}, #{pvo.imgpath, jdbcType=VARCHAR})
+		</foreach>
+	</insert>
+>>>>>>> 09a95fba8bc3fc5e1e4bac191be24ad33ecbc270
  </mapper>

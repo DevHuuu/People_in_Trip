@@ -4,7 +4,7 @@
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" href="../resources/css/signup_lst/signup_certifyemailcode.css">
+<link rel="stylesheet" href="../resources/css/login_signup/signup_certifyemailcode.css">
 <script type="text/javascript" src="../resources/js/signup_lst/signup_certifyemailcode.js"></script>
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">

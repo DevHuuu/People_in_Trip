@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="${contextPath}/resources/css/tourist/tourist_View.css" />
+	<link rel="stylesheet" href="${contextPath}/resources/css/tourist/tourist_View.css?ver=123"/>
 	<script type="text/javascript" src="${contextPath}/resources/js/tourist/tourist_View.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<meta charset="UTF-8">
@@ -23,7 +23,7 @@
 		<nav class="tourismenu">
 			<ul>
 				<li><a href="#"><strong>홈</strong></a></li>
-				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="${contextPath}/tourist/tourist_PageList"><strong>여행지</strong></a></li>
 				<li><a href="#"><strong>축제</strong></a></li>
 				<li><a href="#"><strong>전시관</strong></a></li>
 			</ul>
@@ -100,10 +100,10 @@
     <!-- 댓글창 -->
     <div id="outter">	 
 		  <div id="form-commentInfo">
-		  <hr align="left" style="border: solid 1px; width: 60%;">
+		  <hr align="left" style="border: solid 1px; width: 100%;">
 	        <div id="comment-count">작성된 댓글 <span id="count">(1개)</span></div>
 	        <div id="css1">
-	        <hr align="left" style="border: solid 1px;  width: 60%;"></div>
+	        <hr align="left" style="border: solid 1px;  width: 100%;"></div>
 	        <input type="text" id="comment_input" placeholder="댓글을 입력해 주세요.">
 	        <button type="button" onClick="btnbtn()" class="submit" >등록</button>
 	    </div><br><br>
@@ -114,7 +114,7 @@
 			<button type="submit" onClick="check1()" class="SDEL">삭제</button><br>
 			<c:out value="초밥 맛있어요~!!!!"></c:out><br>
 			<button type="submit" onClick="check()" class="SBTN1">신고</button>
-			 <hr align="left" style="border: solid 0.1px; width: 60%;"><br><br>		   
+			 <hr align="left" style="border: solid 0.1px; width: 100%;"><br><br>		   
     </div>
   </div>
 </body>

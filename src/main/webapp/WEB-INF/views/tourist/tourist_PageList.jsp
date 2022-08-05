@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> 
 <c:set var="contextPath" value="${pageContext.request.contextPath}" />
 <c:set var="touristList" value="${touristMap.touristList}" />
 <c:set var="totArticles" value="${touristMap.totArticles }" />
@@ -15,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet'>    
 <meta charset="UTF-8">
 <title>관광지 페이지리스트</title>
 <style type="text/css">
@@ -36,7 +37,7 @@
 		<nav class="tourismenu">
 			<ul>
 				<li><a href="#"><strong>홈</strong></a></li>
-				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="${contextPath}/tourist/tourist_PageList"><strong>여행지</strong></a></li>
 				<li><a href="#"><strong>축제</strong></a></li>
 				<li><a href="#"><strong>전시관</strong></a></li>
 			</ul>
@@ -53,10 +54,12 @@
 				</select>
 			</div>
 			<div name="tour_div2" id="tour_div2">
+			<c:forEach var="plist" items="${plist}">
 				<table>
 					<tr>
-						<td class="tb_td1"><img alt="돈내코 유원지 사진" src="${contextPath}/resources/images/tourist/donnaeko.jpg"/></td>
+						<td class="tb_td1"><img alt="돈내코 유원지 사진" src="${plist.imgpath }"/></td>
 						<td class="tb_td2">
+<<<<<<< HEAD
 							<span>👍 0</span>  <br/>
 							<span class="tourpost_title">돈내코 유원지</span> 🧡 0,000개 💬 0,000개 <br/>
 							<span class="tourpost_place">제주 서귀포시 상효동 1503</span>
@@ -89,7 +92,17 @@
 							</c:forEach>
 						</c:when>
 					</c:choose>
+=======
+							<span>⭐⭐⭐⭐⚝ 4.5/5.0</span>  <br/>
+							<span class="tourpost_title">${plist.title}</span> 🧡 0,000개 💬 0,000개 <br/>
+							<span class="tourpost_place">${plist.address }</span>
+							<p class="tourpost_content">${plist.introduction}</p>
+							<p class="tourpost_content">${plist.alltag}</p>
+						</td>
+					</tr>					
+>>>>>>> 09a95fba8bc3fc5e1e4bac191be24ad33ecbc270
 				</table>
+			</c:forEach>
 			</div>
 			<!-- <div name="tour_div3" id="tour_div3">
 				<a href="#">1</a>&nbsp;&nbsp;&nbsp;&nbsp;

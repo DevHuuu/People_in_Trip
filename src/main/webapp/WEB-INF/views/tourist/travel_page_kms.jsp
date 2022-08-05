@@ -54,11 +54,11 @@
 	}	
 	
 	function click_seoul() {
-		document.getElementById("maps").src="${contextPath}/resources/img_kms/map2.png";
+		document.getElementById("maps").src="${contextPath}/resources/images/tourist/map2.png";
 	}
 	
 	function click_jeju() {
-		document.getElementById("maps").src="${contextPath}/resources/img_kms/map.png";
+		document.getElementById("maps").src="${contextPath}/resources/images/tourist/map.png";
 	}
 	
 	/*  */
@@ -77,7 +77,7 @@
 		<nav class="tourismenu">
 			<ul>
 				<li><a href="#"><strong>홈</strong></a></li>
-				<li><a href="#"><strong>여행지</strong></a></li>
+				<li><a href="${contextPath}/tourist/tourist_PageList"><strong>여행지</strong></a></li>
 				<li><a href="#"><strong>축제</strong></a></li>
 				<li><a href="#"><strong>전시관</strong></a></li>
 			</ul>
@@ -87,19 +87,19 @@
 	
 	<div class="slideshow-container" >
         <div class="mySlides fade">
-            <img src="${contextPath}/resources/img_kms/travler1.png" style="width: 100%;">
+            <img src="${contextPath}/resources/images/tourist/travler1.png" style="width: 100%;">
         </div>
 
         <div class="mySlides fade">
-            <img src="${contextPath}/resources/img_kms/travler2.png" style="width: 100%;">
+            <img src="${contextPath}/resources/images/tourist/travler2.png" style="width: 100%;">
         </div>
 
         <div class="mySlides fade">
-            <img src="${contextPath}/resources/img_kms/travler3.png" style="width: 100%;">
+            <img src="${contextPath}/resources/images/tourist/travler3.png" style="width: 100%;">
         </div>
 
         <div class="mySlides fade">
-            <img src="${contextPath}/resources/img_kms/travler4.png"style="width: 100%;">
+            <img src="${contextPath}/resources/images/tourist/travler4.png"style="width: 100%;">
         </div>
 
         <div style="text-align: center">
@@ -120,8 +120,8 @@
 				</th>
 			</tr>
 			<tr>
-				<td><img class="weather" alt="날씨" src="${contextPath}/resources/img_kms/weather.png"></td>
-				<td><img class="map" id="maps" alt="지역" src="${contextPath}/resources/img_kms/map.png"></td>
+				<td><img class="weather" alt="날씨" src="${contextPath}/resources/images/tourist/weather.png"></td>
+				<td><img class="map" id="maps" alt="지역" src="${contextPath}/resources/images/tourist/map.png"></td>
 			</tr>
 		</table>
 	</div>

@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 	<title>로그인</title>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-	<link rel="stylesheet" href="../resources/css/login_phj/login.css" />
+	<link rel="stylesheet" href="../resources/css/login_signup/login.css" />
 	<script type="text/javascript" src="../resources/js/login_phj/login.js"></script>
 	<link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' />	
 	<script src="https://accounts.google.com/gsi/client" async defer></script>
@@ -42,8 +42,8 @@
 			<p id="login_ez">간편하게 로그인 하기</p><br>		
 			<div id="buttonDiv"></div>
 			<a class="p-2" href="https://kauth.kakao.com/oauth/authorize?client_id=324f9639dc834b0464a6ccdfff50c908&redirect_uri=http://localhost:8080/intrip/kakaologin&response_type=code">
-			<img src="../resources/images/login_phj/kakao_login_medium.png"></a>
-			<a id="naver_id_login"><img src="../resources/images/login_phj/naver.png"></a>
+			<img src="../resources/images/login/kakao_login_medium.png"></a>
+			<a id="naver_id_login"><img src="../resources/images/login/naver.png"></a>
 		</div>
 	</div>
 </body>
@@ -69,9 +69,9 @@ function handleCredentialResponse(response) {
 				"email" : responsePayload.email, 
 			    },
 		    success : function (data) {
-		            alert("구글아이디로 로그인 되었습니다.");
-		            location.href="/intrip/main_kms/main_page_kms.jsp";
-		        }
+				alert("구글아이디로 로그인 되었습니다.");
+				location.href="/intrip/mainpage/main";
+			}
 		});
 	})
 }          
@@ -86,24 +86,24 @@ function parseJwt (token) {
 };
 
 window.onload = function () {
-  google.accounts.id.initialize({
-    client_id: "1078833173748-jtu86j39qajahe8lo49oi53e67jmrpsp.apps.googleusercontent.com",
-    callback: handleCredentialResponse
-  });
-  google.accounts.id.renderButton(
-    document.getElementById("buttonDiv"),
-    { type: "icon", theme: "filled_blue", size: "large"}  // customization attributes
-  );  
-  google.accounts.id.prompt(); // also display the One Tap dialog
+	google.accounts.id.initialize({
+		client_id: "1078833173748-jtu86j39qajahe8lo49oi53e67jmrpsp.apps.googleusercontent.com",
+		callback: handleCredentialResponse
+	});
+	google.accounts.id.renderButton(
+		document.getElementById("buttonDiv"),
+		{ type: "icon", theme: "filled_blue", size: "large"}  // customization attributes
+	);  
+	google.accounts.id.prompt(); // also display the One Tap dialog
 }
 
 function attachSignin(element) {
 	handleCredentialResponse.attachClickHandler(element, {},
         function(responsePayload) {
-}, function(error) {
-	console.log('call check2'); 
-  alert(JSON.stringify(error, undefined, 2));
-});
+	}, function(error) {
+		console.log('call check2'); 
+  		alert(JSON.stringify(error, undefined, 2));
+	});
 }
 </script>
 

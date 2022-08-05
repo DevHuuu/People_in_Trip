@@ -1,46 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>게시판(글쓰기)</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="../resources/css/community_kjs/writeStyle.css"/>
+    <link rel="stylesheet" href="../resources/css/community/community_detail.css"/>
 </head>
 <body>
     <!-- 헤더 -->
-    <div class="page">
-    <header>
-        <table class="header">
-        	<tr>
-        		<td><a>People in trip</a></td>
-        		<td><a>관광지</a></td>
-        		<td>
-					<div class="header-type">
-						<input type="text" class="form-control" placeholder="검색어를 입력해주세요!">
-						<button class="form-button">검색</button>
-					</div>
-				</td>
-				<td><a>마이페이지</a></td>
-				<td><a>쪽지함</a></td>
-				<td><a>로그아웃</a></td>
-			</tr>
-        </table>
-    </header>
-
+    <div id="page">
+    <div id="header-jeh">
+       <header>
+		<jsp:include page="/header_lhj/header.jsp" flush="false" />
+	</header>
+    </div>
     <!-- 왼쪽 메뉴바 -->
     <div class="left-menu">
-    	<nav class="nav1">
-        	<ul class="menu">
-            	<li><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
-            	<li><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
-        	</ul>
-    	</nav>
-	</div>
+    	<ul class="left-menu-ul">
+        	<li class="menu-list"><a href=""><i class="fa-solid fa-bullhorn fa-lg"></i>정보게시판</a></li>
+            <li class="menu-list"><a href=""><i class="fa-solid fa-people-robbery fa-lg"></i>동행구해요</a></li>
+        </ul>
+    </div>
     <!-- 정보게시판 본문 -->
     <section class="content">
         <div>
@@ -48,17 +33,21 @@
         </div>
         <div class="write-title">
         	<div class="write-titlemain">
-        		[자유] | TEST
+        		<input type="text"  value="${board.POST_TITLE }"  disabled />
+   			    <input type="hidden" name="articleNO" value="${board.POST_TITLE }"  />  --%>
         	</div>
         	<div class="write-titlesub">
-        		test1 | date | 추천 : 0 | 조회수 : 1
+        		 <!-- | date | 추천 : 0 | 조회수 : 1 -->
+        		<input type="text" value="${board.post_num }" disabled />
+					<%-- 글수정시 글번호를 컨트롤러에게 전송하기 위해 글번호 저장함 --%>
+					<input type="hidden" name="post_num" value="${board.post_num }">
         	</div>
         </div>
         <div>
         	<p class="write-file">첨부파일 : XX.xxx</p>
         </div>
         <div>
-        	<p class="write-content">테스트 내용입니다.</p>
+        	<p class="write-content">${board.POST_CONTENT }</p>>
         </div>
         <div>
         	<p class="write-comment1">작성된 댓글( X 개)</p>

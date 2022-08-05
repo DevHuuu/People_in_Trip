@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link rel="stylesheet" href="${contextPath}/resources/css/signup_lst/signup_certifyemail.css">
+	<link rel="stylesheet" href="${contextPath}/resources/css/login_signup/signup_certifyemail.css">
 	<script type="text/javascript" src="${contextPath}/resources/js/signup_lst/signup_certifyemail.js?ver=123"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
