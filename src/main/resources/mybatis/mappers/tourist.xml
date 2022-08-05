@@ -5,15 +5,39 @@
   
  <mapper namespace="mapper.tourist">
   	<resultMap type="touristDTO" id="touristResult">
- 		<result property="id" column="id" />
- 		<result property="tour_title" column="tour_title" /> 	
+  		<result property="tour_postnum" column="tour_postnum" />
+ 		<result property="tour_title" column="tour_title" />
+ 		<result property="tour_addr" column="tour_addr" /> 	
  		<result property="tour_content" column="tour_content" /> 	
  		<result property="tour_date" column="tour_date" /> 	
  		<result property="visitcount" column="visitcount" /> 	
- 		<result property="count_star" column="count_star" /> 	
- 		<result property="count_commnet" column="count_commnet" /> 	
+ 		<result property="count_recommend" column="count_recommend" /> 	
+ 		<result property="count_comment" column="count_comment" /> 	
  		<result property="count_heart" column="count_heart" /> 
- 		<result property="count_heart" column="ofile" /> 
- 		<result property="count_heart" column="sfile" /> 				
+ 		<result property="ofile" column="ofile" /> 
+ 		<result property="sfile" column="sfile" /> 	 				
   	</resultMap>
+  	
+  	<select id="selectTotArticles" resultType="int">
+		<![CDATA[
+			SELECT count(DISTINCT TOUR_POSTNUM) FROM P_TOURIST
+		]]>		
+	</select>
+	
+	<select id="selectAllArticlesList" resultMap="touristResult" > 
+		<!-- 오라클의 계층형 SQL문 -->
+		<![CDATA[ 		
+			SELECT * 
+			FROM (SELECT ROWNUM RN, TOUR_POSTNUM, TOUR_TITLE, TOUR_ADDR ,
+								TOUR_CONTENT ,
+								VISITCOUNT ,
+								COUNT_RECOMMEND ,
+								COUNT_COMMENT ,
+								COUNT_HEART 
+			                FROM (SELECT *
+			                              FROM  P_TOURIST
+			                 ORDER BY TOUR_POSTNUM DESC )) 
+			WHERE RN BETWEEN (#{section}-1)*50 + (#{pageNum}-1)*10+1 AND (#{section}-1)*50 + #{pageNum}*10
+		 ]]>
+	</select>
  </mapper>

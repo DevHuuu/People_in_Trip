@@ -280,7 +280,7 @@ public class LoginController {
 
       
     //이메일 인증
-      String code = mailService.joinEmail(email2); //code는 코드번호이다. 코드를 넘겨줘야됨.
+      String code = mailService1.joinEmail(email2); //code는 코드번호이다. 코드를 넘겨줘야됨.
       session.setAttribute("code", code);
       System.out.println("이메일 인증 요청이 들어옴!");
 		System.out.println("이메일 인증 이메일 : " + email2);
